@@ -23,7 +23,10 @@ public struct InterfaceBuilderParser {
             case documentType = "document"
         }
         
-        enum ArchiveCodingKeys: CodingKey { case type }
+        enum ArchiveCodingKeys: CodingKey {
+            case type
+            case version
+        }
         
         static func decode(_ xml: XMLIndexerType) throws -> XMLHeader {
             let container = xml.container(keys: CodingKeys.self)
@@ -36,7 +39,7 @@ public struct InterfaceBuilderParser {
             } else {
                 let documentContainer = try? container.nestedContainer(of: .documentType, keys: ArchiveCodingKeys.self)
                 return try XMLHeader(
-                    archiveType: nil, documentType: documentContainer?.attribute(of: .type), version: documentContainer?.attribute(of: .type)
+                    archiveType: nil, documentType: documentContainer?.attribute(of: .type), version: documentContainer?.attribute(of: .version)
                 )
             }
         }
