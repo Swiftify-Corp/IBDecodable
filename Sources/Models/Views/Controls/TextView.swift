@@ -52,11 +52,17 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
     public let isSelected: Bool?
     public let contentHorizontalAlignment: String?
     public let contentVerticalAlignment: String?
-
+    
     public var hidden: Bool?
     public let alpha: Float?
     public let textInputTraits: TextInputTraits?
-
+    public let dataDetectorType: DataDetectorType?
+    
+    public let alwaysBounceVertical: Bool?
+    public let alwaysBounceHorizontal: Bool?
+    public let indicatorStyle: String?
+    
+    
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
@@ -125,7 +131,12 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
             contentVerticalAlignment: container.attributeIfPresent(of: .contentVerticalAlignment),
             hidden: container.attributeIfPresent(of: .hidden),
             alpha: container.attributeIfPresent(of: .alpha),
-            textInputTraits: container.elementIfPresent(of: .textInputTraits)
+            textInputTraits: container.elementIfPresent(of: .textInputTraits),
+            dataDetectorType: container.elementIfPresent(of: .dataDetectorType),
+            alwaysBounceVertical: container.attributeIfPresent(of: .alwaysBounceVertical),
+            alwaysBounceHorizontal: container.attributeIfPresent(of: .alwaysBounceHorizontal),
+            indicatorStyle: container.attributeIfPresent(of: .indicatorStyle)
+            
         )
     }
 }
