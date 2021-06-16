@@ -61,6 +61,8 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
     public let alwaysBounceVertical: Bool?
     public let alwaysBounceHorizontal: Bool?
     public let indicatorStyle: String?
+    public let selectable: Bool?
+    public let spellCheckingType: Bool?
     
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
@@ -135,8 +137,9 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
             dataDetectorType: container.elementIfPresent(of: .dataDetectorType),
             alwaysBounceVertical: container.attributeIfPresent(of: .alwaysBounceVertical),
             alwaysBounceHorizontal: container.attributeIfPresent(of: .alwaysBounceHorizontal),
-            indicatorStyle: container.attributeIfPresent(of: .indicatorStyle)
-            
+            indicatorStyle: container.attributeIfPresent(of: .indicatorStyle),
+            selectable: container.attributeIfPresent(of: .selectable),
+            spellCheckingType: container.attributeIfPresent(of: .spellCheckingType)
         )
     }
 }
