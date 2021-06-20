@@ -75,6 +75,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
                 case .isEnabled: return "enabled"
                 case .isHighlighted: return "highlighted"
                 case .isSelected: return "selected"
+                case .imageReferences: return "imageReference"
                 default: return key.stringValue
                 }
             }()
@@ -131,7 +132,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             clearButtonMode:                           container.attributeIfPresent(of: .clearButtonMode),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             textInputTraits:                           container.elementIfPresent(of: .textInputTraits),
-            imageReferences:                            container.elementsIfPresent(of: .imageReferences)
+            imageReferences:                           container.elementsIfPresent(of: .imageReferences)
         )
     }
 }
