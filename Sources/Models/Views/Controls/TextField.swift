@@ -35,6 +35,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public let string: StringContainer?
     public let text: String?
     public let textAlignment: String?
+    public let textColor: Color?
     public let translatesAutoresizingMaskIntoConstraints: Bool?
     public let userInteractionEnabled: Bool?
     public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
@@ -102,6 +103,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             string:                                    container.attributeIfPresent(of: .string),
             text:                                      container.attributeIfPresent(of: .text),
             textAlignment:                             container.attributeIfPresent(of: .textAlignment),
+            textColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.textColor.stringValue),
             translatesAutoresizingMaskIntoConstraints: container.attributeIfPresent(of: .translatesAutoresizingMaskIntoConstraints),
             userInteractionEnabled:                    container.attributeIfPresent(of: .userInteractionEnabled),
             userDefinedRuntimeAttributes:              container.childrenIfPresent(of: .userDefinedRuntimeAttributes),
