@@ -58,6 +58,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public let clearButtonMode: String?
     public let alpha: Float?
     public let textInputTraits: TextInputTraits?
+    public let imageReferences: [ImageReference]?
     
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
@@ -129,7 +130,8 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             clearsOnBeginEditing:                      container.attributeIfPresent(of: .clearsOnBeginEditing),
             clearButtonMode:                           container.attributeIfPresent(of: .clearButtonMode),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            textInputTraits:                           container.elementIfPresent(of: .textInputTraits)
+            textInputTraits:                           container.elementIfPresent(of: .textInputTraits),
+            imageReference:                            container.elementsIfPresent(of: .imageReferences)
         )
     }
 }
