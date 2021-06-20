@@ -60,7 +60,6 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public let textInputTraits: TextInputTraits?
     public let imageReferences: [ImageReference]?
     
-    
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }

@@ -32,6 +32,7 @@ public struct Slider: IBDecodable, ControlProtocol, IBIdentifiable {
     public let userInteractionEnabled: Bool?
     public let viewLayoutGuide: LayoutGuide?
     public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public let imageReferences: [ImageReference]?
     public let connections: [AnyConnection]?
     public let variations: [Variation]?
     public let backgroundColor: Color?
@@ -70,7 +71,8 @@ public struct Slider: IBDecodable, ControlProtocol, IBIdentifiable {
                 case .isAmbiguous: return "ambiguous"
                 case .isEnabled: return "enabled"
                 case .isHighlighted: return "highlighted"
-                case .isSelected: return "selected"
+                case .isSelected: return "selected",
+                case .imageReferences: return "imageReference"
                 default: return key.stringValue
                 }
             }()
@@ -103,6 +105,7 @@ public struct Slider: IBDecodable, ControlProtocol, IBIdentifiable {
             userInteractionEnabled:                    container.attributeIfPresent(of: .userInteractionEnabled),
             viewLayoutGuide:                           container.elementIfPresent(of: .viewLayoutGuide),
             userDefinedRuntimeAttributes:              container.childrenIfPresent(of: .userDefinedRuntimeAttributes),
+            imageReferences:                           container.elementsIfPresent(of: .imageReferences),
             connections:                               container.childrenIfPresent(of: .connections),
             variations:                                variationContainer.elementsIfPresent(of: .variation),
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
