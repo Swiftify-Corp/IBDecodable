@@ -44,6 +44,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public let variations: [Variation]?
     public let backgroundColor: Color?
     public let background: String?
+    public let disabledBackground: String?
     public let tintColor: Color?
 
     public let isEnabled: Bool?
@@ -117,6 +118,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             variations:                                variationContainer.elementsIfPresent(of: .variation),
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
             background:                                container.attributeIfPresent(of: .background),
+            disabledBackground:                        container.attributeIfPresent(of: .disabledBackground),
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             isEnabled:                                 container.attributeIfPresent(of: .isEnabled),
             isHighlighted:                             container.attributeIfPresent(of: .isHighlighted),
