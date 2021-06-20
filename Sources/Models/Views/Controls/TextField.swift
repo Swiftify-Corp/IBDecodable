@@ -43,6 +43,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public let connections: [AnyConnection]?
     public let variations: [Variation]?
     public let backgroundColor: Color?
+    public let background: String?
     public let tintColor: Color?
 
     public let isEnabled: Bool?
@@ -52,9 +53,12 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public let contentVerticalAlignment: String?
     
     public var hidden: Bool?
+    public let clearsOnBeginEditing: Bool?
+    public let clearButtonMode: String?
     public let alpha: Float?
     public let textInputTraits: TextInputTraits?
-
+    
+    
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
@@ -112,6 +116,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             connections:                               container.childrenIfPresent(of: .connections),
             variations:                                variationContainer.elementsIfPresent(of: .variation),
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
+            background:                                container.attributeIfPresent(of: .background),
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             isEnabled:                                 container.attributeIfPresent(of: .isEnabled),
             isHighlighted:                             container.attributeIfPresent(of: .isHighlighted),
@@ -119,6 +124,8 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             contentHorizontalAlignment:                container.attributeIfPresent(of: .contentHorizontalAlignment),
             contentVerticalAlignment:                  container.attributeIfPresent(of: .contentVerticalAlignment),
             hidden:                                    container.attributeIfPresent(of: .hidden),
+            clearsOnBeginEditing:                      container.attributeIfPresent(of: .clearsOnBeginEditing),
+            clearButtonMode:                           container.attributeIfPresent(of: .clearButtonMode),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             textInputTraits:                           container.elementIfPresent(of: .textInputTraits)
         )
