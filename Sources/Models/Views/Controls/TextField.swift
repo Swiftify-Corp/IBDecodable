@@ -131,7 +131,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             clearButtonMode:                           container.attributeIfPresent(of: .clearButtonMode),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             textInputTraits:                           container.elementIfPresent(of: .textInputTraits),
-            imageReference:                            container.elementsIfPresent(of: .imageReferences)
+            imageReferences:                            container.elementsIfPresent(of: .imageReferences)
         )
     }
 }
