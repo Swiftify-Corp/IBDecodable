@@ -71,7 +71,7 @@ public struct Slider: IBDecodable, ControlProtocol, IBIdentifiable {
                 case .isAmbiguous: return "ambiguous"
                 case .isEnabled: return "enabled"
                 case .isHighlighted: return "highlighted"
-                case .isSelected: return "selected",
+                case .isSelected: return "selected"
                 case .imageReferences: return "imageReference"
                 default: return key.stringValue
                 }

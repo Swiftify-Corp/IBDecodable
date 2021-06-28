@@ -26,6 +26,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public let fixedFrame: Bool?
     public let fontDescription: FontDescription?
     public let minimumFontSize: Float?
+    public let adjustsFontSizeToFit: Bool?
     public let isMisplaced: Bool?
     public let isAmbiguous: Bool?
     public let verifyAmbiguity: VerifyAmbiguity?
@@ -101,6 +102,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             fixedFrame:                                container.attributeIfPresent(of: .fixedFrame),
             fontDescription:                           container.elementIfPresent(of: .fontDescription),
             minimumFontSize:                           container.attributeIfPresent(of: .minimumFontSize),
+            adjustsFontSizeToFit:                      container.attributeIfPresent(of: .adjustsFontSizeToFit),
             isMisplaced:                               container.attributeIfPresent(of: .isMisplaced),
             isAmbiguous:                               container.attributeIfPresent(of: .isAmbiguous),
             verifyAmbiguity:                           container.attributeIfPresent(of: .verifyAmbiguity),
