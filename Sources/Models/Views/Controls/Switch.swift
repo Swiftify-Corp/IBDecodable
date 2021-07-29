@@ -52,7 +52,6 @@ public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
     public var preferredStyle: String?
     public var containerView: ViewProtocol?
     
-    
     enum CodingKeys: CodingKey {
         case id
         case elementClass
@@ -97,7 +96,6 @@ public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
         case wraps
         case autorepeat
         case continuous
-        case containerView
     }
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }

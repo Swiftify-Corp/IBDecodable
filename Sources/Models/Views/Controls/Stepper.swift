@@ -97,7 +97,6 @@ public struct Stepper: IBDecodable, ControlProtocol, IBIdentifiable {
         case wraps
         case autorepeat
         case continuous
-        case containerView
     }
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
