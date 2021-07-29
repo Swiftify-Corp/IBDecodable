@@ -42,14 +42,8 @@ public protocol ViewProtocol: IBKeyable, IBCustomClassable, IBUserLabelable, IBC
 
 extension ViewProtocol {
     public var containerView: ViewProtocol? {
-        get { return nil }
-        set(val) {
-            if let value = val {
-                containerView = value
-            } else {
-                containerView = nil
-            }
-        }
+        get { return containerView }
+        set { }
     }
 }
 // MARK: - AnyView
