@@ -37,15 +37,8 @@ public protocol ViewProtocol: IBKeyable, IBCustomClassable, IBUserLabelable, IBC
     var tintColor: Color? { get }
     var hidden: Bool? { get }
     var alpha: Float? { get }
-    var containerView: ViewProtocol? { get set }
 }
 
-extension ViewProtocol {
-    public var containerView: ViewProtocol? {
-        get { return containerView }
-        set { }
-    }
-}
 // MARK: - AnyView
 
 public struct AnyView: IBDecodable {

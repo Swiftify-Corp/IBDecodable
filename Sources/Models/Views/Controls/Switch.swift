@@ -50,6 +50,55 @@ public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var preferredStyle: String?
+    public var containerView: ViewProtocol?
+    
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case elementClass
+        
+        case key
+        case autoresizingMask
+        case clipsSubviews
+        case constraints
+        case contentMode
+        case customClass
+        case customModule
+        case customModuleProvider
+        case userLabel
+        case colorLabel
+        case horizontalHuggingPriority
+        case isMisplaced
+        case isAmbiguous
+        case verifyAmbiguity
+        case on
+        case onTintColor
+        case thumbTintColor
+        case opaque
+        case rect
+        case subviews
+        case translatesAutoresizingMaskIntoConstraints
+        case userInteractionEnabled
+        case verticalHuggingPriority
+        case userDefinedRuntimeAttributes
+        case connections
+        case variations
+        case backgroundColor
+        case tintColor
+    
+        case isEnabled
+        case isHighlighted
+        case isSelected
+        case contentHorizontalAlignment
+        case contentVerticalAlignment
+        
+        case hidden
+        case alpha
+        case wraps
+        case autorepeat
+        case continuous
+        case containerView
+    }
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

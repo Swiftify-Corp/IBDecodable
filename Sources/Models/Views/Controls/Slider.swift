@@ -57,6 +57,58 @@ public struct Slider: IBDecodable, ControlProtocol, IBIdentifiable {
     
     public var hidden: Bool?
     public var alpha: Float?
+    public var containerView: ViewProtocol?
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case elementClass
+        
+        case key
+        case autoresizingMask
+        case clipsSubviews
+        case constraints
+        case contentMode
+        case customClass
+        case customModule
+        case customModuleProvider
+        case userLabel
+        case colorLabel
+        case isMisplaced
+        case isAmbiguous
+        case verifyAmbiguity
+        case opaque
+        case rect
+        case subviews
+        case translatesAutoresizingMaskIntoConstraints
+        case userInteractionEnabled
+        case viewLayoutGuide
+        case userDefinedRuntimeAttributes
+        case imageReferences
+        case connections
+        case variations
+        case backgroundColor
+        case tintColor
+        
+        case isEnabled
+        case isHighlighted
+        case isSelected
+        case contentHorizontalAlignment
+        case contentVerticalAlignment
+        
+        case minimumTrackTintColor
+        case maximumTrackTintColor
+        case thumbTintColor
+        
+        case value
+        case minValue
+        case maxValue
+        case minimumValueImage
+        case maximumValueImage
+        case continuous
+    
+        case hidden
+        case alpha
+    }
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
