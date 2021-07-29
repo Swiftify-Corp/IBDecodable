@@ -44,10 +44,7 @@ extension ViewProtocol {
     public var containerView: ViewProtocol? {
         get {
             return nil
-        }
-        set {
-            containerView = nil
-        }
+        } set { }
     }
 }
 
