@@ -11,10 +11,10 @@ import SWXMLHash
 
 public struct IBClass: IBDecodable {
 
-    public let className: String?
-    public let superclassName: String?
-    public let source: Source?
-    public let relationships: [Relationship]?
+    public var className: String?
+    public var superclassName: String?
+    public var source: Source?
+    public var relationships: [Relationship]?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBClass {
         let container = xml.container(keys: CodingKeys.self)
@@ -32,9 +32,9 @@ public struct IBClass: IBDecodable {
 
 public struct Source: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let type: String?
-    public let relativePath: String?
+    public var key: String?
+    public var type: String?
+    public var relativePath: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Source {
         let container = xml.container(keys: CodingKeys.self)
@@ -51,8 +51,8 @@ public struct Source: IBDecodable, IBKeyable {
 
 public struct Relationship: IBDecodable {
 
-    public let kind: String?
-    public let name: String?
+    public var kind: String?
+    public var name: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Relationship {
         let container = xml.container(keys: CodingKeys.self)

@@ -9,9 +9,9 @@ import SWXMLHash
 
 public struct Device: IBDecodable, IBIdentifiable {
 
-    public let id: String
-    public let orientation: String?
-    public let adaptation: Adaptation?
+    public var id: String
+    public var orientation: String?
+    public var adaptation: Adaptation?
 
     static func decode(_ xml: XMLIndexerType) throws -> Device {
         let container = xml.container(keys: CodingKeys.self)
@@ -24,7 +24,7 @@ public struct Device: IBDecodable, IBIdentifiable {
 
     public struct Adaptation: IBDecodable, IBIdentifiable {
 
-        public let id: String
+        public var id: String
 
         static func decode(_ xml: XMLIndexerType) throws -> Adaptation {
             let container = xml.container(keys: CodingKeys.self)

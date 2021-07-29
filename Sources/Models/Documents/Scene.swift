@@ -9,15 +9,15 @@ import SWXMLHash
 
 public struct Scene: IBDecodable {
 
-    public let id: String
-    public let viewController: AnyViewController?
-    public let viewControllerPlaceholder: ViewControllerPlaceholder?
-    public let canvasLocation: Point?
-    public let placeholders: [Placeholder]?
-    public let customObjects: [CustomObject]?
-    public let customViews: [AnyView]?
-    public let searchDisplayControllers: [SearchDisplayController]?
-    public let exit: Exit?
+    public var id: String
+    public var viewController: AnyViewController?
+    public var viewControllerPlaceholder: ViewControllerPlaceholder?
+    public var canvasLocation: Point?
+    public var placeholders: [Placeholder]?
+    public var customObjects: [CustomObject]?
+    public var customViews: [AnyView]?
+    public var searchDisplayControllers: [SearchDisplayController]?
+    public var exit: Exit?
 
     enum ExternalCodingKeys: CodingKey { case objects }
     enum ObjectsCodingKeys: CodingKey { case placeholder, customObject, searchDisplayController, viewControllerPlaceholder }

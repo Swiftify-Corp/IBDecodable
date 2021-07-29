@@ -8,9 +8,9 @@
 import SWXMLHash
 
 public struct UserDefinedRuntimeAttribute: IBDecodable {
-    public let keyPath: String
-    public let type: String
-    public let value: Any?
+    public var keyPath: String
+    public var type: String
+    public var value: Any?
 
     public func encode(to encoder: Encoder) throws { fatalError() }
 
@@ -69,8 +69,8 @@ public struct UserDefinedRuntimeAttribute: IBDecodable {
 // MARK: - Range
 
 public struct Range: IBDecodable {
-    public let location: Float
-    public let length: Float
+    public var location: Float
+    public var length: Float
 
     static func decode(_ xml: XMLIndexerType) throws -> Range {
         let container = xml.container(keys: CodingKeys.self)

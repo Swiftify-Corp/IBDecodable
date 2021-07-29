@@ -10,56 +10,56 @@ import SWXMLHash
 // MARK: - CollectionView
 
 public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
-    public let id: String
-    public let elementClass: String = "UICollectionView"
+    public var id: String
+    public var elementClass: String = "UICollectionView"
 
-    public let alwaysBounceHorizontal: Bool?
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let cells: [CollectionViewCell]?
-    public let collectionReusableViews: [CollectionReusableView]?
+    public var alwaysBounceHorizontal: Bool?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var cells: [CollectionViewCell]?
+    public var collectionReusableViews: [CollectionReusableView]?
     public var sectionHeaderView: CollectionReusableView? {
         return collectionReusableViews?.first(where: { $0.key == "sectionHeaderView" })
     }
     public var sectionFooterView: CollectionReusableView? {
         return collectionReusableViews?.first(where: { $0.key == "sectionFooterView" })
     }
-    public let layout: CollectionViewLayout?
-    public let flowLayout: CollectionViewFlowLayout?
-    public let isPagingEnabled: Bool?
-    public let bouncesZoom: Bool?
-    public let bounces: Bool?
-    public let alwaysBounceVertical: Bool?
-    public let keyboardDismissMode: String?
-    public let showsVerticalScrollIndicator: Bool?
-    public let showsHorizontalScrollIndicator: Bool?
-    public let maximumZoomScale: Float?
-    public let minimumZoomScale: Float?
-    public let isDirectionalLockEnabled: Bool?
-    public let isPrefetchingEnabled: Bool?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var layout: CollectionViewLayout?
+    public var flowLayout: CollectionViewFlowLayout?
+    public var isPagingEnabled: Bool?
+    public var bouncesZoom: Bool?
+    public var bounces: Bool?
+    public var alwaysBounceVertical: Bool?
+    public var keyboardDismissMode: String?
+    public var showsVerticalScrollIndicator: Bool?
+    public var showsHorizontalScrollIndicator: Bool?
+    public var maximumZoomScale: Float?
+    public var minimumZoomScale: Float?
+    public var isDirectionalLockEnabled: Bool?
+    public var isPrefetchingEnabled: Bool?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -138,39 +138,39 @@ public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
 // MARK: - CollectionViewCell
 
 public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusable {
-    public let id: String
-    public let elementClass: String = "UICollectionViewCell"
+    public var id: String
+    public var elementClass: String = "UICollectionViewCell"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentView: CollectionViewContentView
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentView: CollectionViewContentView
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
     private let _subviews: [AnyView]?
     public var subviews: [AnyView]? {
         return (_subviews ?? []) + [AnyView(contentView)]
     }
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let reuseIdentifier: String?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var reuseIdentifier: String?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
 
     public var children: [IBElement] {
         // do not let default implementation which lead to duplicate element contentView
@@ -192,34 +192,34 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
 
     public struct CollectionViewContentView: IBDecodable, ViewProtocol {
 
-        public let elementClass: String = "UIView"
+        public var elementClass: String = "UIView"
 
-        public let key: String?
-        public let autoresizingMask: AutoresizingMask?
-        public let clipsSubviews: Bool?
-        public let constraints: [Constraint]?
-        public let contentMode: String?
-        public let customClass: String?
-        public let customModule: String?
-        public let customModuleProvider: String?
-        public let userLabel: String?
-        public let colorLabel: String?
-        public let isMisplaced: Bool?
-        public let isAmbiguous: Bool?
-        public let verifyAmbiguity: VerifyAmbiguity?
-        public let opaque: Bool?
-        public let rect: Rect?
-        public let subviews: [AnyView]?
-        public let translatesAutoresizingMaskIntoConstraints: Bool?
-        public let userInteractionEnabled: Bool?
-        public let viewLayoutGuide: LayoutGuide?
-        public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-        public let connections: [AnyConnection]?
-        public let variations: [Variation]?
-        public let backgroundColor: Color?
-        public let tintColor: Color?
-        public let hidden: Bool?
-        public let alpha: Float?
+        public var key: String?
+        public var autoresizingMask: AutoresizingMask?
+        public var clipsSubviews: Bool?
+        public var constraints: [Constraint]?
+        public var contentMode: String?
+        public var customClass: String?
+        public var customModule: String?
+        public var customModuleProvider: String?
+        public var userLabel: String?
+        public var colorLabel: String?
+        public var isMisplaced: Bool?
+        public var isAmbiguous: Bool?
+        public var verifyAmbiguity: VerifyAmbiguity?
+        public var opaque: Bool?
+        public var rect: Rect?
+        public var subviews: [AnyView]?
+        public var translatesAutoresizingMaskIntoConstraints: Bool?
+        public var userInteractionEnabled: Bool?
+        public var viewLayoutGuide: LayoutGuide?
+        public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+        public var connections: [AnyConnection]?
+        public var variations: [Variation]?
+        public var backgroundColor: Color?
+        public var tintColor: Color?
+        public var hidden: Bool?
+        public var alpha: Float?
 
         enum ConstraintsCodingKeys: CodingKey { case constraint }
         enum VariationCodingKey: CodingKey { case variation }
@@ -333,36 +333,36 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
 
 public struct CollectionReusableView: IBDecodable, ViewProtocol, IBIdentifiable, IBReusable {
 
-    public let id: String
-    public let elementClass = "UICollectionReusableView"
+    public var id: String
+    public var elementClass = "UICollectionReusableView"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let viewLayoutGuide: LayoutGuide?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let reuseIdentifier: String?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var viewLayoutGuide: LayoutGuide?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var reuseIdentifier: String?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -422,13 +422,13 @@ public struct CollectionReusableView: IBDecodable, ViewProtocol, IBIdentifiable,
 
 public struct CollectionViewLayout: IBDecodable, IBIdentifiable, IBKeyable, IBCustomClassable {
 
-    public let id: String
-    public let key: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
+    public var id: String
+    public var key: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> CollectionViewLayout {
         let container = xml.container(keys: CodingKeys.self)
@@ -448,16 +448,16 @@ public struct CollectionViewLayout: IBDecodable, IBIdentifiable, IBKeyable, IBCu
 
 public struct CollectionViewFlowLayout: IBDecodable, IBIdentifiable, IBKeyable {
 
-    public let id: String
-    public let key: String?
-    public let minimumLineSpacing: String?
-    public let minimumInteritemSpacing: String?
-    public let sizes: [Size]?
-    public let insets: [Inset]?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let scrollDirection: String? // vertical, horizontal
+    public var id: String
+    public var key: String?
+    public var minimumLineSpacing: String?
+    public var minimumInteritemSpacing: String?
+    public var sizes: [Size]?
+    public var insets: [Inset]?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var scrollDirection: String? // vertical, horizontal
 
     static func decode(_ xml: XMLIndexerType) throws -> CollectionViewFlowLayout {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in

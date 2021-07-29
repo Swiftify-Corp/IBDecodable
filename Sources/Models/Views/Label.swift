@@ -8,47 +8,47 @@
 import SWXMLHash
 
 public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
-    public let id: String
-    public let elementClass: String = "UILabel"
+    public var id: String
+    public var elementClass: String = "UILabel"
 
-    public let adjustsFontSizeToFit: Bool?
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let baselineAdjustment: String?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let fixedFrame: Bool?
-    public let fontDescription: FontDescription?
-    public let horizontalHuggingPriority: Int?
-    public let lineBreakMode: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let string: StringContainer?
-    public let mutableString: StringContainer?
-    public let text: String?
-    public let textAlignment: String?
-    public let textColor: Color?
-    public let attributedText: AttributedString?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let verticalHuggingPriority: Int?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var adjustsFontSizeToFit: Bool?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var baselineAdjustment: String?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var fixedFrame: Bool?
+    public var fontDescription: FontDescription?
+    public var horizontalHuggingPriority: Int?
+    public var lineBreakMode: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var string: StringContainer?
+    public var mutableString: StringContainer?
+    public var text: String?
+    public var textAlignment: String?
+    public var textColor: Color?
+    public var attributedText: AttributedString?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var verticalHuggingPriority: Int?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

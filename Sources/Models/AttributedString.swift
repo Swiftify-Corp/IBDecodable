@@ -9,8 +9,8 @@ import SWXMLHash
 
 public struct AttributedString: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let fragments: [Fragment]?
+    public var key: String?
+    public var fragments: [Fragment]?
 
     static func decode(_ xml: XMLIndexerType) throws -> AttributedString {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -29,8 +29,8 @@ public struct AttributedString: IBDecodable, IBKeyable {
     }
 
     public struct Fragment: IBDecodable {
-        public let content: String
-        public let attributes: [AnyAttribute]?
+        public var content: String
+        public var attributes: [AnyAttribute]?
 
         static func decode(_ xml: XMLIndexerType) throws -> Fragment {
             let container = xml.container(keys: CodingKeys.self)
@@ -53,7 +53,7 @@ public protocol AttributeProtocol: IBKeyable {
 
 public struct AnyAttribute: IBDecodable {
 
-    public let attribute: AttributeProtocol
+    public var attribute: AttributeProtocol
 
     init(_ attribute: AttributeProtocol) {
         self.attribute = attribute
@@ -86,10 +86,10 @@ extension AnyAttribute: IBAny {
 
 public struct Font: IBDecodable, AttributeProtocol {
 
-    public let key: String?
-    public let size: String?
-    public let name: String?
-    public let metaFont: String?
+    public var key: String?
+    public var size: String?
+    public var name: String?
+    public var metaFont: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Font {
         let container = xml.container(keys: CodingKeys.self)
@@ -106,12 +106,12 @@ public struct Font: IBDecodable, AttributeProtocol {
 
 public struct ParagraphStyle: IBDecodable, AttributeProtocol {
 
-    public let key: String?
-    public let alignment: String?
-    public let lineBreakMode: String?
-    public let baseWritingDirection: String?
-    public let tighteningFactorForTruncation: String?
-    public let allowsDefaultTighteningForTruncation: Bool?
+    public var key: String?
+    public var alignment: String?
+    public var lineBreakMode: String?
+    public var baseWritingDirection: String?
+    public var tighteningFactorForTruncation: String?
+    public var allowsDefaultTighteningForTruncation: Bool?
 
     static func decode(_ xml: XMLIndexerType) throws -> ParagraphStyle {
         let container = xml.container(keys: CodingKeys.self)

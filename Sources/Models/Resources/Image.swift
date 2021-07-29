@@ -8,11 +8,11 @@
 import SWXMLHash
 
 public struct Image: IBDecodable, ResourceProtocol {
-    public let name: String
-    public let width: String
-    public let height: String
-    public let catalog: String?
-    public let mutableData: MutableData?
+    public var name: String
+    public var width: String
+    public var height: String
+    public var catalog: String?
+    public var mutableData: MutableData?
 
     static func decode(_ xml: XMLIndexerType) throws -> Image {
         let container = xml.container(keys: CodingKeys.self)
@@ -26,8 +26,8 @@ public struct Image: IBDecodable, ResourceProtocol {
 }
 
 public struct MutableData: IBDecodable {
-    public let key: String
-    public let content: String?
+    public var key: String
+    public var content: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> MutableData {
         let container = xml.container(keys: CodingKeys.self)

@@ -17,7 +17,7 @@ public protocol ResourceProtocol {
 
 public struct AnyResource: IBDecodable {
 
-    public let resource: ResourceProtocol
+    public var resource: ResourceProtocol
 
     init(_ resource: ResourceProtocol) {
         self.resource = resource

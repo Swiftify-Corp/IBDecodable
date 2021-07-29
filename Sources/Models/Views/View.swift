@@ -9,35 +9,35 @@ import SWXMLHash
 
 public struct View: IBDecodable, ViewProtocol, IBIdentifiable {
 
-    public let id: String
-    public let elementClass: String = "UIView"
+    public var id: String
+    public var elementClass: String = "UIView"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let viewLayoutGuide: LayoutGuide?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var viewLayoutGuide: LayoutGuide?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -94,8 +94,8 @@ public struct View: IBDecodable, ViewProtocol, IBIdentifiable {
 // MARK: - LayoutGuide
 
 public struct LayoutGuide: IBDecodable {
-    public let key: String
-    public let id: String
+    public var key: String
+    public var id: String
 
     static func decode(_ xml: XMLIndexerType) throws -> LayoutGuide {
         let container = xml.container(keys: CodingKeys.self)

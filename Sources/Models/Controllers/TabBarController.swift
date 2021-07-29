@@ -9,23 +9,23 @@ import SWXMLHash
 
 public struct TabBarController: IBDecodable, ViewControllerProtocol {
 
-    public let elementClass: String = "UITabBarController"
-    public let id: String
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
+    public var elementClass: String = "UITabBarController"
+    public var id: String
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
     public var storyboardIdentifier: String?
     public var sceneMemberID: String?
-    public let layoutGuides: [ViewControllerLayoutGuide]?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let keyCommands: [KeyCommand]?
-    public let tabBarItem: TabBar.TabBarItem?
-    public let tabBar: TabBar?
+    public var layoutGuides: [ViewControllerLayoutGuide]?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var keyCommands: [KeyCommand]?
+    public var tabBarItem: TabBar.TabBarItem?
+    public var tabBar: TabBar?
     public var rootView: ViewProtocol? { return tabBar }
-    public let size: [Size]?
+    public var size: [Size]?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 

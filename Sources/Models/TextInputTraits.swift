@@ -6,19 +6,19 @@
 //
 
 public struct TextInputTraits: IBDecodable, IBKeyable {
-    public let key: String?
-    public let autocorrectionType: Bool?
-    public let spellCheckingType: Bool?
-    public let keyboardType: String?
-    public let keyboardAppearance: String?
-    public let returnKeyType: String?
-    public let enablesReturnKeyAutomatically: Bool?
-    public let smartDashesType: Bool?
-    public let smartInsertDeleteType: Bool?
-    public let smartQuotesType: Bool?
-    public let textContentType: String?
-    public let autocapitalizationType: String?
-    public let secureTextEntry: Bool?
+    public var key: String?
+    public var autocorrectionType: Bool?
+    public var spellCheckingType: Bool?
+    public var keyboardType: String?
+    public var keyboardAppearance: String?
+    public var returnKeyType: String?
+    public var enablesReturnKeyAutomatically: Bool?
+    public var smartDashesType: Bool?
+    public var smartInsertDeleteType: Bool?
+    public var smartQuotesType: Bool?
+    public var textContentType: String?
+    public var autocapitalizationType: String?
+    public var secureTextEntry: Bool?
 
     static func decode(_ xml: XMLIndexerType) throws -> TextInputTraits {
         let container = xml.container(keys: CodingKeys.self)

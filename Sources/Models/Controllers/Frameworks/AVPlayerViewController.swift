@@ -9,24 +9,24 @@ import SWXMLHash
 
 public struct AVPlayerViewController: IBDecodable, ViewControllerProtocol {
 
-    public let elementClass: String = "AVPlayerViewController"
-    public let id: String
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
+    public var elementClass: String = "AVPlayerViewController"
+    public var id: String
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
     public var storyboardIdentifier: String?
     public var sceneMemberID: String?
-    public let layoutGuides: [ViewControllerLayoutGuide]?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let keyCommands: [KeyCommand]?
-    public let tabBarItem: TabBar.TabBarItem?
-    public let view: AnyView?
+    public var layoutGuides: [ViewControllerLayoutGuide]?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var keyCommands: [KeyCommand]?
+    public var tabBarItem: TabBar.TabBarItem?
+    public var view: AnyView?
     public var rootView: ViewProtocol? { return view?.view }
-    public let videoGravity: String?
-    public let size: [Size]?
+    public var videoGravity: String?
+    public var size: [Size]?
     public var framework: String { return "AVKit" }
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }

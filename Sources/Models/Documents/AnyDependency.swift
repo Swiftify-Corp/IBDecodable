@@ -14,7 +14,7 @@ public protocol DependencyProtocol {
 
 // MARK: - AnyDependency
 public struct AnyDependency: IBDecodable {
-    public let dependency: DependencyProtocol
+    public var dependency: DependencyProtocol
 
     init(_ dependency: DependencyProtocol) {
         self.dependency = dependency
@@ -42,7 +42,7 @@ public struct AnyDependency: IBDecodable {
 
 // MARK: - Deployment
 public struct Deployment: IBDecodable, DependencyProtocol {
-    public let identifier: String
+    public var identifier: String
 
     static func decode(_ xml: XMLIndexerType) throws -> Deployment {
 
@@ -54,8 +54,8 @@ public struct Deployment: IBDecodable, DependencyProtocol {
 
 // MARK: - PlugIn
 public struct PlugIn: IBDecodable, DependencyProtocol {
-    public let identifier: String
-    public let version: String
+    public var identifier: String
+    public var version: String
 
     static func decode(_ xml: XMLIndexerType) throws -> PlugIn {
         let container = xml.container(keys: CodingKeys.self)
@@ -67,8 +67,8 @@ public struct PlugIn: IBDecodable, DependencyProtocol {
 
 // MARK: - Capability
 public struct Capability: IBDecodable, DependencyProtocol {
-    public let name: String
-    public let minToolsVersion: String
+    public var name: String
+    public var minToolsVersion: String
 
     static func decode(_ xml: XMLIndexerType) throws -> Capability {
         let container = xml.container(keys: CodingKeys.self)

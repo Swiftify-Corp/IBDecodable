@@ -11,9 +11,9 @@ import SWXMLHash
 
 public struct Accessibility: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let traits: AccessibilityTraits?
-    public let isElement: IBBool?
+    public var key: String?
+    public var traits: AccessibilityTraits?
+    public var isElement: IBBool?
 
     enum ExternalCodingKeys: CodingKey { case accessibilityTraits, bool }
     enum AttributedStringCodingKeys: CodingKey { case key }
@@ -37,12 +37,12 @@ public struct Accessibility: IBDecodable, IBKeyable {
 
 public struct AccessibilityTraits: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let button: Bool
-    public let link: Bool
-    public let playsSound: Bool
-    public let staticText: Bool
-    public let header: Bool
+    public var key: String?
+    public var button: Bool
+    public var link: Bool
+    public var playsSound: Bool
+    public var staticText: Bool
+    public var header: Bool
 
     static func decode(_ xml: XMLIndexerType) throws -> AccessibilityTraits {
         let container = xml.container(keys: CodingKeys.self)

@@ -11,11 +11,11 @@ import SWXMLHash
 
 public struct Rect: IBDecodable, IBKeyable {
 
-    public let x: Float
-    public let y: Float
-    public let width: Float
-    public let height: Float
-    public let key: String?
+    public var x: Float
+    public var y: Float
+    public var width: Float
+    public var height: Float
+    public var key: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Rect {
         let container = xml.container(keys: CodingKeys.self)
@@ -34,9 +34,9 @@ public struct Rect: IBDecodable, IBKeyable {
 
 public struct Point: IBDecodable, IBKeyable {
 
-    public let x: Float
-    public let y: Float
-    public let key: String?
+    public var x: Float
+    public var y: Float
+    public var key: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Point {
         let container = xml.container(keys: CodingKeys.self)
@@ -53,9 +53,9 @@ public struct Point: IBDecodable, IBKeyable {
 
 public struct Size: IBDecodable, IBKeyable {
 
-    public let width: Float
-    public let height: Float
-    public let key: String?
+    public var width: Float
+    public var height: Float
+    public var key: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Size {
         let container = xml.container(keys: CodingKeys.self)
@@ -72,11 +72,11 @@ public struct Size: IBDecodable, IBKeyable {
 
 public struct Inset: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let minX: Float?
-    public let minY: Float?
-    public let maxX: Float?
-    public let maxY: Float?
+    public var key: String?
+    public var minX: Float?
+    public var minY: Float?
+    public var maxX: Float?
+    public var maxY: Float?
 
     static func decode(_ xml: XMLIndexerType) throws -> Inset {
         let container = xml.container(keys: CodingKeys.self)
@@ -95,11 +95,11 @@ public struct Inset: IBDecodable, IBKeyable {
 
 public struct EdgeInset: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let left: Float?
-    public let right: Float?
-    public let bottom: Float?
-    public let top: Float?
+    public var key: String?
+    public var left: Float?
+    public var right: Float?
+    public var bottom: Float?
+    public var top: Float?
 
     static func decode(_ xml: XMLIndexerType) throws -> EdgeInset {
         let container = xml.container(keys: CodingKeys.self)
@@ -118,11 +118,11 @@ public struct EdgeInset: IBDecodable, IBKeyable {
 
 public struct DirectionalEdgeInsets: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let leading: Float?
-    public let bottom: Float?
-    public let trailing: Float?
-    public let top: Float?
+    public var key: String?
+    public var leading: Float?
+    public var bottom: Float?
+    public var trailing: Float?
+    public var top: Float?
 
     static func decode(_ xml: XMLIndexerType) throws -> DirectionalEdgeInsets {
         let container = xml.container(keys: CodingKeys.self)
@@ -141,13 +141,13 @@ public struct DirectionalEdgeInsets: IBDecodable, IBKeyable {
 
 public struct Frame: IBDecodable, IBKeyable {
 
-    public let width: Float
-    public let height: Float
-    public let minX: Float
-    public let minY: Float
-    public let maxX: Float
-    public let maxY: Float
-    public let key: String?
+    public var width: Float
+    public var height: Float
+    public var minX: Float
+    public var minY: Float
+    public var maxX: Float
+    public var maxY: Float
+    public var key: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Frame {
         let container = xml.container(keys: CodingKeys.self)

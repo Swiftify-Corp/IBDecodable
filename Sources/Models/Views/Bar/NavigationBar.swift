@@ -8,48 +8,48 @@
 import SWXMLHash
 
 public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
-    public let id: String
-    public let elementClass: String = "UINavigationBar"
+    public var id: String
+    public var elementClass: String = "UINavigationBar"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let items: [NavigationItem]?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var items: [NavigationItem]?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
     public var hidden: Bool?
-    public let alpha: Float?
+    public var alpha: Float?
 
     public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomClassable, IBUserLabelable {
 
-        public let id: String
-        public let key: String?
-        public let style: String?
-        public let systemItem: String?
-        public let title: String?
-        public let customClass: String?
-        public let customModule: String?
-        public let customModuleProvider: String?
-        public let userLabel: String?
-        public let colorLabel: String?
+        public var id: String
+        public var key: String?
+        public var style: String?
+        public var systemItem: String?
+        public var title: String?
+        public var customClass: String?
+        public var customModule: String?
+        public var customModuleProvider: String?
+        public var userLabel: String?
+        public var colorLabel: String?
 
         static func decode(_ xml: XMLIndexerType) throws -> NavigationBar.NavigationItem {
             let container = xml.container(keys: CodingKeys.self)

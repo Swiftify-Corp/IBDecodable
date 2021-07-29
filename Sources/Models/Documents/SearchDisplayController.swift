@@ -9,9 +9,9 @@ import SWXMLHash
 
 public struct SearchDisplayController: IBDecodable, IBIdentifiable {
 
-    public let elementClass: String = "UISearchDisplayController" // deprecated
-    public let id: String
-    public let connections: [AnyConnection]?
+    public var elementClass: String = "UISearchDisplayController" // deprecated
+    public var id: String
+    public var connections: [AnyConnection]?
 
     static func decode(_ xml: XMLIndexerType) throws -> SearchDisplayController {
         let container = xml.container(keys: CodingKeys.self)

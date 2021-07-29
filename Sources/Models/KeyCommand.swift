@@ -9,10 +9,10 @@ import SWXMLHash
 
 public struct KeyCommand: IBDecodable {
 
-    public let input: String?
-    public let modifierFlags: String?
-    public let actionName: String?
-    public let discoverabilityTitle: String?
+    public var input: String?
+    public var modifierFlags: String?
+    public var actionName: String?
+    public var discoverabilityTitle: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> KeyCommand {
         let container = xml.container(keys: CodingKeys.self)

@@ -8,14 +8,14 @@
 import SWXMLHash
 
 public struct Segue: IBDecodable, ConnectionProtocol {
-    public let id: String
-    public let destination: String
-    public let kind: Segue.Kind
-    public let relationship: String?
-    public let identifier: String?
-    public let destinationCreationSelector: String?
-    public let modalPresentationStyle: ModalPresentationStyle?
-    public let modalTransitionStyle: ModalTransitionStyle?
+    public var id: String
+    public var destination: String
+    public var kind: Segue.Kind
+    public var relationship: String?
+    public var identifier: String?
+    public var destinationCreationSelector: String?
+    public var modalPresentationStyle: ModalPresentationStyle?
+    public var modalTransitionStyle: ModalTransitionStyle?
 
     static func decode(_ xml: XMLIndexerType) throws -> Segue {
         let container = xml.container(keys: CodingKeys.self)

@@ -8,53 +8,53 @@
 import SWXMLHash
 
 public struct Button: IBDecodable, ControlProtocol, IBIdentifiable {
-    public let id: String
-    public let elementClass: String = "UIButton"
+    public var id: String
+    public var elementClass: String = "UIButton"
     
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let buttonType: String?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let fixedFrame: Bool?
-    public let fontDescription: FontDescription?
-    public let lineBreakMode: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let state: [State]?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var buttonType: String?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var fixedFrame: Bool?
+    public var fontDescription: FontDescription?
+    public var lineBreakMode: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var state: [State]?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
     
-    public let isEnabled: Bool?
-    public let isHighlighted: Bool?
-    public let isSelected: Bool?
-    public let contentHorizontalAlignment: String?
-    public let contentVerticalAlignment: String?
+    public var isEnabled: Bool?
+    public var isHighlighted: Bool?
+    public var isSelected: Bool?
+    public var contentHorizontalAlignment: String?
+    public var contentVerticalAlignment: String?
     
     public struct State: IBDecodable, IBKeyable {
-        public let key: String?
-        public let title: String?
-        public let color: Color?
-        public let image: String?
-        public let catalog: String?
-        public let attributedString: AttributedString?
+        public var key: String?
+        public var title: String?
+        public var color: Color?
+        public var image: String?
+        public var catalog: String?
+        public var attributedString: AttributedString?
         
         static func decode(_ xml: XMLIndexerType) throws -> Button.State {
             let container = xml.container(keys: CodingKeys.self)

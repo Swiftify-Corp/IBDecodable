@@ -38,7 +38,7 @@ extension ViewControllerProtocol {
 
 public struct AnyViewController: IBDecodable {
 
-    public let viewController: ViewControllerProtocol
+    public var viewController: ViewControllerProtocol
 
     init(_ viewController: ViewControllerProtocol) {
         self.viewController = viewController
@@ -77,8 +77,8 @@ extension AnyViewController: IBAny {
 // MARK: - ViewControllerLayoutGuide
 
 public struct ViewControllerLayoutGuide: IBDecodable {
-    public let id: String
-    public let type: String
+    public var id: String
+    public var type: String
 
     static func decode(_ xml: XMLIndexerType) throws -> ViewControllerLayoutGuide {
         let container = xml.container(keys: CodingKeys.self)
@@ -92,10 +92,10 @@ public struct ViewControllerLayoutGuide: IBDecodable {
 // MARK: - ViewControllerPlaceholder
 
 public struct ViewControllerPlaceholder: IBDecodable {
-    public let id: String
-    public let storyboardName: String
-    public let referencedIdentifier: String?
-    public let sceneMemberID: String?
+    public var id: String
+    public var storyboardName: String
+    public var referencedIdentifier: String?
+    public var sceneMemberID: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> ViewControllerPlaceholder {
         assert(xml.elementName == "viewControllerPlaceholder")

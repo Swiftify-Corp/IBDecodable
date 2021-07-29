@@ -6,13 +6,13 @@
 //
 
 public struct DataDetectorType: IBDecodable, IBKeyable {
-    public let key: String?
-    public let phoneNumber: Bool?
-    public let link: Bool?
-    public let address: Bool?
-    public let calendarEvent: Bool?
-    public let shipmentTrackingNumber: Bool?
-    public let flightNumber: Bool?
+    public var key: String?
+    public var phoneNumber: Bool?
+    public var link: Bool?
+    public var address: Bool?
+    public var calendarEvent: Bool?
+    public var shipmentTrackingNumber: Bool?
+    public var flightNumber: Bool?
 
     static func decode(_ xml: XMLIndexerType) throws -> DataDetectorType {
         let container = xml.container(keys: CodingKeys.self)

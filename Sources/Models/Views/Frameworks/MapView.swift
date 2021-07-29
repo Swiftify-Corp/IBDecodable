@@ -8,51 +8,51 @@
 import SWXMLHash
 
 public struct MapView: IBDecodable, ViewProtocol, IBIdentifiable {
-    public let id: String
-    public let elementClass: String = "MKMapView"
+    public var id: String
+    public var elementClass: String = "MKMapView"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let viewLayoutGuide: LayoutGuide?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let mapType: String?
-    public let multipleTouchEnabled: Bool?
-    public let showsTraffic: Bool?
-    public let scrollEnabled: Bool?
-    public let appearanceType: String?
-    public let verticalHuggingPriority: Int?
-    public let showsCompass: Bool?
-    public let showsPointsOfInterest: Bool?
-    public let restorationIdentifier: String?
-    public let showsUserLocation: Bool?
-    public let showsScale: Bool?
-    public let showsBuildings: Bool?
-    public let pitchEnabled: Bool?
-    public let rotateEnabled: Bool?
-    public let zoomEnabled: Bool?
-    public let verticalCompressionResistancePriority: String?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var viewLayoutGuide: LayoutGuide?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var mapType: String?
+    public var multipleTouchEnabled: Bool?
+    public var showsTraffic: Bool?
+    public var scrollEnabled: Bool?
+    public var appearanceType: String?
+    public var verticalHuggingPriority: Int?
+    public var showsCompass: Bool?
+    public var showsPointsOfInterest: Bool?
+    public var restorationIdentifier: String?
+    public var showsUserLocation: Bool?
+    public var showsScale: Bool?
+    public var showsBuildings: Bool?
+    public var pitchEnabled: Bool?
+    public var rotateEnabled: Bool?
+    public var zoomEnabled: Bool?
+    public var verticalCompressionResistancePriority: String?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
     public var hidden: Bool?
-    public let alpha: Float?
+    public var alpha: Float?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

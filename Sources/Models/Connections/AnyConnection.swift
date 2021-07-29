@@ -18,7 +18,7 @@ public protocol ConnectionProtocol: IBIdentifiable {
 
 public struct AnyConnection: IBDecodable {
 
-    public let connection: ConnectionProtocol
+    public var connection: ConnectionProtocol
 
     init(_ connection: ConnectionProtocol) {
         self.connection = connection

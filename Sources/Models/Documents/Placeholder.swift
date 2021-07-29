@@ -9,16 +9,16 @@ import SWXMLHash
 
 public struct Placeholder: IBDecodable, IBIdentifiable, IBCustomClassable, IBUserLabelable {
 
-    public let id: String
-    public let placeholderIdentifier: String
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let sceneMemberID: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userComments: AttributedString?
-    public let connections: [AnyConnection]?
+    public var id: String
+    public var placeholderIdentifier: String
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var sceneMemberID: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userComments: AttributedString?
+    public var connections: [AnyConnection]?
 
     enum ExternalCodingKeys: CodingKey { case attributedString }
     enum AttributedStringCodingKeys: CodingKey { case key }

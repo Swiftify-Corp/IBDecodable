@@ -8,11 +8,11 @@
 // <imageReference key="background" image="square.and.arrow.up" catalog="system" symbolScale="large" renderingMode="template"/>
 
 public struct ImageReference: IBDecodable, IBKeyable {
-    public let key: String?
-    public let image: String?
-    public let catalog: String?
-    public let symbolScale: String?
-    public let renderingMode: String?
+    public var key: String?
+    public var image: String?
+    public var catalog: String?
+    public var symbolScale: String?
+    public var renderingMode: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> ImageReference {
         let container = xml.container(keys: CodingKeys.self)

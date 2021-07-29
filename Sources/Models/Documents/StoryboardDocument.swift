@@ -11,24 +11,24 @@ import SWXMLHash
 
 public struct StoryboardDocument: IBDecodable, InterfaceBuilderDocument {
 
-    public let type: String
-    public let version: String
-    public let toolsVersion: String
-    public let targetRuntime: TargetRuntime
-    public let propertyAccessControl: String?
-    public let useAutolayout: Bool?
-    public let useTraitCollections: Bool?
-    public let useSafeAreas: Bool?
-    public let colorMatched: Bool?
-    public let initialViewController: String?
-    public let launchScreen: Bool
-    public let device: Device?
-    public let scenes: [Scene]?
-    public let resources: [AnyResource]?
-    public let classes: [IBClass]?
-    public let dependencies: [AnyDependency]?
-    public let systemVersion: String?
-    public let variant: String?
+    public var type: String
+    public var version: String
+    public var toolsVersion: String
+    public var targetRuntime: TargetRuntime
+    public var propertyAccessControl: String?
+    public var useAutolayout: Bool?
+    public var useTraitCollections: Bool?
+    public var useSafeAreas: Bool?
+    public var colorMatched: Bool?
+    public var initialViewController: String?
+    public var launchScreen: Bool
+    public var device: Device?
+    public var scenes: [Scene]?
+    public var resources: [AnyResource]?
+    public var classes: [IBClass]?
+    public var dependencies: [AnyDependency]?
+    public var systemVersion: String?
+    public var variant: String?
 
     enum ScenesCodingKeys: CodingKey { case scene }
 

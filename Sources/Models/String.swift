@@ -16,5 +16,5 @@ public struct StringContainer: XMLAttributeDecodable, IBDecodable {
         return StringContainer(stringValue: attribute.text)
     }
     
-    public let stringValue: String?
+    public var stringValue: String?
 }

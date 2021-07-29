@@ -9,20 +9,20 @@ import SWXMLHash
 
 public struct XibDocument: IBDecodable, InterfaceBuilderDocument {
 
-    public let type: String
-    public let version: String
-    public let toolsVersion: String
-    public let targetRuntime: TargetRuntime
-    public let propertyAccessControl: String?
-    public let useAutolayout: Bool?
-    public let useTraitCollections: Bool?
-    public let useSafeAreas: Bool?
-    public let colorMatched: Bool?
-    public let device: Device?
-    public let views: [AnyView]?
-    public let resources: [AnyResource]?
-    public let placeholders: [Placeholder]?
-    public let dependencies: [AnyDependency]?
+    public var type: String
+    public var version: String
+    public var toolsVersion: String
+    public var targetRuntime: TargetRuntime
+    public var propertyAccessControl: String?
+    public var useAutolayout: Bool?
+    public var useTraitCollections: Bool?
+    public var useSafeAreas: Bool?
+    public var colorMatched: Bool?
+    public var device: Device?
+    public var views: [AnyView]?
+    public var resources: [AnyResource]?
+    public var placeholders: [Placeholder]?
+    public var dependencies: [AnyDependency]?
 
     enum ExternalCodingKeys: CodingKey { case objects }
     enum ObjectsCodingKeys: CodingKey { case placeholder }

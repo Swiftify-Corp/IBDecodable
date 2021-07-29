@@ -55,7 +55,7 @@ extension ViewProtocol {
 
 public struct AnyView: IBDecodable {
 
-    public let view: ViewProtocol
+    public var view: ViewProtocol
 
     init(_ view: ViewProtocol) {
         self.view = view
@@ -122,11 +122,11 @@ extension AnyView: IBAny {
 // MARK: - AutoresizingMask
 
 public struct AutoresizingMask: IBDecodable, IBKeyable {
-    public let key: String?
-    public let widthSizable: Bool
-    public let heightSizable: Bool
-    public let flexibleMaxX: Bool
-    public let flexibleMaxY: Bool
+    public var key: String?
+    public var widthSizable: Bool
+    public var heightSizable: Bool
+    public var flexibleMaxX: Bool
+    public var flexibleMaxY: Bool
 
     static func decode(_ xml: XMLIndexerType) throws -> AutoresizingMask {
         let container = xml.container(keys: CodingKeys.self)
@@ -161,15 +161,15 @@ public enum VerifyAmbiguity: XMLAttributeDecodable, KeyDecodable {
 // MARK: - Constraint
 
 public struct Constraint: IBDecodable, IBIdentifiable {
-    public let id: String
-    public let constant: Int?
-    public let priority: Int?
-    public let multiplier: String?
-    public let firstItem: String?
-    public let firstAttribute: LayoutAttribute?
-    public let secondItem: String?
-    public let secondAttribute: LayoutAttribute?
-    public let relation: Relation
+    public var id: String
+    public var constant: Int?
+    public var priority: Int?
+    public var multiplier: String?
+    public var firstItem: String?
+    public var firstAttribute: LayoutAttribute?
+    public var secondItem: String?
+    public var secondAttribute: LayoutAttribute?
+    public var relation: Relation
 
     public enum LayoutAttribute: XMLAttributeDecodable, KeyDecodable, Equatable {
         case left, right, top, bottom, leading, trailing,

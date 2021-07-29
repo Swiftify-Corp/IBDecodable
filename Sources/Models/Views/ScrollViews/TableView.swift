@@ -11,57 +11,57 @@ import SWXMLHash
 
 public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
 
-    public let id: String
-    public let elementClass: String = "UITableView"
+    public var id: String
+    public var elementClass: String = "UITableView"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let dataMode: DataMode?
-    public let estimatedRowHeight: Float?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let rowHeight: Float?
-    public let sectionFooterHeight: Float?
-    public let sectionHeaderHeight: Float?
-    public let separatorStyle: String?
-    public let style: String?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var dataMode: DataMode?
+    public var estimatedRowHeight: Float?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var rowHeight: Float?
+    public var sectionFooterHeight: Float?
+    public var sectionHeaderHeight: Float?
+    public var separatorStyle: String?
+    public var style: String?
     private let _subviews: [AnyView]?
     public var subviews: [AnyView]? {
         return (_subviews ?? []) + (headersFooters ?? [])
     }
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let sections: [TableViewSection]?
-    public let prototypeCells: [TableViewCell]?
-    public let isPagingEnabled: Bool?
-    public let bouncesZoom: Bool?
-    public let bounces: Bool?
-    public let alwaysBounceVertical: Bool?
-    public let keyboardDismissMode: String?
-    public let showsVerticalScrollIndicator: Bool?
-    public let showsHorizontalScrollIndicator: Bool?
-    public let maximumZoomScale: Float?
-    public let minimumZoomScale: Float?
-    public let isDirectionalLockEnabled: Bool?
-    public let headersFooters: [AnyView]?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var sections: [TableViewSection]?
+    public var prototypeCells: [TableViewCell]?
+    public var isPagingEnabled: Bool?
+    public var bouncesZoom: Bool?
+    public var bounces: Bool?
+    public var alwaysBounceVertical: Bool?
+    public var keyboardDismissMode: String?
+    public var showsVerticalScrollIndicator: Bool?
+    public var showsHorizontalScrollIndicator: Bool?
+    public var maximumZoomScale: Float?
+    public var minimumZoomScale: Float?
+    public var isDirectionalLockEnabled: Bool?
+    public var headersFooters: [AnyView]?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
 
     public enum DataMode: XMLAttributeDecodable, KeyDecodable, Equatable {
         case `static`, prototypes
@@ -170,12 +170,12 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
 
 public struct TableViewSection: IBDecodable {
 
-    public let id: String
-    public let headerTitle: String?
-    public let footerTitle: String?
-    public let colorLabel: String?
-    public let cells: [TableViewCell]?
-    public let userComments: AttributedString?
+    public var id: String
+    public var headerTitle: String?
+    public var footerTitle: String?
+    public var colorLabel: String?
+    public var cells: [TableViewCell]?
+    public var userComments: AttributedString?
 
     enum ExternalCodingKeys: CodingKey { case attributedString }
     enum AttributedStringCodingKeys: CodingKey { case key }
@@ -199,39 +199,39 @@ public struct TableViewSection: IBDecodable {
 
 public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusable {
 
-    public let id: String
-    public let elementClass: String = "UITableViewCell"
+    public var id: String
+    public var elementClass: String = "UITableViewCell"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentView: TableViewContentView
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentView: TableViewContentView
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
     private let _subviews: [AnyView]?
     public var subviews: [AnyView]? {
         return (_subviews ?? []) + [AnyView(contentView)]
     }
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let reuseIdentifier: String?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var reuseIdentifier: String?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
+    public var hidden: Bool?
+    public var alpha: Float?
 
     public var children: [IBElement] {
         // do not let default implementation which lead to duplicate element contentView
@@ -252,34 +252,34 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
     }
 
     public struct TableViewContentView: IBDecodable, ViewProtocol, IBIdentifiable {
-        public let id: String
-        public let elementClass: String = "UITableViewContentView"
+        public var id: String
+        public var elementClass: String = "UITableViewContentView"
 
-        public let key: String?
-        public let autoresizingMask: AutoresizingMask?
-        public let clipsSubviews: Bool?
-        public let constraints: [Constraint]?
-        public let contentMode: String?
-        public let customClass: String?
-        public let customModule: String?
-        public let customModuleProvider: String?
-        public let userLabel: String?
-        public let colorLabel: String?
-        public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-        public let opaque: Bool?
-        public let rect: Rect?
-        public let subviews: [AnyView]?
-        public let translatesAutoresizingMaskIntoConstraints: Bool?
-        public let userInteractionEnabled: Bool?
-        public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-        public let connections: [AnyConnection]?
-        public let variations: [Variation]?
-        public let backgroundColor: Color?
-        public let tintColor: Color?
-        public let hidden: Bool?
-        public let alpha: Float?
+        public var key: String?
+        public var autoresizingMask: AutoresizingMask?
+        public var clipsSubviews: Bool?
+        public var constraints: [Constraint]?
+        public var contentMode: String?
+        public var customClass: String?
+        public var customModule: String?
+        public var customModuleProvider: String?
+        public var userLabel: String?
+        public var colorLabel: String?
+        public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+        public var opaque: Bool?
+        public var rect: Rect?
+        public var subviews: [AnyView]?
+        public var translatesAutoresizingMaskIntoConstraints: Bool?
+        public var userInteractionEnabled: Bool?
+        public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+        public var connections: [AnyConnection]?
+        public var variations: [Variation]?
+        public var backgroundColor: Color?
+        public var tintColor: Color?
+        public var hidden: Bool?
+        public var alpha: Float?
 
         static func decode(_ xml: XMLIndexerType) throws -> TableViewCell.TableViewContentView {
             let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in

@@ -9,57 +9,57 @@ import SWXMLHash
 
 public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     
-    public let id: String
-    public let elementClass: String = "UITextField"
+    public var id: String
+    public var elementClass: String = "UITextField"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let borderStyle: String?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let fixedFrame: Bool?
-    public let fontDescription: FontDescription?
-    public let minimumFontSize: Float?
-    public let adjustsFontSizeToFit: Bool?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let string: StringContainer?
-    public let text: String?
-    public let placeholder: String?
-    public let textAlignment: String?
-    public let textColor: Color?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let backgroundColor: Color?
-    public let background: String?
-    public let disabledBackground: String?
-    public let tintColor: Color?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var borderStyle: String?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var fixedFrame: Bool?
+    public var fontDescription: FontDescription?
+    public var minimumFontSize: Float?
+    public var adjustsFontSizeToFit: Bool?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var string: StringContainer?
+    public var text: String?
+    public var placeholder: String?
+    public var textAlignment: String?
+    public var textColor: Color?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var backgroundColor: Color?
+    public var background: String?
+    public var disabledBackground: String?
+    public var tintColor: Color?
 
-    public let isEnabled: Bool?
-    public let isHighlighted: Bool?
-    public let isSelected: Bool?
-    public let contentHorizontalAlignment: String?
-    public let contentVerticalAlignment: String?
+    public var isEnabled: Bool?
+    public var isHighlighted: Bool?
+    public var isSelected: Bool?
+    public var contentHorizontalAlignment: String?
+    public var contentVerticalAlignment: String?
     
     public var hidden: Bool?
-    public let clearsOnBeginEditing: Bool?
-    public let clearButtonMode: String?
-    public let alpha: Float?
-    public let textInputTraits: TextInputTraits?
-    public let imageReferences: [ImageReference]?
+    public var clearsOnBeginEditing: Bool?
+    public var clearButtonMode: String?
+    public var alpha: Float?
+    public var textInputTraits: TextInputTraits?
+    public var imageReferences: [ImageReference]?
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

@@ -9,12 +9,12 @@ import SWXMLHash
 
 public struct CustomObject: IBDecodable, IBIdentifiable, IBCustomClassable {
 
-    public let id: String
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
+    public var id: String
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> CustomObject {
         let container = xml.container(keys: CodingKeys.self)

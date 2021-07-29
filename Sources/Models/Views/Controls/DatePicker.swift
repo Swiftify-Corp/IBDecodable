@@ -8,52 +8,52 @@
 import SWXMLHash
 
 public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
-    public let id: String
-    public let elementClass: String = "UIDatePicker"
+    public var id: String
+    public var elementClass: String = "UIDatePicker"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let subviews: [AnyView]?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let viewLayoutGuide: LayoutGuide?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var subviews: [AnyView]?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var viewLayoutGuide: LayoutGuide?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
     
-    public let datePickerMode: String?
-    public let minuteInterval: String? // Integer??
-    public let date: IBDate?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
+    public var datePickerMode: String?
+    public var minuteInterval: String? // Integer??
+    public var date: IBDate?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
     
-    public let isEnabled: Bool?
-    public let isHighlighted: Bool?
-    public let isSelected: Bool?
-    public let contentHorizontalAlignment: String?
-    public let contentVerticalAlignment: String?
+    public var isEnabled: Bool?
+    public var isHighlighted: Bool?
+    public var isSelected: Bool?
+    public var contentHorizontalAlignment: String?
+    public var contentVerticalAlignment: String?
     
-    public let hidden: Bool?
-    public let alpha: Float?
+    public var hidden: Bool?
+    public var alpha: Float?
 
-    public let style: String?
-    public let useCurrentDate: Bool?
-    public let countDownDuration: Int?
-    public let minimumDate: IBDate?
-    public let maximumDate: IBDate?
+    public var style: String?
+    public var useCurrentDate: Bool?
+    public var countDownDuration: Int?
+    public var minimumDate: IBDate?
+    public var maximumDate: IBDate?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

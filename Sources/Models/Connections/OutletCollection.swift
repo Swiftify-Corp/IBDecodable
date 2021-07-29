@@ -8,11 +8,11 @@
 import SWXMLHash
 
 public struct OutletCollection: IBDecodable, ConnectionProtocol {
-    public let id: String
-    public let destination: String
-    public let property: String
-    public let collectionClass: String?
-    public let appends: Bool?
+    public var id: String
+    public var destination: String
+    public var property: String
+    public var collectionClass: String?
+    public var appends: Bool?
 
     static func decode(_ xml: XMLIndexerType) throws -> OutletCollection {
         let container = xml.container(keys: CodingKeys.self)

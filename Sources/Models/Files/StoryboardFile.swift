@@ -12,8 +12,8 @@ public class StoryboardFile: InterfaceBuilderFile {
 
     public var pathString: String
 
-    public let ibType: IBType = .storyboard
-    public let document: StoryboardDocument
+    public var ibType: IBType = .storyboard
+    public var document: StoryboardDocument
 
     public init(path: String) throws {
         self.pathString = path

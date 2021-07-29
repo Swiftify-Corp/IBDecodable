@@ -8,61 +8,61 @@
 import SWXMLHash
 
 public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
-    public let id: String
-    public let elementClass: String = "UITextView"
+    public var id: String
+    public var elementClass: String = "UITextView"
 
-    public let key: String?
-    public let autoresizingMask: AutoresizingMask?
-    public let bounces: Bool?
-    public let bouncesZoom: Bool?
-    public let clipsSubviews: Bool?
-    public let constraints: [Constraint]?
-    public let contentMode: String?
-    public let customClass: String?
-    public let customModule: String?
-    public let customModuleProvider: String?
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let fontDescription: FontDescription?
-    public let isMisplaced: Bool?
-    public let isAmbiguous: Bool?
-    public let verifyAmbiguity: VerifyAmbiguity?
-    public let opaque: Bool?
-    public let rect: Rect?
-    public let scrollEnabled: Bool?
-    public let showsHorizontalScrollIndicator: Bool?
-    public let showsVerticalScrollIndicator: Bool?
-    public let subviews: [AnyView]?
-    public let string: StringContainer?
-    public let mutableString: StringContainer?
-    public let text: String?
-    public let textAlignment: String?
-    public let textColor: Color?
-    public let translatesAutoresizingMaskIntoConstraints: Bool?
-    public let userInteractionEnabled: Bool?
-    public let userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
-    public let connections: [AnyConnection]?
-    public let variations: [Variation]?
-    public let editable: Bool?
-    public let backgroundColor: Color?
-    public let tintColor: Color?
+    public var key: String?
+    public var autoresizingMask: AutoresizingMask?
+    public var bounces: Bool?
+    public var bouncesZoom: Bool?
+    public var clipsSubviews: Bool?
+    public var constraints: [Constraint]?
+    public var contentMode: String?
+    public var customClass: String?
+    public var customModule: String?
+    public var customModuleProvider: String?
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var fontDescription: FontDescription?
+    public var isMisplaced: Bool?
+    public var isAmbiguous: Bool?
+    public var verifyAmbiguity: VerifyAmbiguity?
+    public var opaque: Bool?
+    public var rect: Rect?
+    public var scrollEnabled: Bool?
+    public var showsHorizontalScrollIndicator: Bool?
+    public var showsVerticalScrollIndicator: Bool?
+    public var subviews: [AnyView]?
+    public var string: StringContainer?
+    public var mutableString: StringContainer?
+    public var text: String?
+    public var textAlignment: String?
+    public var textColor: Color?
+    public var translatesAutoresizingMaskIntoConstraints: Bool?
+    public var userInteractionEnabled: Bool?
+    public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
+    public var connections: [AnyConnection]?
+    public var variations: [Variation]?
+    public var editable: Bool?
+    public var backgroundColor: Color?
+    public var tintColor: Color?
 
-    public let isEnabled: Bool?
-    public let isHighlighted: Bool?
-    public let isSelected: Bool?
-    public let contentHorizontalAlignment: String?
-    public let contentVerticalAlignment: String?
+    public var isEnabled: Bool?
+    public var isHighlighted: Bool?
+    public var isSelected: Bool?
+    public var contentHorizontalAlignment: String?
+    public var contentVerticalAlignment: String?
     
     public var hidden: Bool?
-    public let alpha: Float?
-    public let textInputTraits: TextInputTraits?
-    public let dataDetectorType: DataDetectorType?
+    public var alpha: Float?
+    public var textInputTraits: TextInputTraits?
+    public var dataDetectorType: DataDetectorType?
     
-    public let alwaysBounceVertical: Bool?
-    public let alwaysBounceHorizontal: Bool?
-    public let indicatorStyle: String?
-    public let selectable: Bool?
-    public let spellCheckingType: Bool?
+    public var alwaysBounceVertical: Bool?
+    public var alwaysBounceHorizontal: Bool?
+    public var indicatorStyle: String?
+    public var selectable: Bool?
+    public var spellCheckingType: Bool?
     
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }

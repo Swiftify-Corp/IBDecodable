@@ -11,8 +11,8 @@ import SWXMLHash
 
 public struct Variation: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let mask: [Mask]?
+    public var key: String?
+    public var mask: [Mask]?
 
     static func decode(_ xml: XMLIndexerType) throws -> Variation {
         let container = xml.container(keys: CodingKeys.self)
@@ -28,9 +28,9 @@ public struct Variation: IBDecodable, IBKeyable {
 
 public struct Mask: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let includes: [Include]?
-    public let excludes: [Exclude]?
+    public var key: String?
+    public var includes: [Include]?
+    public var excludes: [Exclude]?
 
     enum ListCodingKeys: CodingKey { case include, exclude }
 
@@ -50,7 +50,7 @@ public struct Mask: IBDecodable, IBKeyable {
 
 public struct Exclude: IBDecodable {
 
-    public let reference: String?
+    public var reference: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Exclude {
         let container = xml.container(keys: CodingKeys.self)
@@ -65,7 +65,7 @@ public struct Exclude: IBDecodable {
 
 public struct Include: IBDecodable {
 
-    public let reference: String?
+    public var reference: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Include {
         let container = xml.container(keys: CodingKeys.self)

@@ -9,10 +9,10 @@ import SWXMLHash
 
 public struct Exit: IBDecodable, IBIdentifiable, IBUserLabelable {
 
-    public let id: String
-    public let userLabel: String?
-    public let colorLabel: String?
-    public let sceneMemberID: String?
+    public var id: String
+    public var userLabel: String?
+    public var colorLabel: String?
+    public var sceneMemberID: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> Exit {
         let container = xml.container(keys: CodingKeys.self)

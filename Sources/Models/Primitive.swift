@@ -11,8 +11,8 @@ import SWXMLHash
 
 public struct IBBool: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let value: Bool
+    public var key: String?
+    public var value: Bool
 
     static func decode(_ xml: XMLIndexerType) throws -> IBBool {
         let container = xml.container(keys: CodingKeys.self)
@@ -28,8 +28,8 @@ public struct IBBool: IBDecodable, IBKeyable {
 
 public struct IBReal: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let value: Float?
+    public var key: String?
+    public var value: Float?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBReal {
         let container = xml.container(keys: CodingKeys.self)
@@ -45,8 +45,8 @@ public struct IBReal: IBDecodable, IBKeyable {
 
 public struct IBInteger: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let value: Int?
+    public var key: String?
+    public var value: Int?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBInteger {
         let container = xml.container(keys: CodingKeys.self)
@@ -61,8 +61,8 @@ public struct IBInteger: IBDecodable, IBKeyable {
 
 public struct IBNil: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let name: String?
+    public var key: String?
+    public var name: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBNil {
         let container = xml.container(keys: CodingKeys.self)
@@ -78,8 +78,8 @@ public struct IBNil: IBDecodable, IBKeyable {
 
 public struct IBURL: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let string: String?
+    public var key: String?
+    public var string: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBURL {
         let container = xml.container(keys: CodingKeys.self)
@@ -95,8 +95,8 @@ public struct IBURL: IBDecodable, IBKeyable {
 
 public struct IBString: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let base64UTF8: String?
+    public var key: String?
+    public var base64UTF8: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBString {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -121,8 +121,8 @@ public struct IBString: IBDecodable, IBKeyable {
 
 public struct IBDate: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let timeIntervalSinceReferenceDate: String?
+    public var key: String?
+    public var timeIntervalSinceReferenceDate: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBDate {
         let container = xml.container(keys: CodingKeys.self)
@@ -138,7 +138,7 @@ public struct IBDate: IBDecodable, IBKeyable {
 
 public struct IBArray: IBDecodable, IBKeyable {
 
-    public let key: String?
+    public var key: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBArray {
         let container = xml.container(keys: CodingKeys.self)
@@ -153,7 +153,7 @@ public struct IBArray: IBDecodable, IBKeyable {
 
 public struct IBData: IBDecodable, IBKeyable {
 
-    public let key: String?
+    public var key: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBData {
         let container = xml.container(keys: CodingKeys.self)
@@ -168,8 +168,8 @@ public struct IBData: IBDecodable, IBKeyable {
 
 public struct IBTimeZone: IBDecodable, IBKeyable {
 
-    public let key: String?
-    public let name: String?
+    public var key: String?
+    public var name: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> IBTimeZone {
         let container = xml.container(keys: CodingKeys.self)

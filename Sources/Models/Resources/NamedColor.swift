@@ -8,8 +8,8 @@
 import SWXMLHash
 
 public struct NamedColor: IBDecodable, ResourceProtocol {
-    public let name: String
-    public let color: Color?
+    public var name: String
+    public var color: Color?
 
     static func decode(_ xml: XMLIndexerType) throws -> NamedColor {
         let container = xml.container(keys: CodingKeys.self)
