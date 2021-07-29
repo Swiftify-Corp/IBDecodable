@@ -93,9 +93,7 @@ public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
         
         case hidden
         case alpha
-        case wraps
-        case autorepeat
-        case continuous
+        case preferredStyle
     }
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
