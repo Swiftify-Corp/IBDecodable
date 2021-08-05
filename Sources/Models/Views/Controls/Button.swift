@@ -47,49 +47,7 @@ public struct Button: IBDecodable, ControlProtocol, IBIdentifiable {
     public var isSelected: Bool?
     public var contentHorizontalAlignment: String?
     public var contentVerticalAlignment: String?
-    public var containerView: ViewProtocol? = nil
-
-    enum CodingKeys: CodingKey {
-        case id
-        case elementClass
-        
-        case key
-        case autoresizingMask
-        case buttonType
-        case clipsSubviews
-        case constraints
-        case contentMode
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case fixedFrame
-        case fontDescription
-        case lineBreakMode
-        case isMisplaced
-        case isAmbiguous
-        case verifyAmbiguity
-        case opaque
-        case rect
-        case subviews
-        case state
-        case translatesAutoresizingMaskIntoConstraints
-        case userInteractionEnabled
-        case userDefinedRuntimeAttributes
-        case connections
-        case variations
-        case backgroundColor
-        case tintColor
-        case hidden
-        case alpha
-        
-        case isEnabled
-        case isHighlighted
-        case isSelected
-        case contentHorizontalAlignment
-        case contentVerticalAlignment
-    }
+     = nil
     
     public struct State: IBDecodable, IBKeyable {
         public var key: String?

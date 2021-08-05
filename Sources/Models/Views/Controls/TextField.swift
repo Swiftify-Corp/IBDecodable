@@ -60,61 +60,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public var alpha: Float?
     public var textInputTraits: TextInputTraits?
     public var imageReferences: [ImageReference]?
-    public var containerView: ViewProtocol?
     
-    enum CodingKeys: CodingKey {
-        case id
-        case elementClass
-        
-        case key
-        case autoresizingMask
-        case borderStyle
-        case clipsSubviews
-        case constraints
-        case contentMode
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case fixedFrame
-        case fontDescription
-        case minimumFontSize
-        case adjustsFontSizeToFit
-        case isMisplaced
-        case isAmbiguous
-        case verifyAmbiguity
-        case opaque
-        case rect
-        case subviews
-        case string
-        case text
-        case placeholder
-        case textAlignment
-        case textColor
-        case translatesAutoresizingMaskIntoConstraints
-        case userInteractionEnabled
-        case userDefinedRuntimeAttributes
-        case connections
-        case variations
-        case backgroundColor
-        case background
-        case disabledBackground
-        case tintColor
-        
-        case isEnabled
-        case isHighlighted
-        case isSelected
-        case contentHorizontalAlignment
-        case contentVerticalAlignment
-        
-        case hidden
-        case clearsOnBeginEditing
-        case clearButtonMode
-        case alpha
-        case textInputTraits
-        case imageReferences
-    }
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

@@ -40,42 +40,7 @@ public struct StackView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var spacing: String?
     public var hidden: Bool?
     public var alpha: Float?
-    public var containerView: ViewProtocol?
     
-    enum CodingKeys: CodingKey {
-        case id
-        case elementClass
-        
-        case alignment
-        case key
-        case autoresizingMask
-        case axis
-        case clipsSubviews
-        case constraints
-        case contentMode
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case isMisplaced
-        case isAmbiguous
-        case verifyAmbiguity
-        case opaque
-        case rect
-        case subviews
-        case translatesAutoresizingMaskIntoConstraints
-        case userInteractionEnabled
-        case userDefinedRuntimeAttributes
-        case connections
-        case variations
-        case backgroundColor
-        case tintColor
-        case distribution
-        case spacing
-        case hidden
-        case alpha
-    }
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

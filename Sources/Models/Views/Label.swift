@@ -49,51 +49,7 @@ public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
     public var tintColor: Color?
     public var hidden: Bool?
     public var alpha: Float?
-    public var containerView: ViewProtocol?
     
-    enum CodingKeys: CodingKey {
-        case id
-        case elementClass
-        
-        case adjustsFontSizeToFit
-        case key
-        case autoresizingMask
-        case baselineAdjustment
-        case clipsSubviews
-        case constraints
-        case contentMode
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case fixedFrame
-        case fontDescription
-        case horizontalHuggingPriority
-        case lineBreakMode
-        case isMisplaced
-        case isAmbiguous
-        case verifyAmbiguity
-        case opaque
-        case rect
-        case subviews
-        case string
-        case mutableString
-        case text
-        case textAlignment
-        case textColor
-        case attributedText
-        case translatesAutoresizingMaskIntoConstraints
-        case userInteractionEnabled
-        case verticalHuggingPriority
-        case userDefinedRuntimeAttributes
-        case connections
-        case variations
-        case backgroundColor
-        case tintColor
-        case hidden
-        case alpha
-    }
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

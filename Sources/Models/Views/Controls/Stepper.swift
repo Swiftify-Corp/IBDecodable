@@ -51,53 +51,6 @@ public struct Stepper: IBDecodable, ControlProtocol, IBIdentifiable {
     public var wraps: Bool?
     public var autorepeat: Bool?
     public var continuous: Bool?
-    public var containerView: ViewProtocol?
-    
-    enum CodingKeys: CodingKey {
-        case id
-        case elementClass
-        
-        case key
-        case autoresizingMask
-        case clipsSubviews
-        case constraints
-        case contentMode
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case isMisplaced
-        case isAmbiguous
-        case verifyAmbiguity
-        case opaque
-        case rect
-        case subviews
-        case translatesAutoresizingMaskIntoConstraints
-        case userInteractionEnabled
-        case viewLayoutGuide
-        case userDefinedRuntimeAttributes
-        case connections
-        case variations
-        case stepValue
-        case minimumValue
-        case maximumValue
-        case value
-        case backgroundColor
-        case tintColor
-        
-        case isEnabled
-        case isHighlighted
-        case isSelected
-        case contentHorizontalAlignment
-        case contentVerticalAlignment
-        
-        case hidden
-        case alpha
-        case wraps
-        case autorepeat
-        case continuous
-    }
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

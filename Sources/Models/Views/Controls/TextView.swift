@@ -63,65 +63,7 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
     public var indicatorStyle: String?
     public var selectable: Bool?
     public var spellCheckingType: Bool?
-    public var containerView: ViewProtocol?
     
-    enum CodingKeys: CodingKey {
-        case id
-        case elementClass
-        
-        case key
-        case autoresizingMask
-        case bounces
-        case bouncesZoom
-        case clipsSubviews
-        case constraints
-        case contentMode
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case fontDescription
-        case isMisplaced
-        case isAmbiguous
-        case verifyAmbiguity
-        case opaque
-        case rect
-        case scrollEnabled
-        case showsHorizontalScrollIndicator
-        case showsVerticalScrollIndicator
-        case subviews
-        case string
-        case mutableString
-        case text
-        case textAlignment
-        case textColor
-        case translatesAutoresizingMaskIntoConstraints
-        case userInteractionEnabled
-        case userDefinedRuntimeAttributes
-        case connections
-        case variations
-        case editable
-        case backgroundColor
-        case tintColor
-        
-        case isEnabled
-        case isHighlighted
-        case isSelected
-        case contentHorizontalAlignment
-        case contentVerticalAlignment
-        
-        case hidden
-        case alpha
-        case textInputTraits
-        case dataDetectorType
-        
-        case alwaysBounceVertical
-        case alwaysBounceHorizontal
-        case indicatorStyle
-        case selectable
-        case spellCheckingType
-    }
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

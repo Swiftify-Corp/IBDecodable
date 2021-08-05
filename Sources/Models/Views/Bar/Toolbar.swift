@@ -37,40 +37,7 @@ public struct Toolbar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var tintColor: Color?
     public var hidden: Bool?
     public var alpha: Float?
-    public var containerView: ViewProtocol?
     
-    enum CodingKeys: CodingKey {
-        case id
-        case elementClass
-        
-        case key
-        case autoresizingMask
-        case clipsSubviews
-        case constraints
-        case contentMode
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case items
-        case isMisplaced
-        case isAmbiguous
-        case verifyAmbiguity
-        case opaque
-        case rect
-        case subviews
-        case translatesAutoresizingMaskIntoConstraints
-        case userInteractionEnabled
-        case userDefinedRuntimeAttributes
-        case connections
-        case variations
-        case backgroundColor
-        case tintColor
-        case hidden
-        case alpha
-    }
-
 
     public struct BarButtonItem: IBDecodable {
         public var id: String

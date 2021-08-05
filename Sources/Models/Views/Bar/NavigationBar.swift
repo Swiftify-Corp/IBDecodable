@@ -34,9 +34,18 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var connections: [AnyConnection]?
     public var variations: [Variation]?
     public var backgroundColor: Color?
+    public var barTintColor: Color?
     public var tintColor: Color?
     public var hidden: Bool?
     public var alpha: Float?
+    
+    public var imageReferences: [ImageReference]?
+    public var shadowImage: String?
+    public var backIndicatorTransitionMaskImage: String?
+    public var backIndicatorImage: String?
+    public var largeTitles: Bool?
+    public var translucent: Bool? // true if not present
+    public var textAttributes: [TextAttributes]?
 
     public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomClassable, IBUserLabelable {
 
@@ -80,6 +89,7 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
                 switch key {
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
+                case .imageReferences: return "imageReference"
                 default: return key.stringValue
                 }
             }()
@@ -117,9 +127,17 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
             connections:                               container.childrenIfPresent(of: .connections),
             variations:                                variationContainer.elementsIfPresent(of: .variation),
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
+            barTintColor:                              colorsContainer?.withAttributeElement(.key, CodingKeys.barTintColor.stringValue),
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
-            alpha:                                     container.attributeIfPresent(of: .alpha)
+            alpha:                                     container.attributeIfPresent(of: .alpha),
+            imageReferences:                           container.elementsIfPresent(of: .imageReferences),
+            shadowImage:                               container.attributeIfPresent(of: .shadowImage),
+            backIndicatorTransitionMaskImage:          container.attributeIfPresent(of: .backIndicatorTransitionMaskImage),
+            backIndicatorImage:                        container.attributeIfPresent(of: .backIndicatorImage),
+            largeTitles:                               container.attributeIfPresent(of: .largeTitles),
+            translucent:                               container.attributeIfPresent(of: .translucent),
+            textAttributes:                            container.elementsIfPresent(of: .textAttributes)
         )
     }
 }
