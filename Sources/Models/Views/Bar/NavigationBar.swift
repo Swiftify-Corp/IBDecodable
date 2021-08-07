@@ -16,6 +16,7 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var clipsSubviews: Bool?
     public var constraints: [Constraint]?
     public var contentMode: String?
+    public var barStyle: String?
     public var customClass: String?
     public var customModule: String?
     public var customModuleProvider: String?
@@ -44,7 +45,7 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var backIndicatorTransitionMaskImage: String?
     public var backIndicatorImage: String?
     public var largeTitles: Bool?
-    public var translucent: Bool? // true if not present
+    public var isTranslucent: Bool? // true if not present
     public var textAttributes: [TextAttributes]?
 
     public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomClassable, IBUserLabelable {
@@ -90,6 +91,7 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
                 case .imageReferences: return "imageReference"
+                case .isTranslucent: return "translucent"
                 default: return key.stringValue
                 }
             }()
@@ -109,6 +111,7 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
             constraints:                               constraintsContainer?.elementsIfPresent(of: .constraint),
             contentMode:                               container.attributeIfPresent(of: .contentMode),
+            barStyle:                                  container.attributeIfPresent(of: .barStyle),
             customClass:                               container.attributeIfPresent(of: .customClass),
             customModule:                              container.attributeIfPresent(of: .customModule),
             customModuleProvider:                      container.attributeIfPresent(of: .customModuleProvider),
@@ -136,7 +139,7 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
             backIndicatorTransitionMaskImage:          container.attributeIfPresent(of: .backIndicatorTransitionMaskImage),
             backIndicatorImage:                        container.attributeIfPresent(of: .backIndicatorImage),
             largeTitles:                               container.attributeIfPresent(of: .largeTitles),
-            translucent:                               container.attributeIfPresent(of: .translucent),
+            isTranslucent:                             container.attributeIfPresent(of: .isTranslucent),
             textAttributes:                            container.elementsIfPresent(of: .textAttributes)
         )
     }
