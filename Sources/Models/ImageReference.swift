@@ -5,10 +5,6 @@
 //  Created by Ibrahim Hassan on 20/06/21.
 //
 
-// <imageReference key="background" image="square.and.arrow.up" catalog="system" symbolScale="large" renderingMode="template"/>
-// <imageReference key="shadowImage" image="square.and.arrow.up" catalog="system" symbolScale="medium" renderingMode="original"/>
-// <imageReference key="backIndicatorImage" image="pencil.slash" catalog="system" symbolScale="large" renderingMode="template"/>
-
 public struct ImageReference: IBDecodable, IBKeyable {
     public var key: String?
     public var image: String?

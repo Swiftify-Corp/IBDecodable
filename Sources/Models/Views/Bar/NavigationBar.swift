@@ -48,36 +48,6 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var isTranslucent: Bool? // true if not present
     public var textAttributes: [TextAttributes]?
 
-    public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomClassable, IBUserLabelable {
-
-        public var id: String
-        public var key: String?
-        public var style: String?
-        public var systemItem: String?
-        public var title: String?
-        public var customClass: String?
-        public var customModule: String?
-        public var customModuleProvider: String?
-        public var userLabel: String?
-        public var colorLabel: String?
-
-        static func decode(_ xml: XMLIndexerType) throws -> NavigationBar.NavigationItem {
-            let container = xml.container(keys: CodingKeys.self)
-            return NavigationItem(
-                id:         try container.attribute(of: .id),
-                key:        container.attributeIfPresent(of: .key),
-                style:      container.attributeIfPresent(of: .style),
-                systemItem: container.attributeIfPresent(of: .systemItem),
-                title:      container.attributeIfPresent(of: .title),
-                customClass: container.attributeIfPresent(of: .customClass),
-                customModule: container.attributeIfPresent(of: .customModule),
-                customModuleProvider: container.attributeIfPresent(of: .customModuleProvider),
-                userLabel:  container.attributeIfPresent(of: .userLabel),
-                colorLabel: container.attributeIfPresent(of: .colorLabel)
-            )
-        }
-    }
-
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }

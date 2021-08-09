@@ -39,23 +39,6 @@ public struct Toolbar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var alpha: Float?
     
 
-    public struct BarButtonItem: IBDecodable {
-        public var id: String
-        public var style: String?
-        public var systemItem: String?
-        public var title: String?
-
-        static func decode(_ xml: XMLIndexerType) throws -> Toolbar.BarButtonItem {
-            let container = xml.container(keys: CodingKeys.self)
-            return BarButtonItem(
-                id:         try container.attribute(of: .id),
-                style:      container.attributeIfPresent(of: .style),
-                systemItem: container.attributeIfPresent(of: .systemItem),
-                title:      container.attributeIfPresent(of: .title)
-            )
-        }
-    }
-
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
