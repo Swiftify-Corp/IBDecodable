@@ -18,6 +18,7 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
     public var userLabel: String?
     public var colorLabel: String?
     public var barButtonItems: [BarButtonItem]?
+    public var largeTitleDisplayMode: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> NavigationItem {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -41,6 +42,7 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
             userLabel:              container.attributeIfPresent(of: .userLabel),
             colorLabel:             container.attributeIfPresent(of: .colorLabel),
             barButtonItems:         container.elementsIfPresent(of: .barButtonItems)
+            largeTitleDisplayMode:  container.attributeIfPresent(of: .largeTitleDisplayMode)
         )
     }
 }
