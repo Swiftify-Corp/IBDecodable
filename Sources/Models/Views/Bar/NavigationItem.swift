@@ -41,7 +41,7 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
             customModuleProvider:   container.attributeIfPresent(of: .customModuleProvider),
             userLabel:              container.attributeIfPresent(of: .userLabel),
             colorLabel:             container.attributeIfPresent(of: .colorLabel),
-            barButtonItems:         container.elementsIfPresent(of: .barButtonItems)
+            barButtonItems:         container.elementsIfPresent(of: .barButtonItems),
             largeTitleDisplayMode:  container.attributeIfPresent(of: .largeTitleDisplayMode)
         )
     }
