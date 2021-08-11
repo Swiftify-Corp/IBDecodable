@@ -9,7 +9,7 @@ import SWXMLHash
 
 public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
 
-    public var elementClass: String = "UICollectionViewController"
+    public static let elementClass: String = "UICollectionViewController"
     public var id: String
     public var customClass: String?
     public var customModule: String?
@@ -27,25 +27,6 @@ public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
     public var rootView: ViewProtocol? { return collectionView }
     public var clearsSelectionOnViewWillAppear: Bool
     public var size: [Size]?
-    
-    enum CodingKeys: CodingKey {
-        case id
-        case customClass
-        case customModule
-        case customModuleProvider
-        case userLabel
-        case colorLabel
-        case storyboardIdentifier
-        case sceneMemberID
-        case layoutGuides
-        case userDefinedRuntimeAttributes
-        case connections
-        case keyCommands
-        case tabBarItem
-        case collectionView
-        case clearsSelectionOnViewWillAppear
-        case size
-    }
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
