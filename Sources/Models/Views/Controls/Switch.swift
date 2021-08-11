@@ -79,6 +79,7 @@ public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
         
         return Switch(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UISwitch",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

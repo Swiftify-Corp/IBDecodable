@@ -76,6 +76,7 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return NavigationBar(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UINavigationBar",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

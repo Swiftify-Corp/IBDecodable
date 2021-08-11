@@ -89,6 +89,7 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
 
         return TextField(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UITextField",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             borderStyle:                               container.attributeIfPresent(of: .borderStyle),

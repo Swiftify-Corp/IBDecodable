@@ -84,6 +84,7 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
 
         return DatePicker(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIDatePicker",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

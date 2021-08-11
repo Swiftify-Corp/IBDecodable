@@ -62,6 +62,7 @@ public struct SceneKitView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return SceneKitView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "SCNView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

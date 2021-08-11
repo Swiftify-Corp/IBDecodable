@@ -90,6 +90,7 @@ public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return CollectionView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UICollectionView",
             alwaysBounceHorizontal:                    container.attributeIfPresent(of: .alwaysBounceHorizontal),
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
@@ -243,6 +244,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
                 .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
 
             return CollectionViewContentView(
+                elementClass:                              "UIView",
                 key:                                       container.attributeIfPresent(of: .key),
                 autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
                 clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
@@ -298,6 +300,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
 
         return CollectionViewCell(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UICollectionViewCell",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
@@ -387,6 +390,7 @@ public struct CollectionReusableView: IBDecodable, ViewProtocol, IBIdentifiable,
 
         return CollectionReusableView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UICollectionReusableView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

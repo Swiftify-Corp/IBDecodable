@@ -77,6 +77,7 @@ public struct MapView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return MapView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "MKMapView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

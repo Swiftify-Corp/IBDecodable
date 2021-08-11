@@ -61,6 +61,7 @@ public struct SearchBar: IBDecodable, ViewProtocol, IBIdentifiable {
             .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
         return SearchBar(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UISearchBar",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

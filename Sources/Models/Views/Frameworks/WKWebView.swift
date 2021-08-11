@@ -62,6 +62,7 @@ public struct WKWebView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return WKWebView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "WKWebView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

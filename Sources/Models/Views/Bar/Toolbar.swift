@@ -64,6 +64,7 @@ public struct Toolbar: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return Toolbar(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIToolbar",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

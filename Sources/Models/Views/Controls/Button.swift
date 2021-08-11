@@ -96,6 +96,7 @@ public struct Button: IBDecodable, ControlProtocol, IBIdentifiable {
         
         return Button(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIButton",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             buttonType:                                container.attributeIfPresent(of: .buttonType),

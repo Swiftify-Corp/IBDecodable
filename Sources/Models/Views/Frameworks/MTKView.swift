@@ -61,6 +61,7 @@ public struct MTKView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return MTKView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "MTKView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

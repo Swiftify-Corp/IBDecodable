@@ -78,6 +78,7 @@ public struct Stepper: IBDecodable, ControlProtocol, IBIdentifiable {
 
         return Stepper(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIStepper",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

@@ -62,6 +62,7 @@ public struct View: IBDecodable, ViewProtocol, IBIdentifiable {
             .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
         return View(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

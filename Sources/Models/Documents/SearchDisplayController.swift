@@ -16,6 +16,7 @@ public struct SearchDisplayController: IBDecodable, IBIdentifiable {
     static func decode(_ xml: XMLIndexerType) throws -> SearchDisplayController {
         let container = xml.container(keys: CodingKeys.self)
         return SearchDisplayController(
+            elementClass:         "UISearchDisplayController",
             id:                   try container.attribute(of: .id),
             connections:          container.childrenIfPresent(of: .connections)
         )

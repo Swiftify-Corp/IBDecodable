@@ -61,6 +61,7 @@ public struct ARSKView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return ARSKView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "ARSKView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

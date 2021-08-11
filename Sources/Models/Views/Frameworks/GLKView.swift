@@ -65,6 +65,7 @@ public struct GLKView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return GLKView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "GLKView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

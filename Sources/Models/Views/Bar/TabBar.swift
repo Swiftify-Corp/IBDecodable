@@ -93,6 +93,7 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return TabBar(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UITabBar",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

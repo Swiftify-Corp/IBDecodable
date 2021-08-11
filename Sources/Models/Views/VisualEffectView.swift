@@ -62,6 +62,7 @@ public struct VisualEffectView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return VisualEffectView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIVisualEffectView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

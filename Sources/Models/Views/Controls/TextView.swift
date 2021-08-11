@@ -91,6 +91,7 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
 
         return TextView(
             id: try container.attribute(of: .id),
+            elementClass: "UITextView",
             key: container.attributeIfPresent(of: .key),
             autoresizingMask: container.elementIfPresent(of: .autoresizingMask),
             bounces: container.attributeIfPresent(of: .bounces),

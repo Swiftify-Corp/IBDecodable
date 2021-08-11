@@ -62,6 +62,7 @@ public struct ActivityindicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return ActivityindicatorView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIActivityindicatorView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

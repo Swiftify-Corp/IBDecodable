@@ -66,6 +66,7 @@ public struct ImageView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return ImageView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIImageView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

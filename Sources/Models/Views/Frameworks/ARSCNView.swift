@@ -63,6 +63,7 @@ public struct ARSCNView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return ARSCNView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "ARSCNView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

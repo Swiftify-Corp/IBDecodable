@@ -62,6 +62,7 @@ public struct SKView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return SKView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "SKView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

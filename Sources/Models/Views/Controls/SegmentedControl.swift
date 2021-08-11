@@ -11,7 +11,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     
     public var id: String
     public var elementClass: String = "UISegmentedControl"
-
+    
     public var key: String?
     public var autoresizingMask: AutoresizingMask?
     public var clipsSubviews: Bool?
@@ -38,7 +38,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     public var variations: [Variation]?
     public var backgroundColor: Color?
     public var tintColor: Color?
-
+    
     public var isEnabled: Bool?
     public var isHighlighted: Bool?
     public var isSelected: Bool?
@@ -48,32 +48,32 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     
-
+    
     public struct Segment: IBDecodable {
         public var title: String
-
+        
         static func decode(_ xml: XMLIndexerType) throws -> SegmentedControl.Segment {
             let container = xml.container(keys: CodingKeys.self)
             return try Segment(title: container.attribute(of: .title))
         }
     }
-
+    
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
     enum ColorsCodingKeys: CodingKey { case key }
     enum SegmentsCodingKeys: CodingKey { case segment }
-
+    
     static func decode(_ xml: XMLIndexerType) throws -> SegmentedControl {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
             let stringValue: String = {
                 switch key {
-                case .isMisplaced: return "misplaced"
-                case .isAmbiguous: return "ambiguous"
-                case .isEnabled: return "enabled"
-                case .isHighlighted: return "highlighted"
-                case .isSelected: return "selected"
-                default: return key.stringValue
+                    case .isMisplaced: return "misplaced"
+                    case .isAmbiguous: return "ambiguous"
+                    case .isEnabled: return "enabled"
+                    case .isHighlighted: return "highlighted"
+                    case .isSelected: return "selected"
+                    default: return key.stringValue
                 }
             }()
             return MappedCodingKey(stringValue: stringValue)
@@ -83,9 +83,10 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
         let colorsContainer = xml.container(keys: ExternalCodingKeys.self)
             .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
         let segmentsContainer = container.nestedContainerIfPresent(of: .segments, keys: SegmentsCodingKeys.self)
-
+        
         return SegmentedControl(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UISegmentedControl",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
@@ -121,5 +122,5 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
             alpha:                                     container.attributeIfPresent(of: .alpha)
         )
     }
-
+    
 }

@@ -60,6 +60,7 @@ public struct PickerView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return PickerView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIPickerView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

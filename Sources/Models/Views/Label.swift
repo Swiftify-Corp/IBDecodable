@@ -75,6 +75,7 @@ public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return Label(
             id: try container.attribute(of: .id),
+            elementClass: "UILabel",
             adjustsFontSizeToFit: container.attributeIfPresent(of: .adjustsFontSizeToFit),
             key: container.attributeIfPresent(of: .key),
             autoresizingMask: container.elementIfPresent(of: .autoresizingMask),

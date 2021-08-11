@@ -65,6 +65,7 @@ public struct StackView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return StackView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIStackView",
             alignment:                                 container.attributeIfPresent(of: .alignment),
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),

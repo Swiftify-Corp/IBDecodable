@@ -71,6 +71,7 @@ public struct PageControl: IBDecodable, ControlProtocol, IBIdentifiable {
 
         return PageControl(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UIPageControl",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),

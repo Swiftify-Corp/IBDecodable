@@ -117,6 +117,7 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
 
         return TableView(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UITableView",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
@@ -299,6 +300,7 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
 
             return TableViewContentView(
                 id:                                        try container.attribute(of: .id),
+                elementClass:                              "UITableViewContentView",
                 key:                                       container.attributeIfPresent(of: .key),
                 autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
                 clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
@@ -353,6 +355,7 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
 
         return TableViewCell(
             id:                                        try container.attribute(of: .id),
+            elementClass:                              "UITableViewCell",
             key:                                       container.attributeIfPresent(of: .key),
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
