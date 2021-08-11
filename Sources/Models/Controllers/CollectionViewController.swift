@@ -9,7 +9,7 @@ import SWXMLHash
 
 public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
 
-    public static let elementClass: String = "UICollectionViewController"
+    public var elementClass: String = "UICollectionViewController"
     public var id: String
     public var customClass: String?
     public var customModule: String?
@@ -34,6 +34,7 @@ public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
         let container = xml.container(keys: CodingKeys.self)
         let layoutGuidesContainer = container.nestedContainerIfPresent(of: .layoutGuides, keys: LayoutGuidesCodingKeys.self)
         return CollectionViewController(
+            elementClass: "UICollectionViewController",
             id:                              try container.attribute(of: .id),
             customClass:                     container.attributeIfPresent(of: .customClass),
             customModule:                    container.attributeIfPresent(of: .customModule),
