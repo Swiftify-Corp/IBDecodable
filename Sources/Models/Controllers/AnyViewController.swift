@@ -11,7 +11,6 @@ import SWXMLHash
 
 public protocol ViewControllerProtocol: IBIdentifiable, IBCustomClassable, IBUserLabelable, IBConnectionOwner {
     var elementClass: String { get }
-
     var storyboardIdentifier: String? { get }
     var sceneMemberID: String? { get }
     var layoutGuides: [ViewControllerLayoutGuide]? { get }
