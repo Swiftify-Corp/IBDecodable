@@ -43,7 +43,6 @@ public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
         case keyCommands
         case tabBarItem
         case collectionView
-        case rootView
         case clearsSelectionOnViewWillAppear
         case size
     }
