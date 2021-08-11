@@ -34,6 +34,7 @@ public struct TableViewController: IBDecodable, ViewControllerProtocol {
         let container = xml.container(keys: CodingKeys.self)
         let layoutGuidesContainer = container.nestedContainerIfPresent(of: .layoutGuides, keys: LayoutGuidesCodingKeys.self)
         return TableViewController(
+            elementClass:                    "UITableViewController",
             id:                              try container.attribute(of: .id),
             customClass:                     container.attributeIfPresent(of: .customClass),
             customModule:                    container.attributeIfPresent(of: .customModule),
