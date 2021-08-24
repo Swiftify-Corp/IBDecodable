@@ -36,6 +36,7 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var bouncesZoom: Bool?
     public var bounces: Bool?
     public var alwaysBounceVertical: Bool?
+    public var alwaysBounceHorizontal: Bool?
     public var keyboardDismissMode: String?
     public var showsVerticalScrollIndicator: Bool? // default true
     public var showsHorizontalScrollIndicator: Bool? // default true
@@ -47,6 +48,10 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var indicatorStyle: String?
+    public var delaysContentTouches: Bool?
+    public var canCancelContentTouches: Bool?
+    public var inset: Inset?
+    public var contentInsetAdjustmentBehavior: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -99,6 +104,7 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
             bouncesZoom:                               container.attributeIfPresent(of: .bouncesZoom),
             bounces:                                   container.attributeIfPresent(of: .bounces),
             alwaysBounceVertical:                      container.attributeIfPresent(of: .alwaysBounceVertical),
+            alwaysBounceHorizontal:                    container.attributeIfPresent(of: .alwaysBounceHorizontal),
             keyboardDismissMode:                       container.attributeIfPresent(of: .keyboardDismissMode),
             showsVerticalScrollIndicator:              container.attributeIfPresent(of: .showsVerticalScrollIndicator),
             showsHorizontalScrollIndicator:            container.attributeIfPresent(of: .showsHorizontalScrollIndicator),
@@ -109,7 +115,11 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            indicatorStyle:                            container.attributeIfPresent(of: .indicatorStyle)
+            indicatorStyle:                            container.attributeIfPresent(of: .indicatorStyle),
+            delaysContentTouches:                      container.attributeIfPresent(of: .delaysContentTouches),
+            canCancelContentTouches:                   container.attributeIfPresent(of: .canCancelContentTouches),
+            inset:                                     container.elementIfPresent(of: .inset),
+            contentInsetAdjustmentBehavior:            container.attributeIfPresent(of: .contentInsetAdjustmentBehavior)
         )
     }
 }
