@@ -52,6 +52,9 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var canCancelContentTouches: Bool?
     public var inset: Inset?
     public var contentInsetAdjustmentBehavior: String?
+    public var directionalEdgeInsets: DirectionalEdgeInsets?
+    public var edgeInsets: EdgeInset?
+    
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -119,7 +122,9 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
             delaysContentTouches:                      container.attributeIfPresent(of: .delaysContentTouches),
             canCancelContentTouches:                   container.attributeIfPresent(of: .canCancelContentTouches),
             inset:                                     container.elementIfPresent(of: .inset),
-            contentInsetAdjustmentBehavior:            container.attributeIfPresent(of: .contentInsetAdjustmentBehavior)
+            contentInsetAdjustmentBehavior:            container.attributeIfPresent(of: .contentInsetAdjustmentBehavior),
+            directionalEdgeInsets:                     container.elementIfPresent(of: .directionalEdgeInsets),
+            edgeInsets:                                container.elementIfPresent(of: .edgeInsets)
         )
     }
 }
