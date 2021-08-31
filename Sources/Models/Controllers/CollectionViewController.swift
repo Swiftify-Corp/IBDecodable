@@ -22,7 +22,7 @@ public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
     public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
     public var connections: [AnyConnection]?
     public var keyCommands: [KeyCommand]?
-    public var tabBarItem: TabBar.TabBarItem?
+    public var tabBarItem: TabBarItem?
     public var collectionView: CollectionView?
     public var rootView: ViewProtocol? { return collectionView }
     public var clearsSelectionOnViewWillAppear: Bool

@@ -22,7 +22,7 @@ public struct TabBarController: IBDecodable, ViewControllerProtocol {
     public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
     public var connections: [AnyConnection]?
     public var keyCommands: [KeyCommand]?
-    public var tabBarItem: TabBar.TabBarItem?
+    public var tabBarItem: TabBarItem?
     public var tabBar: TabBar?
     public var rootView: ViewProtocol? { return tabBar }
     public var size: [Size]?

@@ -22,7 +22,7 @@ public struct GLKViewController: IBDecodable, ViewControllerProtocol {
     public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
     public var connections: [AnyConnection]?
     public var keyCommands: [KeyCommand]?
-    public var tabBarItem: TabBar.TabBarItem?
+    public var tabBarItem: TabBarItem?
     public var glkView: GLKView?
     public var rootView: ViewProtocol? { return glkView }
     public var size: [Size]?
