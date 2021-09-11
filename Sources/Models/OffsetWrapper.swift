@@ -16,8 +16,8 @@ public struct OffsetWrapper: IBDecodable, IBKeyable {
         let container = xml.container(keys: CodingKeys.self)
         return OffsetWrapper(
             key: container.attributeIfPresent(of: .key),
-            horizontal: container.attribute(of: .horizontal),
-            vertical: container.attribute(of: .vertical)
+            horizontal: try container.attribute(of: .horizontal),
+            vertical: try container.attribute(of: .vertical)
         )
     }
 }

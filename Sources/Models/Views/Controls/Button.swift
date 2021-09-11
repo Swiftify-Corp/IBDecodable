@@ -46,8 +46,7 @@ public struct Button: IBDecodable, ControlProtocol, IBIdentifiable {
     public var isHighlighted: Bool?
     public var isSelected: Bool?
     public var contentHorizontalAlignment: String?
-    public var contentVerticalAlignment: String?
-     = nil
+    public var contentVerticalAlignment: String? = nil
     
     public struct State: IBDecodable, IBKeyable {
         public var key: String?
