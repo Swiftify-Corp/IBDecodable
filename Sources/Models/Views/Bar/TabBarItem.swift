@@ -19,9 +19,19 @@ public struct TabBarItem: IBDecodable, IBKeyable, IBCustomClassable, IBUserLabel
     public var customModuleProvider: String?
     public var userLabel: String?
     public var colorLabel: String?
+    public var imageReferences: [ImageReference]?
 
     static func decode(_ xml: XMLIndexerType) throws -> TabBarItem {
-        let container = xml.container(keys: CodingKeys.self)
+        let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
+            let stringValue: String = {
+                switch key {
+                case .imageReferences: return "imageReference"
+                default: return key.stringValue
+                }
+            }()
+            return MappedCodingKey(stringValue: stringValue)
+        }
+
         return TabBarItem(
             id:         try container.attribute(of: .id),
             key:        container.attributeIfPresent(of: .key),
@@ -32,7 +42,8 @@ public struct TabBarItem: IBDecodable, IBKeyable, IBCustomClassable, IBUserLabel
             customModule:         container.attributeIfPresent(of: .customModule),
             customModuleProvider: container.attributeIfPresent(of: .customModuleProvider),
             userLabel:            container.attributeIfPresent(of: .userLabel),
-            colorLabel:           container.attributeIfPresent(of: .colorLabel)
+            colorLabel:           container.attributeIfPresent(of: .colorLabel),
+            imageReferences:                           container.elementsIfPresent(of: .imageReferences)
         )
     }
 }
