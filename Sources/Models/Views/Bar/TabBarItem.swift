@@ -20,6 +20,7 @@ public struct TabBarItem: IBDecodable, IBKeyable, IBCustomClassable, IBUserLabel
     public var userLabel: String?
     public var colorLabel: String?
     public var imageReferences: [ImageReference]?
+    public var offsetWrapper: OffsetWrapper?
 
     static func decode(_ xml: XMLIndexerType) throws -> TabBarItem {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -33,17 +34,18 @@ public struct TabBarItem: IBDecodable, IBKeyable, IBCustomClassable, IBUserLabel
         }
 
         return TabBarItem(
-            id:         try container.attribute(of: .id),
-            key:        container.attributeIfPresent(of: .key),
-            style:      container.attributeIfPresent(of: .style),
-            systemItem: container.attributeIfPresent(of: .systemItem),
-            title:      container.attributeIfPresent(of: .title),
+            id:               try container.attribute(of: .id),
+            key:                  container.attributeIfPresent(of: .key),
+            style:                container.attributeIfPresent(of: .style),
+            systemItem:           container.attributeIfPresent(of: .systemItem),
+            title:                container.attributeIfPresent(of: .title),
             customClass:          container.attributeIfPresent(of: .customClass),
             customModule:         container.attributeIfPresent(of: .customModule),
             customModuleProvider: container.attributeIfPresent(of: .customModuleProvider),
             userLabel:            container.attributeIfPresent(of: .userLabel),
             colorLabel:           container.attributeIfPresent(of: .colorLabel),
-            imageReferences:                           container.elementsIfPresent(of: .imageReferences)
+            imageReferences:      container.elementsIfPresent(of: .imageReferences),
+            offsetWrapper:        container.elementIfPresent(of: .offsetWrapper)
         )
     }
 }
