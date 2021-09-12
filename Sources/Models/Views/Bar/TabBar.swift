@@ -39,7 +39,12 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var alpha: Float?
     public var barStyle: String?
     public var itemPositioning: String?
-
+    public var barTintColor: Color?
+    public var backgroundImage: String?
+    public var shadowImage: String?
+    public var itemSpacing: String?
+    public var itemWidth: String?
+    
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
@@ -93,7 +98,12 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             barStyle:                                  container.attributeIfPresent(of: .barStyle),
-            itemPositioning:                           container.attributeIfPresent(of: .itemPositioning)
+            itemPositioning:                           container.attributeIfPresent(of: .itemPositioning),
+            barTintColor:                              colorsContainer?.withAttributeElement(.key, CodingKeys.barTintColor.stringValue),
+            backgroundImage:                           container.attributeIfPresent(of: .backgroundImage),
+            shadowImage:                               container.attributeIfPresent(of: .shadowImage),
+            itemSpacing:                               container.attributeIfPresent(of: .itemSpacing),
+            itemWidth:                                 container.attributeIfPresent(of: .itemWidth)
         )
     }
 }
