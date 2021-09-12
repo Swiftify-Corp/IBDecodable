@@ -49,9 +49,9 @@ public struct TabBarItem: IBDecodable, IBKeyable, IBCustomClassable, IBUserLabel
             colorLabel:           container.attributeIfPresent(of: .colorLabel),
             imageReferences:      container.elementsIfPresent(of: .imageReferences),
             offsetWrapper:        container.elementIfPresent(of: .offsetWrapper),
-            image:                container.elementIfPresent(of: .image),
-            selectedImage:        container.elementIfPresent(of: .selectedImage),
-            catalog:              container.elementIfPresent(of: .catalog)
+            image:                container.attributeIfPresent(of: .image),
+            selectedImage:        container.attributeIfPresent(of: .selectedImage),
+            catalog:              container.attributeIfPresent(of: .catalog)
         )
     }
 }
