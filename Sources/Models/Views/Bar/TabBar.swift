@@ -92,8 +92,8 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            barStyle:                                  container.elementIfPresent(of: .barStyle),
-            itemPositioning:                           container.elementIfPresent(of: .itemPositioning)
+            barStyle:                                  container.attributeIfPresent(of: .barStyle),
+            itemPositioning:                           container.attributeIfPresent(of: .itemPositioning)
         )
     }
 }
