@@ -21,6 +21,9 @@ public struct TabBarItem: IBDecodable, IBKeyable, IBCustomClassable, IBUserLabel
     public var colorLabel: String?
     public var imageReferences: [ImageReference]?
     public var offsetWrapper: OffsetWrapper?
+    public var image: String?
+    public var selectedImage: String?
+    public var catalog: String?
 
     static func decode(_ xml: XMLIndexerType) throws -> TabBarItem {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -45,7 +48,10 @@ public struct TabBarItem: IBDecodable, IBKeyable, IBCustomClassable, IBUserLabel
             userLabel:            container.attributeIfPresent(of: .userLabel),
             colorLabel:           container.attributeIfPresent(of: .colorLabel),
             imageReferences:      container.elementsIfPresent(of: .imageReferences),
-            offsetWrapper:        container.elementIfPresent(of: .offsetWrapper)
+            offsetWrapper:        container.elementIfPresent(of: .offsetWrapper),
+            image:                container.elementIfPresent(of: .image),
+            selectedImage:        container.elementIfPresent(of: .selectedImage),
+            catalog:              container.elementIfPresent(of: .catalog)
         )
     }
 }
