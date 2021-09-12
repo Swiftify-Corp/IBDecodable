@@ -38,6 +38,7 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var barStyle: String?
+    public var itemPositioning: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -91,7 +92,8 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            barStyle:                                  container.elementIfPresent(of: .barStyle)
+            barStyle:                                  container.elementIfPresent(of: .barStyle),
+            itemPositioning:                           container.elementIfPresent(of: .itemPositioning)
         )
     }
 }
