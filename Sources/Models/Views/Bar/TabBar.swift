@@ -107,7 +107,7 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
             itemSpacing:                               container.attributeIfPresent(of: .itemSpacing),
             itemWidth:                                 container.attributeIfPresent(of: .itemWidth),
             selectedImageTintColor:                    colorsContainer?.withAttributeElement(.key, CodingKeys.selectedImageTintColor.stringValue),
-            translucent:                               container.elementIfPresent(of: .translucent)
+            translucent:                               container.attributeIfPresent(of: .translucent)
         )
     }
 }
