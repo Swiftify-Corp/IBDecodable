@@ -110,6 +110,7 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
                 case .isDirectionalLockEnabled: return "directionalLockEnabled"
                 case ._subviews: return "subviews"
                 case .headersFooters: return "view"
+                case .separatorInset: return "inset"
                 default: return key.stringValue
                 }
             }()
