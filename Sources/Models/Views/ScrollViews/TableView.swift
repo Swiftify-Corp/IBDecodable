@@ -63,6 +63,11 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var tintColor: Color?
     public var hidden: Bool?
     public var alpha: Float?
+    public var indicatorStyle: String?
+    public var separatorColor: Color?
+    public var separatorInsetReference: String?
+    public var separatorInset: Inset?
+    public var keyboardDismissMode: String?
 
     public enum DataMode: XMLAttributeDecodable, KeyDecodable, Equatable {
         case `static`, prototypes
@@ -164,7 +169,12 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
-            alpha:                                     container.attributeIfPresent(of: .alpha)
+            alpha:                                     container.attributeIfPresent(of: .alpha),
+            indicatorStyle:                            container.attributeIfPresent(of: .indicatorStyle),
+            separatorColor:                            colorsContainer?.withAttributeElement(.key, CodingKeys.separatorColor.stringValue),
+            separatorInsetReference:                   container.attributeIfPresent(of: .separatorInsetReference),
+            separatorInset:                            container.elementIfPresent(of: .separatorInset),
+            keyboardDismissMode:                       container.attributeIfPresent(of: .keyboardDismissMode)
         )
     }
 }
