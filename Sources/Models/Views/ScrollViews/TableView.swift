@@ -51,6 +51,7 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var bouncesZoom: Bool?
     public var bounces: Bool?
     public var alwaysBounceVertical: Bool?
+    public var alwaysBounceHorizontal: Bool?
     public var keyboardDismissMode: String?
     public var showsVerticalScrollIndicator: Bool?
     public var showsHorizontalScrollIndicator: Bool?
@@ -152,6 +153,7 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
             bouncesZoom:                               container.attributeIfPresent(of: .bouncesZoom),
             bounces:                                   container.attributeIfPresent(of: .bounces),
             alwaysBounceVertical:                      container.attributeIfPresent(of: .alwaysBounceVertical),
+            alwaysBounceHorizontal:                    container.attributeIfPresent(of: .alwaysBounceHorizontal),
             keyboardDismissMode:                       container.attributeIfPresent(of: .keyboardDismissMode),
             showsVerticalScrollIndicator:              container.attributeIfPresent(of: .showsVerticalScrollIndicator),
             showsHorizontalScrollIndicator:            container.attributeIfPresent(of: .showsHorizontalScrollIndicator),
