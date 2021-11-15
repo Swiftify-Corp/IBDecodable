@@ -67,6 +67,9 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var separatorColor: Color?
     public var separatorInsetReference: String?
     public var separatorInset: Inset?
+    
+    public var allowsSelection: Bool?
+    public var allowsMultipleSelection: Bool?
 
     public enum DataMode: XMLAttributeDecodable, KeyDecodable, Equatable {
         case `static`, prototypes
@@ -173,7 +176,9 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
             indicatorStyle:                            container.attributeIfPresent(of: .indicatorStyle),
             separatorColor:                            colorsContainer?.withAttributeElement(.key, CodingKeys.separatorColor.stringValue),
             separatorInsetReference:                   container.attributeIfPresent(of: .separatorInsetReference),
-            separatorInset:                            container.elementIfPresent(of: .separatorInset)
+            separatorInset:                            container.elementIfPresent(of: .separatorInset),
+            allowsSelection:                           container.attributeIfPresent(of: .allowsSelection),
+            allowsMultipleSelection:                   container.attributeIfPresent(of: .allowsMultipleSelection)
         )
     }
 }
