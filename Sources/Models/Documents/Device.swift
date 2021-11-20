@@ -11,6 +11,7 @@ public struct Device: IBDecodable, IBIdentifiable {
 
     public var id: String
     public var orientation: String?
+    public var appearance: String?
     public var adaptation: Adaptation?
 
     static func decode(_ xml: XMLIndexerType) throws -> Device {
@@ -18,6 +19,7 @@ public struct Device: IBDecodable, IBIdentifiable {
         return Device(
             id:          try container.attribute(of: .id),
             orientation: container.attributeIfPresent(of: .orientation),
+            appearance:  container.attributeIfPresent(of: .appearance),
             adaptation:  container.elementIfPresent(of: .adaptation)
         )
     }
