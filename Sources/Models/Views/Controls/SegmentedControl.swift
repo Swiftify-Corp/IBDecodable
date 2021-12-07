@@ -17,6 +17,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     public var clipsSubviews: Bool?
     public var constraints: [Constraint]?
     public var contentMode: String?
+    
     public var customClass: String?
     public var customModule: String?
     public var customModuleProvider: String?
@@ -38,6 +39,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     public var variations: [Variation]?
     public var backgroundColor: Color?
     public var tintColor: Color?
+    public var selectedSegmentTintColor: Color?
     
     public var isEnabled: Bool?
     public var isHighlighted: Bool?
@@ -47,14 +49,23 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     
     public var hidden: Bool?
     public var alpha: Float?
-    
+    public var toolTip: String?
+    public var apportionsSegmentWidthsByContent: Bool?
     
     public struct Segment: IBDecodable {
         public var title: String
+        public var imageReference: ImageReference?
+        public var width: String?
+        public var size: OffsetWrapper?
         
         static func decode(_ xml: XMLIndexerType) throws -> SegmentedControl.Segment {
             let container = xml.container(keys: CodingKeys.self)
-            return try Segment(title: container.attribute(of: .title))
+            return try Segment(
+                title: container.attribute(of: .title),
+                imageReference: container.elementIfPresent(of: .imageReference),
+                width: container.attributeIfPresent(of: .width),
+                size: container.elementIfPresent(of: .size)
+            )
         }
     }
     
@@ -113,13 +124,15 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
             variations:                                variationContainer.elementsIfPresent(of: .variation),
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
+            selectedSegmentTintColor:                  colorsContainer?.withAttributeElement(.key, CodingKeys.selectedSegmentTintColor.stringValue),
             isEnabled:                                 container.attributeIfPresent(of: .isEnabled),
             isHighlighted:                             container.attributeIfPresent(of: .isHighlighted),
             isSelected:                                container.attributeIfPresent(of: .isSelected),
             contentHorizontalAlignment:                container.attributeIfPresent(of: .contentHorizontalAlignment),
             contentVerticalAlignment:                  container.attributeIfPresent(of: .contentVerticalAlignment),
             hidden:                                    container.attributeIfPresent(of: .hidden),
-            alpha:                                     container.attributeIfPresent(of: .alpha)
+            alpha:                                     container.attributeIfPresent(of: .alpha),
+            toolTip:                                   container.attributeIfPresent(of: .toolTip)
         )
     }
     
