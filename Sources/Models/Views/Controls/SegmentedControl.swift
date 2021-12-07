@@ -51,6 +51,9 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     public var alpha: Float?
     public var toolTip: String?
     public var apportionsSegmentWidthsByContent: Bool?
+
+    public var isMomentary: Bool?
+    public var isSpringLoaded: Bool?
     
     public struct Segment: IBDecodable {
         public var title: String
@@ -93,6 +96,8 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
                     case .isEnabled: return "enabled"
                     case .isHighlighted: return "highlighted"
                     case .isSelected: return "selected"
+                    case .isMomentary: return "momentary"
+                    case .isSpringLoaded: return "springLoaded"
                     default: return key.stringValue
                 }
             }()
@@ -141,7 +146,9 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
             contentVerticalAlignment:                  container.attributeIfPresent(of: .contentVerticalAlignment),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            toolTip:                                   container.attributeIfPresent(of: .toolTip)
+            toolTip:                                   container.attributeIfPresent(of: .toolTip),
+            isMomentary:                               container.attributeIfPresent(of: .isMomentary),
+            isSpringLoaded:                            container.attributeIfPresent(of: .isSpringLoaded)
         )
     }
     

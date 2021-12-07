@@ -52,11 +52,11 @@ class Tests: XCTestCase {
             let file = try StoryboardFile(url: url)
             let document = file.document
             
+            
+            
             for view in document.scenes?.first?.viewController?.nested.rootView?.subviews ?? [] {
                 if let segmentControl = view.view as? SegmentedControl {
-                    for segment in segmentControl.segments {
-                        print (segment)
-                    }
+                    print (segmentControl)
                 }
             }
             
