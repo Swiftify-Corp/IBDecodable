@@ -51,12 +51,12 @@ class Tests: XCTestCase {
         do {
             let file = try StoryboardFile(url: url)
             let document = file.document
-            
-            
-            
+                        
             for view in document.scenes?.first?.viewController?.nested.rootView?.subviews ?? [] {
                 if let segmentControl = view.view as? SegmentedControl {
-                    print (segmentControl)
+                    for segment in segmentControl.segments {
+                        print (segment.contentOffset)
+                    }
                 }
             }
             

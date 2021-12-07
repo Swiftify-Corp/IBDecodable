@@ -7,8 +7,8 @@
 
 public struct ContentOffset: IBDecodable, IBKeyable {
     public var key: String?
-    public var width: String?
-    public var height: String?
+    public var width: Float?
+    public var height: Float?
     
     static func decode(_ xml: XMLIndexerType) throws -> ContentOffset {
         let container = xml.container(keys: CodingKeys.self)
