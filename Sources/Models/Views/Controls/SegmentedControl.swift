@@ -55,32 +55,6 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     public var isMomentary: Bool?
     public var isSpringLoaded: Bool?
     
-    public struct Segment: IBDecodable {
-        public var title: String
-        public var imageReference: ImageReference?
-        public var width: String?
-        public var contentOffset: ContentOffset?
-        
-        static func decode(_ xml: XMLIndexerType) throws -> SegmentedControl.Segment {
-            let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
-                let stringValue: String = {
-                    switch key {
-                        case .contentOffset: return "size"
-                        default: return key.stringValue
-                    }
-                }()
-                return MappedCodingKey(stringValue: stringValue)
-            }
-            
-            return try Segment(
-                title: container.attribute(of: .title),
-                imageReference: container.elementIfPresent(of: .imageReference),
-                width: container.attributeIfPresent(of: .width),
-                contentOffset: container.elementIfPresent(of: .contentOffset)
-            )
-        }
-    }
-    
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
