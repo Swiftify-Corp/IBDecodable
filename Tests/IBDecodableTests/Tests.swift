@@ -45,6 +45,27 @@ class Tests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+    
+    func testSegmentControl() {
+        let url = self.url(forResource:"Main", withExtension: "storyboard")
+        do {
+            let file = try StoryboardFile(url: url)
+            let document = file.document
+            
+            for view in document.scenes?.first?.viewController?.nested.rootView?.subviews ?? [] {
+                if let segmentControl = view.view as? SegmentedControl {
+                    for segment in segmentControl.segments {
+                        print (segment)
+                    }
+                }
+            }
+            
+            XCTAssertFalse(document.launchScreen)
+        } catch {
+            XCTFail("\(error)")
+        }
+
+    }
 
     func testStoryboardWithAsset() {
         let url = self.url(forResource:"StoryboardAsset", withExtension: "storyboard")
