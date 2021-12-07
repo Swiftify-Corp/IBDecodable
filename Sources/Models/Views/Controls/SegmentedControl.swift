@@ -56,7 +56,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
         public var title: String
         public var imageReference: ImageReference?
         public var width: String?
-        public var size: ContentOffset?
+        public var contentOffset: ContentOffset?
         
         static func decode(_ xml: XMLIndexerType) throws -> SegmentedControl.Segment {
             let container = xml.container(keys: CodingKeys.self)
@@ -64,7 +64,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
                 title: container.attribute(of: .title),
                 imageReference: container.elementIfPresent(of: .imageReference),
                 width: container.attributeIfPresent(of: .width),
-                size: container.elementIfPresent(of: .size)
+                contentOffset: container.elementIfPresent(of: .contentOffset)
             )
         }
     }
