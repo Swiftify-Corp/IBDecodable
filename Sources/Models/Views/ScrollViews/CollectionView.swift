@@ -153,6 +153,17 @@ public struct Cells: IBDecodable {
     }
 }
 
+enum CollectionViewCellSource {
+    case storyboard
+    case xib
+}
+
+let parsingMetaData = ParsingMetaData()
+
+class ParsingMetaData {
+    var collectionViewSource = CollectionViewCellSource.xib
+}
+
 public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusable {
     public var id: String
     public var elementClass: String = "UICollectionViewCell"
@@ -219,7 +230,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
                 case ._subviews: return "subview"
-                case .contentView: return "collectionViewCellContentView"
+                case .contentView: return parsingMetaData.collectionViewSource == .storyboard ? "collectionViewCellContentView" : "view"
                 default: return key.stringValue
                 }
             }()

@@ -55,13 +55,18 @@ public struct AnyView: IBDecodable {
         guard let elementName = xml.elementName else {
             throw IBError.elementNotFound
         }
+        
         switch elementName {
         case "activityIndicatorView":    return try AnyView(ActivityindicatorView.decode(xml))
         case "arscnView":                return try AnyView(ARSCNView.decode(xml))
         case "arskView":                 return try AnyView(ARSKView.decode(xml))
         case "button":                   return try AnyView(Button.decode(xml))
-        case "collectionView":           return try AnyView(CollectionView.decode(xml))
-        case "collectionViewCell":       return try AnyView(CollectionViewCell.decode(xml))
+        case "collectionView":
+                parsingMetaData.collectionViewSource = .storyboard
+                return try AnyView(CollectionView.decode(xml))
+        case "collectionViewCell":
+                parsingMetaData.collectionViewSource = .xib
+                return try AnyView(CollectionViewCell.decode(xml))
         case "collectionReusableView":   return try AnyView(CollectionReusableView.decode(xml))
         case "containerView":            return try AnyView(View.decode(xml))
         case "datePicker":               return try AnyView(DatePicker.decode(xml))

@@ -46,18 +46,31 @@ class Tests: XCTestCase {
         }
     }
     
+    func testCollectionViewCell() {
+        let url = self.url(forResource:"NewCollectionViewCell", withExtension: "xib")
+        do {
+            let file = try XibFile(url: url)
+            let document = file.document
+            
+            print(document.children)
+                        
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+    
     func testCollectionView() {
         let url = self.url(forResource:"CollectionView", withExtension: "storyboard")
         do {
             let file = try StoryboardFile(url: url)
             let document = file.document
-                        
+
             for view in document.scenes?.first?.viewController?.nested.rootView?.subviews ?? [] {
                 if let collectionView = view.view as? CollectionView {
                     print (collectionView.cells)
                 }
             }
-            
+
             XCTAssertFalse(document.launchScreen)
         } catch {
             XCTFail("\(error)")
