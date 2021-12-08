@@ -46,17 +46,15 @@ class Tests: XCTestCase {
         }
     }
     
-    func testSegmentControl() {
-        let url = self.url(forResource:"Main", withExtension: "storyboard")
+    func testCollectionView() {
+        let url = self.url(forResource:"CollectionView", withExtension: "storyboard")
         do {
             let file = try StoryboardFile(url: url)
             let document = file.document
                         
             for view in document.scenes?.first?.viewController?.nested.rootView?.subviews ?? [] {
-                if let segmentControl = view.view as? SegmentedControl {
-                    for segment in segmentControl.segments {
-                        print (segment.contentOffset)
-                    }
+                if let collectionView = view.view as? CollectionView {
+                    print (collectionView.cells)
                 }
             }
             
@@ -64,7 +62,6 @@ class Tests: XCTestCase {
         } catch {
             XCTFail("\(error)")
         }
-
     }
 
     func testStoryboardWithAsset() {

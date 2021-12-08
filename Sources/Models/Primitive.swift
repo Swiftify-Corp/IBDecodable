@@ -134,6 +134,22 @@ public struct IBDate: IBDecodable, IBKeyable {
 
 }
 
+// MARK: - Locale
+
+public struct IBLocale: IBDecodable {
+    
+    public var key: String?
+    public var localeIdentifier: String?
+    
+    static func decode(_ xml: XMLIndexerType) throws -> IBLocale {
+        let container = xml.container(keys: CodingKeys.self)
+        return IBLocale(
+            key:                            container.attributeIfPresent(of: .key),
+            localeIdentifier:               container.attributeIfPresent(of: .localeIdentifier)
+        )
+    }
+}
+
 // MARK: - Array
 
 public struct IBArray: IBDecodable, IBKeyable {

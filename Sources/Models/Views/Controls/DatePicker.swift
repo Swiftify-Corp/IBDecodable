@@ -54,10 +54,11 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
     public var countDownDuration: Int?
     public var minimumDate: IBDate?
     public var maximumDate: IBDate?
+    public var locale: IBLocale?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
-    enum ExternalCodingKeys: CodingKey { case color, date }
+    enum ExternalCodingKeys: CodingKey { case color, date, locale }
     enum ColorsCodingKeys: CodingKey { case key }
     enum DateCodingKeys: CodingKey { case key }
 
@@ -123,7 +124,8 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
             useCurrentDate:                            container.attributeIfPresent(of: .useCurrentDate),
             countDownDuration:                         container.attributeIfPresent(of: .countDownDuration),
             minimumDate:                               dateContainer?.withAttributeElement(.key, CodingKeys.minimumDate.stringValue),
-            maximumDate:                               dateContainer?.withAttributeElement(.key, CodingKeys.maximumDate.stringValue)
+            maximumDate:                               dateContainer?.withAttributeElement(.key, CodingKeys.maximumDate.stringValue),
+            locale:                                    container.elementIfPresent(of: .locale)
         )
     }
 }
