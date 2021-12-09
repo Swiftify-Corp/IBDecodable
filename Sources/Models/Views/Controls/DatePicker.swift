@@ -51,7 +51,7 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
 
     public var style: String?
     public var useCurrentDate: Bool?
-    public var countDownDuration: Int?
+    public var countDownDuration: String?
     public var minimumDate: IBDate?
     public var maximumDate: IBDate?
     public var locale: IBLocale?

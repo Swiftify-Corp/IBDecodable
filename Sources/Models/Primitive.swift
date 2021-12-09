@@ -122,13 +122,13 @@ public struct IBString: IBDecodable, IBKeyable {
 public struct IBDate: IBDecodable, IBKeyable {
 
     public var key: String?
-    public var timeIntervalSinceReferenceDate: String?
+    public var timeIntervalSinceReferenceDate: String
 
     static func decode(_ xml: XMLIndexerType) throws -> IBDate {
         let container = xml.container(keys: CodingKeys.self)
         return IBDate(
             key:                            container.attributeIfPresent(of: .key),
-            timeIntervalSinceReferenceDate: container.attributeIfPresent(of: .timeIntervalSinceReferenceDate)
+            timeIntervalSinceReferenceDate: try container.attribute(of: .timeIntervalSinceReferenceDate)
         )
     }
 
