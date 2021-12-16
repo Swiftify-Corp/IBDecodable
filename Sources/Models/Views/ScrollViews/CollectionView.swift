@@ -198,6 +198,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
     public var hidden: Bool?
     public var alpha: Float?
     public var multipleTouchEnabled: String?
+    public var size: Size?
 
     public var children: [IBElement] {
         // do not let default implementation which lead to duplicate element contentView
@@ -269,7 +270,8 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
-            alpha:                                     container.attributeIfPresent(of: .alpha)
+            alpha:                                     container.attributeIfPresent(of: .alpha),
+            size:                                      container.elementIfPresent(of: .size)
         )
     }
 }
