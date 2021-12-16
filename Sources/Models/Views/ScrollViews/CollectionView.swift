@@ -141,14 +141,13 @@ public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
 }
 
 // MARK: - CollectionViewCell
-
 public struct Cells: IBDecodable {
-    public var collectionViewCell: CollectionViewCell?
+    public var collectionViewCell: [CollectionViewCell]?
     
     static func decode(_ xml: XMLIndexerType) throws -> Cells {
         let container = xml.container(keys: CodingKeys.self)
         return Cells(
-            collectionViewCell: container.elementIfPresent(of: .collectionViewCell)
+            collectionViewCell: container.elementsIfPresent(of: .collectionViewCell)
         )
     }
 }
