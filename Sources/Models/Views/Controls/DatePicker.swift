@@ -130,7 +130,7 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
         )
     }
     
-    func getDatePickerMode() -> String? {
+    public func getDatePickerMode() -> String? {
         return datePickerMode == "countDownTimer" ? "countdownTimer" :  datePickerMode
     }
 }
