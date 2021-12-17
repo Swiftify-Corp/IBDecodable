@@ -51,7 +51,7 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
 
     public var style: String?
     public var useCurrentDate: Bool?
-    public var countdownDuration: Int?
+    public var countDownDuration: Int?
     public var minimumDate: IBDate?
     public var maximumDate: IBDate?
     public var locale: IBLocale?
@@ -71,7 +71,6 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
                 case .isEnabled: return "enabled"
                 case .isHighlighted: return "highlighted"
                 case .isSelected: return "selected"
-                case .countdownDuration: return "countDownDuration"
                 default: return key.stringValue
                 }
             }()
@@ -123,7 +122,7 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
             alpha:                                     container.attributeIfPresent(of: .alpha),
             style:                                     container.attributeIfPresent(of: .style),
             useCurrentDate:                            container.attributeIfPresent(of: .useCurrentDate),
-            countdownDuration:                         container.attributeIfPresent(of: .countdownDuration),
+            countDownDuration:                         container.attributeIfPresent(of: .countDownDuration),
             minimumDate:                               dateContainer?.withAttributeElement(.key, CodingKeys.minimumDate.stringValue),
             maximumDate:                               dateContainer?.withAttributeElement(.key, CodingKeys.maximumDate.stringValue),
             locale:                                    container.elementIfPresent(of: .locale)
