@@ -417,7 +417,7 @@ class Tests: XCTestCase {
                 XCTFail("The root view should be a collection view cell")
                 return
             }
-            XCTAssertEqual(cell.contentView.key, "contentView")
+            XCTAssertEqual(cell.contentView?.key, "contentView")
         } catch {
             XCTFail("\(error)  \(url)")
         }

@@ -171,7 +171,8 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
     public var autoresizingMask: AutoresizingMask?
     public var clipsSubviews: Bool?
     public var constraints: [Constraint]?
-    public var contentView: CollectionViewContentView
+    public var contentView: CollectionViewContentView?
+    public var subView: CollectionViewContentView?
     public var contentMode: String?
     public var customClass: String?
     public var customModule: String?
@@ -185,7 +186,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
     public var rect: Rect?
     private let _subviews: [AnyView]?
     public var subviews: [AnyView]? {
-        return (_subviews ?? []) + [AnyView(contentView)]
+        return (_subviews ?? []) + getContentView()
     }
     public var translatesAutoresizingMaskIntoConstraints: Bool?
     public var userInteractionEnabled: Bool?
@@ -199,10 +200,22 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
     public var alpha: Float?
     public var multipleTouchEnabled: String?
     public var size: Size?
+    
+    private func getContentView() -> [AnyView] {
+        if let contentView = contentView {
+            return [AnyView(contentView)]
+        }
+        
+        if let contentView = subView {
+            return [AnyView(contentView)]
+        }
+        
+        return []
+    }
 
     public var children: [IBElement] {
         // do not let default implementation which lead to duplicate element contentView
-        var children: [IBElement] = [contentView] + (rect.map { [$0] } ?? [])
+        var children: [IBElement] = getContentView() + (rect.map { [$0] } ?? [])
         if let elements = constraints {
             children += elements as [IBElement]
         }
@@ -230,7 +243,9 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
                 case ._subviews: return "subview"
-                case .contentView: return parsingMetaData.collectionViewSource == .storyboard ? "collectionViewCellContentView" : "view"
+                case .contentView: return "collectionViewCellContentView"
+                case .subView: return "view"
+                //return parsingMetaData.collectionViewSource == .storyboard ? "collectionViewCellContentView" : "view"
                 default: return key.stringValue
                 }
             }()
