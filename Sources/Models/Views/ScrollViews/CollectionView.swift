@@ -243,9 +243,8 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
                 case ._subviews: return "subview"
-                case .contentView: return "collectionViewCellContentView"
+                case .contentView: return parsingMetaData.collectionViewSource == .xib ? "view" : "collectionViewCellContentView"
                 case .subView: return "view"
-                //return parsingMetaData.collectionViewSource == .storyboard ? "collectionViewCellContentView" : "view"
                 default: return key.stringValue
                 }
             }()
