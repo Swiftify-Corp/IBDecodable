@@ -62,10 +62,8 @@ public struct AnyView: IBDecodable {
         case "arskView":                 return try AnyView(ARSKView.decode(xml))
         case "button":                   return try AnyView(Button.decode(xml))
         case "collectionView":
-                parsingMetaData.collectionViewSource = .storyboard
                 return try AnyView(CollectionView.decode(xml))
         case "collectionViewCell":
-                parsingMetaData.collectionViewSource = .xib
                 return try AnyView(CollectionViewCell.decode(xml))
         case "collectionReusableView":   return try AnyView(CollectionReusableView.decode(xml))
         case "containerView":            return try AnyView(View.decode(xml))

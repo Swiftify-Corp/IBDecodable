@@ -34,6 +34,23 @@ class Tests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+    
+    func testCollectionViewController() {
+        let url = self.url(forResource:"CollectionViewController", withExtension: "storyboard")
+        do {
+            let file = try StoryboardFile(url: url)
+            let document = file.document
+            print(document.targetRuntime)
+            
+            if let collectionView = (document.scenes?.first?.viewController?.nested as? CollectionViewController)?.collectionView {
+                print (collectionView.cells)
+            }
+            
+            XCTAssertTrue(document.launchScreen)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
 
     func testEmptyStoryboard() {
         let url = self.url(forResource:"StoryboardEmpty", withExtension: "storyboard")

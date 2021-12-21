@@ -152,17 +152,6 @@ public struct Cells: IBDecodable {
     }
 }
 
-enum CollectionViewCellSource {
-    case storyboard
-    case xib
-}
-
-let parsingMetaData = ParsingMetaData()
-
-class ParsingMetaData {
-    var collectionViewSource = CollectionViewCellSource.xib
-}
-
 public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusable {
     public var id: String
     public var elementClass: String = "UICollectionViewCell"
@@ -173,6 +162,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
     public var constraints: [Constraint]?
     public var contentView: CollectionViewContentView?
     public var subView: CollectionViewContentView?
+    public var xibView: CollectionViewContentView?
     public var contentMode: String?
     public var customClass: String?
     public var customModule: String?
@@ -243,8 +233,11 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
                 case ._subviews: return "subview"
-                case .contentView: return parsingMetaData.collectionViewSource == .xib ? "view" : "collectionViewCellContentView"
-                case .subView: return "view"
+                // for cell inside collection view inside storyboard
+                case .contentView: return  "collectionViewCellContentView"
+                // for xib
+                case .xibView: return "view"
+                case .subView: return "contentView"//return parsingMetaData.isCollectionViewController ? "contentView" : "view"
                 default: return key.stringValue
                 }
             }()
@@ -262,7 +255,8 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
             autoresizingMask:                          container.elementIfPresent(of: .autoresizingMask),
             clipsSubviews:                             container.attributeIfPresent(of: .clipsSubviews),
             constraints:                               constraintsContainer?.elementsIfPresent(of: .constraint),
-            contentView:                               try container.element(of: .contentView),
+            contentView:                               container.elementIfPresent(of: .contentView),
+            subView:                                   container.elementIfPresent(of: .subView),
             contentMode:                               container.attributeIfPresent(of: .contentMode),
             customClass:                               container.attributeIfPresent(of: .customClass),
             customModule:                              container.attributeIfPresent(of: .customModule),
