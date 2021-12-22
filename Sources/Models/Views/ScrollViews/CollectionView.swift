@@ -200,6 +200,10 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
             return [AnyView(contentView)]
         }
         
+        if let xibView = xibView {
+            return [AnyView(xibView)]
+        }
+        
         return []
     }
 
@@ -257,6 +261,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
             constraints:                               constraintsContainer?.elementsIfPresent(of: .constraint),
             contentView:                               container.elementIfPresent(of: .contentView),
             subView:                                   container.elementIfPresent(of: .subView),
+            xibView:                                   container.elementIfPresent(of: .xibView),
             contentMode:                               container.attributeIfPresent(of: .contentMode),
             customClass:                               container.attributeIfPresent(of: .customClass),
             customModule:                              container.attributeIfPresent(of: .customModule),
