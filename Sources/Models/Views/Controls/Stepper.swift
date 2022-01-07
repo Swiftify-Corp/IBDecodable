@@ -51,6 +51,7 @@ public struct Stepper: IBDecodable, ControlProtocol, IBIdentifiable {
     public var wraps: Bool?
     public var autorepeat: Bool?
     public var continuous: Bool?
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -116,7 +117,8 @@ public struct Stepper: IBDecodable, ControlProtocol, IBIdentifiable {
             alpha:                                     container.attributeIfPresent(of: .alpha),
             wraps:                                     container.attributeIfPresent(of: .wraps),
             autorepeat:                                container.attributeIfPresent(of: .autorepeat),
-            continuous:                                container.attributeIfPresent(of: .continuous)
+            continuous:                                container.attributeIfPresent(of: .continuous),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

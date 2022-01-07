@@ -57,7 +57,7 @@ public struct Slider: IBDecodable, ControlProtocol, IBIdentifiable {
     
     public var hidden: Bool?
     public var alpha: Float?
-    
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -127,7 +127,8 @@ public struct Slider: IBDecodable, ControlProtocol, IBIdentifiable {
             maximumValueImage:                         container.attributeIfPresent(of: .maximumValueImage),
             continuous:                                container.attributeIfPresent(of: .continuous) ?? true,
             hidden:                                    container.attributeIfPresent(of: .hidden),
-            alpha:                                     container.attributeIfPresent(of: .alpha)
+            alpha:                                     container.attributeIfPresent(of: .alpha),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

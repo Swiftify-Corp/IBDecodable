@@ -70,6 +70,7 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
     
     public var allowsSelection: Bool?
     public var allowsMultipleSelection: Bool?
+    public var tag: String?
 
     public enum DataMode: XMLAttributeDecodable, KeyDecodable, Equatable {
         case `static`, prototypes
@@ -178,7 +179,8 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
             separatorInsetReference:                   container.attributeIfPresent(of: .separatorInsetReference),
             separatorInset:                            container.elementIfPresent(of: .separatorInset),
             allowsSelection:                           container.attributeIfPresent(of: .allowsSelection),
-            allowsMultipleSelection:                   container.attributeIfPresent(of: .allowsMultipleSelection)
+            allowsMultipleSelection:                   container.attributeIfPresent(of: .allowsMultipleSelection),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }
@@ -249,6 +251,7 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
     public var tintColor: Color?
     public var hidden: Bool?
     public var alpha: Float?
+    public var tag: String?
 
     public var children: [IBElement] {
         // do not let default implementation which lead to duplicate element contentView
@@ -283,8 +286,8 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
         public var userLabel: String?
         public var colorLabel: String?
         public var isMisplaced: Bool?
-    public var isAmbiguous: Bool?
-    public var verifyAmbiguity: VerifyAmbiguity?
+        public var isAmbiguous: Bool?
+        public var verifyAmbiguity: VerifyAmbiguity?
         public var opaque: Bool?
         public var rect: Rect?
         public var subviews: [AnyView]?
@@ -297,6 +300,7 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
         public var tintColor: Color?
         public var hidden: Bool?
         public var alpha: Float?
+        public var tag: String?
 
         static func decode(_ xml: XMLIndexerType) throws -> TableViewCell.TableViewContentView {
             let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -328,8 +332,8 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
                 userLabel:                                 container.attributeIfPresent(of: .userLabel),
                 colorLabel:                                container.attributeIfPresent(of: .colorLabel),
                 isMisplaced:                               container.attributeIfPresent(of: .isMisplaced),
-            isAmbiguous:                               container.attributeIfPresent(of: .isAmbiguous),
-            verifyAmbiguity:                           container.attributeIfPresent(of: .verifyAmbiguity),
+                isAmbiguous:                               container.attributeIfPresent(of: .isAmbiguous),
+                verifyAmbiguity:                           container.attributeIfPresent(of: .verifyAmbiguity),
                 opaque:                                    container.attributeIfPresent(of: .opaque),
                 rect:                                      container.elementIfPresent(of: .rect),
                 subviews:                                  container.childrenIfPresent(of: .subviews),
@@ -341,7 +345,8 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
                 backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
                 tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
                 hidden:                                    container.attributeIfPresent(of: .hidden),
-                alpha:                                     container.attributeIfPresent(of: .alpha)
+                alpha:                                     container.attributeIfPresent(of: .alpha),
+                tag:                                       container.attributeIfPresent(of: .tag)
             )
         }
     }

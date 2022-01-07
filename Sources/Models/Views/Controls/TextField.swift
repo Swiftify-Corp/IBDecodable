@@ -60,8 +60,8 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
     public var alpha: Float?
     public var textInputTraits: TextInputTraits?
     public var imageReferences: [ImageReference]?
+    public var tag: String?
     
-
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
@@ -135,7 +135,8 @@ public struct TextField: IBDecodable, ControlProtocol, IBIdentifiable {
             clearButtonMode:                           container.attributeIfPresent(of: .clearButtonMode),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             textInputTraits:                           container.elementIfPresent(of: .textInputTraits),
-            imageReferences:                           container.elementsIfPresent(of: .imageReferences)
+            imageReferences:                           container.elementsIfPresent(of: .imageReferences),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

@@ -62,6 +62,7 @@ public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var alpha: Float?
     public var multipleTouchEnabled: Bool?
     public var dataMode: String?
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -135,7 +136,8 @@ public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             multipleTouchEnabled:                      container.attributeIfPresent(of: .multipleTouchEnabled),
-            dataMode:                                  container.attributeIfPresent(of: .dataMode)
+            dataMode:                                  container.attributeIfPresent(of: .dataMode),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }
@@ -190,6 +192,7 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
     public var alpha: Float?
     public var multipleTouchEnabled: String?
     public var size: Size?
+    public var tag: String?
     
     private func getContentView() -> [AnyView] {
         if let contentView = contentView {
@@ -284,7 +287,8 @@ public struct CollectionViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBR
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            size:                                      container.elementIfPresent(of: .size)
+            size:                                      container.elementIfPresent(of: .size),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }
@@ -323,6 +327,7 @@ public struct CollectionViewContentView: IBDecodable, ViewProtocol {
     public var alpha: Float?
     public var multipleTouchEnabled: String?
     public var insetsLayoutMarginsFromSafeArea: String?
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -374,7 +379,8 @@ public struct CollectionViewContentView: IBDecodable, ViewProtocol {
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             multipleTouchEnabled:                      container.attributeIfPresent(of: .multipleTouchEnabled),
-            insetsLayoutMarginsFromSafeArea:           container.attributeIfPresent(of: .insetsLayoutMarginsFromSafeArea)
+            insetsLayoutMarginsFromSafeArea:           container.attributeIfPresent(of: .insetsLayoutMarginsFromSafeArea),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }
@@ -415,6 +421,7 @@ public struct CollectionReusableView: IBDecodable, ViewProtocol, IBIdentifiable,
     public var alpha: Float?
     public var multipleTouchEnabled: String?
     public var insetsLayoutMarginsFromSafeArea: String?
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -468,7 +475,8 @@ public struct CollectionReusableView: IBDecodable, ViewProtocol, IBIdentifiable,
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             multipleTouchEnabled:                      container.attributeIfPresent(of: .multipleTouchEnabled),
-            insetsLayoutMarginsFromSafeArea:           container.attributeIfPresent(of: .insetsLayoutMarginsFromSafeArea)
+            insetsLayoutMarginsFromSafeArea:           container.attributeIfPresent(of: .insetsLayoutMarginsFromSafeArea),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

@@ -54,6 +54,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
 
     public var isMomentary: Bool?
     public var isSpringLoaded: Bool?
+    public var tag: String?
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -122,7 +123,8 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
             alpha:                                     container.attributeIfPresent(of: .alpha),
             toolTip:                                   container.attributeIfPresent(of: .toolTip),
             isMomentary:                               container.attributeIfPresent(of: .isMomentary),
-            isSpringLoaded:                            container.attributeIfPresent(of: .isSpringLoaded)
+            isSpringLoaded:                            container.attributeIfPresent(of: .isSpringLoaded),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
     

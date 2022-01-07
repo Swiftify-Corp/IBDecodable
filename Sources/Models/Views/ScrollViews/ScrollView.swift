@@ -57,6 +57,7 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var preservesSuperviewLayoutMargins: Bool?
     public var layoutMarginsFollowReadableWidth: Bool?
     public var insetsLayoutMarginsFromSafeArea: Bool?
+    public var tag: String?
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -129,7 +130,8 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
             edgeInsets:                                container.elementIfPresent(of: .edgeInsets),
             preservesSuperviewLayoutMargins:           container.attributeIfPresent(of: .preservesSuperviewLayoutMargins),
             layoutMarginsFollowReadableWidth:          container.attributeIfPresent(of: .layoutMarginsFollowReadableWidth),
-            insetsLayoutMarginsFromSafeArea:           container.attributeIfPresent(of: .insetsLayoutMarginsFromSafeArea)
+            insetsLayoutMarginsFromSafeArea:           container.attributeIfPresent(of: .insetsLayoutMarginsFromSafeArea),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

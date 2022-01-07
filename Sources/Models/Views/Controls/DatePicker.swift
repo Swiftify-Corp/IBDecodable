@@ -55,6 +55,7 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
     public var minimumDate: IBDate?
     public var maximumDate: IBDate?
     public var locale: IBLocale?
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -126,7 +127,8 @@ public struct DatePicker: IBDecodable, ControlProtocol, IBIdentifiable {
             countdownDuration:                         container.attributeIfPresent(of: .countdownDuration),
             minimumDate:                               dateContainer?.withAttributeElement(.key, CodingKeys.minimumDate.stringValue),
             maximumDate:                               dateContainer?.withAttributeElement(.key, CodingKeys.maximumDate.stringValue),
-            locale:                                    container.elementIfPresent(of: .locale)
+            locale:                                    container.elementIfPresent(of: .locale),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
     

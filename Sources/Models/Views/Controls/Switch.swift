@@ -50,7 +50,7 @@ public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var preferredStyle: String?
-    
+    public var tag: String?
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -115,7 +115,8 @@ public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
             contentVerticalAlignment:                  container.attributeIfPresent(of: .contentVerticalAlignment),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            preferredStyle:                            container.attributeIfPresent(of: .preferredStyle)
+            preferredStyle:                            container.attributeIfPresent(of: .preferredStyle),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

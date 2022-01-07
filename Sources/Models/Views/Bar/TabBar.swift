@@ -46,6 +46,7 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var itemWidth: String?
     public var selectedImageTintColor: Color?
     public var translucent: Bool?
+    public var tag: String?
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -107,7 +108,8 @@ public struct TabBar: IBDecodable, ViewProtocol, IBIdentifiable {
             itemSpacing:                               container.attributeIfPresent(of: .itemSpacing),
             itemWidth:                                 container.attributeIfPresent(of: .itemWidth),
             selectedImageTintColor:                    colorsContainer?.withAttributeElement(.key, CodingKeys.selectedImageTintColor.stringValue),
-            translucent:                               container.attributeIfPresent(of: .translucent)
+            translucent:                               container.attributeIfPresent(of: .translucent),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

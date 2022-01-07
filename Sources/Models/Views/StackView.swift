@@ -40,7 +40,7 @@ public struct StackView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var spacing: String?
     public var hidden: Bool?
     public var alpha: Float?
-    
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -94,7 +94,8 @@ public struct StackView: IBDecodable, ViewProtocol, IBIdentifiable {
             distribution:                              container.attributeIfPresent(of: .distribution),
             spacing:                                   container.attributeIfPresent(of: .spacing),
             hidden:                                    container.attributeIfPresent(of: .hidden),
-            alpha:                                     container.attributeIfPresent(of: .alpha)
+            alpha:                                     container.attributeIfPresent(of: .alpha),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

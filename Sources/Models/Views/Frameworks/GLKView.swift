@@ -40,7 +40,7 @@ public struct GLKView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var backgroundColor: Color?
     public var tintColor: Color?
     public var hidden: Bool?
-    public var alpha: Float?    
+    public var alpha: Float?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }

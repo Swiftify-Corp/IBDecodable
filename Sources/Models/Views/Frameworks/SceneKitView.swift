@@ -38,6 +38,7 @@ public struct SceneKitView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var backgroundColor: Color?
     public var tintColor: Color?
     public var hidden: Bool?
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -89,7 +90,8 @@ public struct SceneKitView: IBDecodable, ViewProtocol, IBIdentifiable {
             alpha:                                     container.attributeIfPresent(of: .alpha),
             backgroundColor:                           colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
-            hidden:                                    container.attributeIfPresent(of: .hidden)
+            hidden:                                    container.attributeIfPresent(of: .hidden),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }

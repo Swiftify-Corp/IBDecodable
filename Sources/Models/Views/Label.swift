@@ -49,7 +49,7 @@ public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
     public var tintColor: Color?
     public var hidden: Bool?
     public var alpha: Float?
-    
+    public var tag: String?
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -113,7 +113,8 @@ public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
             backgroundColor: colorsContainer?.withAttributeElement(.key, CodingKeys.backgroundColor.stringValue),
             tintColor: colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden: container.attributeIfPresent(of: .hidden),
-            alpha: container.attributeIfPresent(of: .alpha)
+            alpha: container.attributeIfPresent(of: .alpha),
+            tag: container.attributeIfPresent(of: .tag)
         )
     }
 }

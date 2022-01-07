@@ -47,12 +47,14 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var largeTitles: Bool?
     public var isTranslucent: Bool? // true if not present
     public var textAttributes: [TextAttributes]?
+    public var tag: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
     enum ColorsCodingKeys: CodingKey { case key }
     enum NavigationItemsCodingKeys: CodingKey { case navigationItem }
+    
 
     static func decode(_ xml: XMLIndexerType) throws -> NavigationBar {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -111,7 +113,8 @@ public struct NavigationBar: IBDecodable, ViewProtocol, IBIdentifiable {
             backIndicatorImage:                        container.attributeIfPresent(of: .backIndicatorImage),
             largeTitles:                               container.attributeIfPresent(of: .largeTitles),
             isTranslucent:                             container.attributeIfPresent(of: .isTranslucent),
-            textAttributes:                            container.elementsIfPresent(of: .textAttributes)
+            textAttributes:                            container.elementsIfPresent(of: .textAttributes),
+            tag:                                       container.attributeIfPresent(of: .tag)
         )
     }
 }
