@@ -150,6 +150,27 @@ class Tests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+    
+    func testCustomViewControllers() {
+        
+        let url = self.url(forResource:"CustomClassViewController", withExtension: "storyboard")
+        do {
+            let file = try StoryboardFile(url: url)
+            guard let scene = file.document.scenes?.first else {
+                XCTFail("No scene")
+                return
+            }
+            
+            for scene in file.document.scenes ?? [] {
+                print (scene.viewController?.nested.customClass)
+                print (scene.viewController?.nested.rootView)
+            }
+            
+        } catch {
+            XCTFail("\(error)")
+        }
+
+    }
 
     func testStoryboardAllViewsCollectionReusableView() {
         let url = self.url(forResource:"StoryboardAllViews", withExtension: "storyboard")

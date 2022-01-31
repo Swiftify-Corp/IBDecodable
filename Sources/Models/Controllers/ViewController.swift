@@ -24,7 +24,49 @@ public struct ViewController: IBDecodable, ViewControllerProtocol {
     public var keyCommands: [KeyCommand]?
     public var tabBarItem: TabBarItem?
     public var view: View?
-    public var rootView: ViewProtocol? { return view }
+    
+    /*
+     Interface Builder sets the XML name as
+     1) <tableViewController> </tableViewController>
+     2) <collectionViewController> </collectionViewController>
+     3) <navigationController> </navigationController>
+     
+     but these can be overriden to be viewController and the project runs fine
+     https://gist.github.com/Ibrahimhass/a130fac7d8861bc42ce61dcf5cc44682
+     */
+    
+    public var tableView: TableView?
+    public var collectionView: CollectionView?
+    public var navigationBar: NavigationBar?
+    public var videoView: AnyView?
+    public var glkView: GLKView?
+    
+    public var rootView: ViewProtocol? {
+        var rootView: ViewProtocol?
+        
+        if let tableView = tableView {
+            rootView = tableView
+        }
+        
+        if let collectionView = collectionView {
+            rootView = collectionView
+        }
+        
+        if let navigationBar = navigationBar {
+            rootView = navigationBar
+        }
+        
+        if let videoView = videoView {
+            rootView = videoView.view
+        }
+        
+        if let glkView = glkView {
+            rootView = glkView
+        }
+        
+        return rootView
+    }
+    
     public var size: [Size]?
     public var definesPresentationContext: Bool?
     public var providesPresentationContextTransitionStyle: Bool?
@@ -53,6 +95,11 @@ public struct ViewController: IBDecodable, ViewControllerProtocol {
             keyCommands:                                container.childrenIfPresent(of: .keyCommands),
             tabBarItem:                                 container.elementIfPresent(of: .tabBarItem),
             view:                                       container.elementIfPresent(of: .view),
+            tableView:                                  container.elementIfPresent(of: .tableView),
+            collectionView:                             container.elementIfPresent(of: .collectionView),
+            navigationBar:                              container.elementIfPresent(of: .navigationBar),
+            videoView:                                  xml.childrenElements.first.flatMap(decodeValue),
+            glkView:                                    container.elementIfPresent(of: .glkView),
             size:                                       container.elementsIfPresent(of: .size),
             definesPresentationContext:                 container.attributeIfPresent(of: .definesPresentationContext),
             providesPresentationContextTransitionStyle: container.attributeIfPresent(of: .providesPresentationContextTransitionStyle),
