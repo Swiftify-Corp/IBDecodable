@@ -152,7 +152,6 @@ class Tests: XCTestCase {
     }
     
     func testCustomViewControllers() {
-        
         let url = self.url(forResource:"CustomClassViewController", withExtension: "storyboard")
         do {
             let file = try StoryboardFile(url: url)
@@ -165,11 +164,9 @@ class Tests: XCTestCase {
                 print (scene.viewController?.nested.customClass)
                 print (scene.viewController?.nested.rootView)
             }
-            
         } catch {
             XCTFail("\(error)")
         }
-
     }
 
     func testStoryboardAllViewsCollectionReusableView() {

@@ -64,6 +64,10 @@ public struct ViewController: IBDecodable, ViewControllerProtocol {
             rootView = glkView
         }
         
+        if let view = view {
+            rootView = view
+        }
+        
         return rootView
     }
     
