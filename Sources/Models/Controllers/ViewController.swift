@@ -26,12 +26,12 @@ public struct ViewController: IBDecodable, ViewControllerProtocol {
     public var view: View?
     
     /*
-     Interface Builder sets the XML name as
+     Interface Builder sets the XML element name as
      1) <tableViewController> </tableViewController>
      2) <collectionViewController> </collectionViewController>
      3) <navigationController> </navigationController>
      
-     but these can be overriden to be viewController and the project runs fine
+     but the element name can be overridden to viewController and the project runs fine
      https://gist.github.com/Ibrahimhass/a130fac7d8861bc42ce61dcf5cc44682
      */
     

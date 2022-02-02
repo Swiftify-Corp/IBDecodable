@@ -152,7 +152,7 @@ class Tests: XCTestCase {
     }
     
     func testCustomViewControllers() {
-        let url = self.url(forResource:"CustomClassViewController", withExtension: "storyboard")
+        let url = self.url(forResource: "CustomClassViewController", withExtension: "storyboard")
         do {
             let file = try StoryboardFile(url: url)
             guard let scene = file.document.scenes?.first else {
