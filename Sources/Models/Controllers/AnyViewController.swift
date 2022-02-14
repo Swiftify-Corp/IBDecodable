@@ -22,6 +22,7 @@ public protocol ViewControllerProtocol: IBIdentifiable, IBCustomClassable, IBUse
     var rootView: ViewProtocol? { get }
     var size: [Size]? { get }
     var framework: String { get }
+    var navigationItem: NavigationItem? { get }
 }
 
 extension ViewControllerProtocol {

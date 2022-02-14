@@ -26,6 +26,7 @@ public struct NavigationController: IBDecodable, ViewControllerProtocol {
     public var navigationBar: NavigationBar?
     public var rootView: ViewProtocol? { return navigationBar }
     public var size: [Size]?
+    public var navigationItem: NavigationItem? { return nil }
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 

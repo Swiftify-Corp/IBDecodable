@@ -28,6 +28,7 @@ public struct PageViewController: IBDecodable, ViewControllerProtocol {
     public var varspineLocation: String? // min, max, mid, none
     public var doubleSided: Bool
     public var size: [Size]?
+    public var navigationItem: NavigationItem?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -52,7 +53,8 @@ public struct PageViewController: IBDecodable, ViewControllerProtocol {
             view:                         container.elementIfPresent(of: .view),
             varspineLocation:             container.attributeIfPresent(of: .varspineLocation),
             doubleSided:                  container.attributeIfPresent(of: .doubleSided) ?? false,
-            size:                         container.elementsIfPresent(of: .size)
+            size:                         container.elementsIfPresent(of: .size),
+            navigationItem:               container.elementIfPresent(of: .navigationItem)
         )
     }
 }

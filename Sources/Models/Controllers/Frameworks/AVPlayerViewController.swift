@@ -28,6 +28,7 @@ public struct AVPlayerViewController: IBDecodable, ViewControllerProtocol {
     public var videoGravity: String?
     public var size: [Size]?
     public var framework: String { return "AVKit" }
+    public var navigationItem: NavigationItem?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -51,7 +52,8 @@ public struct AVPlayerViewController: IBDecodable, ViewControllerProtocol {
             tabBarItem:           container.elementIfPresent(of: .tabBarItem),
             view:                 xml.childrenElements.first.flatMap(decodeValue),
             videoGravity:         container.attributeIfPresent(of: .videoGravity),
-            size:                 container.elementsIfPresent(of: .size)
+            size:                 container.elementsIfPresent(of: .size),
+            navigationItem:               container.elementIfPresent(of: .navigationItem)
         )
     }
 }

@@ -26,6 +26,7 @@ public struct SplitViewController: IBDecodable, ViewControllerProtocol {
     public var view: View?
     public var rootView: ViewProtocol? { return view }
     public var size: [Size]?
+    public var navigationItem: NavigationItem?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -48,7 +49,8 @@ public struct SplitViewController: IBDecodable, ViewControllerProtocol {
             keyCommands:                  container.childrenIfPresent(of: .keyCommands),
             tabBarItem:                   container.elementIfPresent(of: .tabBarItem),
             view:                         container.elementIfPresent(of: .view),
-            size:                         container.elementsIfPresent(of: .size)
+            size:                         container.elementsIfPresent(of: .size),
+            navigationItem:               container.elementIfPresent(of: .navigationItem)
         )
     }
 }

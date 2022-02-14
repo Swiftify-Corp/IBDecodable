@@ -27,6 +27,9 @@ public struct HostingController: IBDecodable, ViewControllerProtocol {
     public var rootView: ViewProtocol? { return view }
     public var size: [Size]?
     public var framework: String { return "SwiftUI" }
+    public var navigationItem: NavigationItem? {
+        return nil
+    }
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 

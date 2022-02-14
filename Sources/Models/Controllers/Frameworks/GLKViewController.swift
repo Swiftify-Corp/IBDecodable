@@ -27,6 +27,7 @@ public struct GLKViewController: IBDecodable, ViewControllerProtocol {
     public var rootView: ViewProtocol? { return glkView }
     public var size: [Size]?
     public var framework: String { return "GLKit" }
+    public var navigationItem: NavigationItem?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -49,7 +50,8 @@ public struct GLKViewController: IBDecodable, ViewControllerProtocol {
             keyCommands:          container.childrenIfPresent(of: .keyCommands),
             tabBarItem:           container.elementIfPresent(of: .tabBarItem),
             glkView:              container.elementIfPresent(of: .glkView),
-            size:                 container.elementsIfPresent(of: .size)
+            size:                 container.elementsIfPresent(of: .size),
+            navigationItem:       container.elementIfPresent(of: .navigationItem)
         )
     }
 }
