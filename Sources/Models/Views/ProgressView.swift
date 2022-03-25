@@ -44,6 +44,7 @@ public struct ProgressView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var alpha: Float?
     public var tag: String?
     public var progressViewStyle: String?
+    public var imageReferences: [ImageReference]?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -56,6 +57,7 @@ public struct ProgressView: IBDecodable, ViewProtocol, IBIdentifiable {
                 switch key {
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
+                case .imageReferences: return "imageReference"
                 default: return key.stringValue
                 }
             }()
@@ -101,7 +103,8 @@ public struct ProgressView: IBDecodable, ViewProtocol, IBIdentifiable {
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
             tag:                                       container.attributeIfPresent(of: .tag),
-            progressViewStyle:                         container.attributeIfPresent(of: .progressViewStyle)
+            progressViewStyle:                         container.attributeIfPresent(of: .progressViewStyle),
+            imageReferences:                           container.elementsIfPresent(of: .imageReferences)
         )
     }
 }
