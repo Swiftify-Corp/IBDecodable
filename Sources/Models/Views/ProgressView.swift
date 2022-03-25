@@ -43,6 +43,7 @@ public struct ProgressView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var tag: String?
+    public var progressViewStyle: String?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -99,7 +100,8 @@ public struct ProgressView: IBDecodable, ViewProtocol, IBIdentifiable {
             trackImage:                                container.attributeIfPresent(of: .trackImage),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            tag:                                       container.attributeIfPresent(of: .tag)
+            tag:                                       container.attributeIfPresent(of: .tag),
+            progressViewStyle:                         container.attributeIfPresent(of: .progressViewStyle)
         )
     }
 }
