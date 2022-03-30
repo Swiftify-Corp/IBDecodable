@@ -41,6 +41,7 @@ public struct ActivityIndicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var style: String?
     public var color: Color?
     public var hidesWhenStopped: Bool?
+    public var isAnimating: Bool?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -53,6 +54,7 @@ public struct ActivityIndicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
                 switch key {
                 case .isMisplaced: return "misplaced"
                 case .isAmbiguous: return "ambiguous"
+                case .isAnimating: return "animating"
                 default: return key.stringValue
                 }
             }()
@@ -95,7 +97,8 @@ public struct ActivityIndicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
             tag:                                       container.attributeIfPresent(of: .tag),
             style:                                     container.attributeIfPresent(of: .style),
             color:                                     colorsContainer?.withAttributeElement(.key, CodingKeys.color.stringValue),
-            hidesWhenStopped:                          container.attributeIfPresent(of: .hidesWhenStopped)
+            hidesWhenStopped:                          container.attributeIfPresent(of: .hidesWhenStopped),
+            isAnimating:                               container.attributeIfPresent(of: .isAnimating)
         )
     }
 }
