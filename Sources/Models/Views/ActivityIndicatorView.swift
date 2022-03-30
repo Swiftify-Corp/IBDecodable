@@ -7,7 +7,7 @@
 
 import SWXMLHash
 
-public struct ActivityindicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
+public struct ActivityIndicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var id: String
     public var elementClass: String = "UIActivityindicatorView"
 
@@ -38,13 +38,16 @@ public struct ActivityindicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var tag: String?
+    public var style: String?
+    public var color: Color?
+    public var hidesWhenStopped: Bool?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
     enum ColorsCodingKeys: CodingKey { case key }
 
-    static func decode(_ xml: XMLIndexerType) throws -> ActivityindicatorView {
+    static func decode(_ xml: XMLIndexerType) throws -> ActivityIndicatorView {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
             let stringValue: String = {
                 switch key {
@@ -60,7 +63,7 @@ public struct ActivityindicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
         let colorsContainer = xml.container(keys: ExternalCodingKeys.self)
             .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
 
-        return ActivityindicatorView(
+        return ActivityIndicatorView(
             id:                                        try container.attribute(of: .id),
             elementClass:                              "UIActivityindicatorView",
             key:                                       container.attributeIfPresent(of: .key),
@@ -89,7 +92,10 @@ public struct ActivityindicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            tag:                                       container.attributeIfPresent(of: .tag)
+            tag:                                       container.attributeIfPresent(of: .tag),
+            style:                                     container.attributeIfPresent(of: .style),
+            color:                                     colorsContainer?.withAttributeElement(.key, CodingKeys.color.stringValue),
+            hidesWhenStopped:                          container.attributeIfPresent(of: .hidesWhenStopped)
         )
     }
 }
