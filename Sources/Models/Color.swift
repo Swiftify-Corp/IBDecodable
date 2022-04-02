@@ -139,8 +139,6 @@ extension Color: AttributeProtocol {
             return calibratedRgb.key
         case .sRGB(let srgb):
             return srgb.key
-        case .gamma22Gray(let gamma22Gray):
-            return gamma22Gray.key
         case .name(let named):
             return named.key
         case .systemColor(let named):
