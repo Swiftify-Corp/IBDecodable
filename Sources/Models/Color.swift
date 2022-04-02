@@ -17,7 +17,6 @@ public enum Color: IBDecodable {
     case calibratedWhite(CalibratedWhite)
     case calibratedRGB(CalibratedRGB)
     case sRGB(SRGB)
-    case gamma22Gray(Gamma22Gray)
     case name(Named)
     case systemColor(Named)
     
@@ -65,10 +64,6 @@ public enum Color: IBDecodable {
     enum sRGBCodingKeys: CodingKey {
         case red, blue, green, alpha
     }
-    
-    enum Gamma22GrayKeys: CodingKey {
-        case white, alpha
-    }
 
     enum CustomCodingKeys: CodingKey {
         case customColorSpace
@@ -109,11 +104,10 @@ public enum Color: IBDecodable {
                                       alpha: sRGBContainer.attribute(of: .alpha)
                     ))
                 case "genericGamma22GrayColorSpace":
-                    let container = xml.container(keys: Gamma22GrayKeys.self)
-                    return try .gamma22Gray((key: key,
-                                             white: container.attribute(of: .white),
-                                             alpha: container.attribute(of: .alpha)
-                    ))
+                    let calibratedWhiteContainer = xml.container(keys: CalibratedWhiteCodingKeys.self)
+                    return try .calibratedWhite((key:   key,
+                                                 white: calibratedWhiteContainer.attribute(of: .white),
+                                                 alpha: calibratedWhiteContainer.attribute(of: .alpha)))
                 default:
                     throw IBError.unsupportedColorSpace(customColorSpace)
                 }
