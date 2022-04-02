@@ -10,7 +10,6 @@ import SWXMLHash
 public struct SearchBar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var id: String
     public var elementClass: String = "UISearchBar"
-
     public var key: String?
     public var autoresizingMask: AutoresizingMask?
     public var clipsSubviews: Bool?

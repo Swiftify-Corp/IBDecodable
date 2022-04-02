@@ -50,22 +50,30 @@ public struct Button: IBDecodable, ControlProtocol, IBIdentifiable {
     public var tag: String?
 
     public struct State: IBDecodable, IBKeyable {
-        public var key: String?
-        public var title: String?
-        public var color: Color?
-        public var image: String?
-        public var catalog: String?
-        public var attributedString: AttributedString?
+        public let key: String?
+        public let title: String?
+        public let color: Color?
+        public let titleColor: Color?
+        public let titleShadowColor: Color?
+        public let image: String?
+        public let catalog: String?
+        public let attributedString: AttributedString?
+        public let backgroundImage: String?
         
         static func decode(_ xml: XMLIndexerType) throws -> Button.State {
             let container = xml.container(keys: CodingKeys.self)
+            let colorsContainer = xml.container(keys: ExternalCodingKeys.self)
+                .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
             return State.init(
                 key: try container.attribute(of: .key),
                 title: container.attributeIfPresent(of: .title),
                 color: container.elementIfPresent(of: .color),
+                titleColor: colorsContainer?.withAttributeElement(.key, CodingKeys.titleColor.stringValue),
+                titleShadowColor: colorsContainer?.withAttributeElement(.key, CodingKeys.titleShadowColor.stringValue),
                 image: container.attributeIfPresent(of: .image),
                 catalog: container.attributeIfPresent(of: .catalog),
-                attributedString: container.elementIfPresent(of: .attributedString)
+                attributedString: container.elementIfPresent(of: .attributedString),
+                backgroundImage: container.attributeIfPresent(of: .backgroundImage)
             )
         }
     }

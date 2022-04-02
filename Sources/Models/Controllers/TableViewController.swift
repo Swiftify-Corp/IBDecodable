@@ -28,6 +28,7 @@ public struct TableViewController: IBDecodable, ViewControllerProtocol {
     public var clearsSelectionOnViewWillAppear: Bool?
     public var size: [Size]?
     public var navigationItem: NavigationItem?
+    public let hidesBottomBarWhenPushed: Bool?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -52,7 +53,8 @@ public struct TableViewController: IBDecodable, ViewControllerProtocol {
             tableView:                       container.elementIfPresent(of: .tableView),
             clearsSelectionOnViewWillAppear: container.attributeIfPresent(of: .clearsSelectionOnViewWillAppear) ?? true,
             size:                            container.elementsIfPresent(of: .size),
-            navigationItem:                  container.elementIfPresent(of: .navigationItem)
+            navigationItem:                  container.elementIfPresent(of: .navigationItem),
+            hidesBottomBarWhenPushed:     container.attributeIfPresent(of: .hidesBottomBarWhenPushed)
         )
     }
 }

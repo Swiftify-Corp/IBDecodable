@@ -1,5 +1,5 @@
 //
-//  ActivityindicatorView.swift
+//  ActivityIndicatorView.swift
 //  IBDecodable
 //
 //  Created by phimage on 01/04/2018.
@@ -9,7 +9,7 @@ import SWXMLHash
 
 public struct ActivityIndicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var id: String
-    public var elementClass: String = "UIActivityindicatorView"
+    public var elementClass: String = "UIActivityIndicatorView"
 
     public var key: String?
     public var autoresizingMask: AutoresizingMask?
@@ -42,7 +42,7 @@ public struct ActivityIndicatorView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var color: Color?
     public var hidesWhenStopped: Bool?
     public var isAnimating: Bool?
-
+    
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }

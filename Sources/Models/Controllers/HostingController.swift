@@ -30,6 +30,7 @@ public struct HostingController: IBDecodable, ViewControllerProtocol {
     public var navigationItem: NavigationItem? {
         return nil
     }
+    public let hidesBottomBarWhenPushed: Bool?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -52,7 +53,8 @@ public struct HostingController: IBDecodable, ViewControllerProtocol {
             keyCommands:          container.childrenIfPresent(of: .keyCommands),
             tabBarItem:           container.elementIfPresent(of: .tabBarItem),
             view:                 container.elementIfPresent(of: .view),
-            size:                 container.elementsIfPresent(of: .size)
+            size:                 container.elementsIfPresent(of: .size),
+            hidesBottomBarWhenPushed:     container.attributeIfPresent(of: .hidesBottomBarWhenPushed)
         )
     }
 }

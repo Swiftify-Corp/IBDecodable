@@ -8,7 +8,6 @@
 import SWXMLHash
 
 public struct Switch: IBDecodable, ControlProtocol, IBIdentifiable {
-    
     public var id: String
     public var elementClass: String = "UISwitch"
     

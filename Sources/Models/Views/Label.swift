@@ -50,12 +50,16 @@ public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var tag: String?
-    
+    public let numberOfLines: Int?
+    public let adjustsFontForContentSizeCategory: Bool?
+
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
-    enum ExternalCodingKeys: CodingKey { case color }
+    enum ExternalCodingKeys: CodingKey { case color, string, mutableString }
     enum ColorsCodingKeys: CodingKey { case key }
-
+    enum StringsCodingKeys: CodingKey { case key }
+    enum MutableStringsCodingKeys: CodingKey { case key }
+    
     static func decode(_ xml: XMLIndexerType) throws -> Label {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
             let stringValue: String = {
@@ -70,9 +74,10 @@ public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
         }
         let constraintsContainer = container.nestedContainerIfPresent(of: .constraints, keys: ConstraintsCodingKeys.self)
         let variationContainer = xml.container(keys: VariationCodingKey.self)
-        let colorsContainer = xml.container(keys: ExternalCodingKeys.self)
+        let externalContainer = xml.container(keys: ExternalCodingKeys.self)
+        let colorsContainer = externalContainer
             .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
-
+        
         return Label(
             id: try container.attribute(of: .id),
             elementClass: "UILabel",
@@ -114,7 +119,9 @@ public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
             tintColor: colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden: container.attributeIfPresent(of: .hidden),
             alpha: container.attributeIfPresent(of: .alpha),
-            tag: container.attributeIfPresent(of: .tag)
+            tag: container.attributeIfPresent(of: .tag),
+            numberOfLines:                             container.attributeIfPresent(of: .numberOfLines),
+            adjustsFontForContentSizeCategory:         container.attributeIfPresent(of: .adjustsFontForContentSizeCategory)
         )
     }
 }

@@ -29,6 +29,7 @@ public struct PageViewController: IBDecodable, ViewControllerProtocol {
     public var doubleSided: Bool
     public var size: [Size]?
     public var navigationItem: NavigationItem?
+    public let hidesBottomBarWhenPushed: Bool?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -54,7 +55,8 @@ public struct PageViewController: IBDecodable, ViewControllerProtocol {
             varspineLocation:             container.attributeIfPresent(of: .varspineLocation),
             doubleSided:                  container.attributeIfPresent(of: .doubleSided) ?? false,
             size:                         container.elementsIfPresent(of: .size),
-            navigationItem:               container.elementIfPresent(of: .navigationItem)
+            navigationItem:               container.elementIfPresent(of: .navigationItem),
+            hidesBottomBarWhenPushed:     container.attributeIfPresent(of: .hidesBottomBarWhenPushed)
         )
     }
 }

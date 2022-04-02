@@ -67,8 +67,9 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
-    enum ExternalCodingKeys: CodingKey { case color }
+    enum ExternalCodingKeys: CodingKey { case color, string }
     enum ColorsCodingKeys: CodingKey { case key }
+    enum StringsCodingKeys: CodingKey { case key }
 
     static func decode(_ xml: XMLIndexerType) throws -> TextView {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -86,9 +87,18 @@ public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
         }
         let constraintsContainer = container.nestedContainerIfPresent(of: .constraints, keys: ConstraintsCodingKeys.self)
         let variationContainer = xml.container(keys: VariationCodingKey.self)
-        let colorsContainer = xml.container(keys: ExternalCodingKeys.self)
+        let externalContainer = xml.container(keys: ExternalCodingKeys.self)
+        let colorsContainer = externalContainer
             .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
+        let stringsContainer = externalContainer
+            .nestedContainerIfPresent(of: .string, keys: StringsCodingKeys.self)
 
+        var text: String? = container.attributeIfPresent(of: .text)
+        if text == nil {
+            let multiLineText: StringElement? = stringsContainer?.withAttributeElement(.key, CodingKeys.text.stringValue)
+            text = multiLineText?.elementValue
+        }
+        
         return TextView(
             id: try container.attribute(of: .id),
             elementClass: "UITextView",

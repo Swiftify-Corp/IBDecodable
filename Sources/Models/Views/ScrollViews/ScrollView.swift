@@ -10,7 +10,7 @@ import SWXMLHash
 public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var id: String
     public var elementClass: String = "UIScrollView"
-
+    
     public var key: String?
     public var autoresizingMask: AutoresizingMask?
     public var clipsSubviews: Bool?
@@ -58,11 +58,14 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var layoutMarginsFollowReadableWidth: Bool?
     public var insetsLayoutMarginsFromSafeArea: Bool?
     public var tag: String?
+    public let contentLayoutGuide: LayoutGuide?
+    public let frameLayoutGuide: LayoutGuide?
     
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
-    enum ExternalCodingKeys: CodingKey { case color }
+    enum ExternalCodingKeys: CodingKey { case color, viewLayoutGuide }
     enum ColorsCodingKeys: CodingKey { case key }
+    enum ViewLayoutCodingKeys: CodingKey { case key }
 
     static func decode(_ xml: XMLIndexerType) throws -> ScrollView {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -79,8 +82,11 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
         }
         let constraintsContainer = container.nestedContainerIfPresent(of: .constraints, keys: ConstraintsCodingKeys.self)
         let variationContainer = xml.container(keys: VariationCodingKey.self)
-        let colorsContainer = xml.container(keys: ExternalCodingKeys.self)
+        let externalContainer = xml.container(keys: ExternalCodingKeys.self)
+        let colorsContainer = externalContainer
             .nestedContainerIfPresent(of: .color, keys: ColorsCodingKeys.self)
+        let viewLayoutGuidesContainer = externalContainer
+            .nestedContainerIfPresent(of: .viewLayoutGuide, keys: ViewLayoutCodingKeys.self)
 
         return ScrollView(
             id:                                        try container.attribute(of: .id),
@@ -131,7 +137,9 @@ public struct ScrollView: IBDecodable, ViewProtocol, IBIdentifiable {
             preservesSuperviewLayoutMargins:           container.attributeIfPresent(of: .preservesSuperviewLayoutMargins),
             layoutMarginsFollowReadableWidth:          container.attributeIfPresent(of: .layoutMarginsFollowReadableWidth),
             insetsLayoutMarginsFromSafeArea:           container.attributeIfPresent(of: .insetsLayoutMarginsFromSafeArea),
-            tag:                                       container.attributeIfPresent(of: .tag)
+            tag:                                       container.attributeIfPresent(of: .tag),
+            contentLayoutGuide:                        viewLayoutGuidesContainer?.withAttributeElement(.key, CodingKeys.contentLayoutGuide.stringValue),
+            frameLayoutGuide:                          viewLayoutGuidesContainer?.withAttributeElement(.key, CodingKeys.frameLayoutGuide.stringValue)
         )
     }
 }

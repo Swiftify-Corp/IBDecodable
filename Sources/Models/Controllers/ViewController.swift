@@ -77,6 +77,7 @@ public struct ViewController: IBDecodable, ViewControllerProtocol {
     public var modalTransitionStyle: ModalTransitionStyle
     public var modalPresentationStyle: ModalPresentationStyle
     public var navigationItem: NavigationItem?
+    public let hidesBottomBarWhenPushed: Bool?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -109,7 +110,8 @@ public struct ViewController: IBDecodable, ViewControllerProtocol {
             providesPresentationContextTransitionStyle: container.attributeIfPresent(of: .providesPresentationContextTransitionStyle),
             modalTransitionStyle:                       container.attributeIfPresent(of: .modalTransitionStyle) ?? .coverVertical,
             modalPresentationStyle:                     container.attributeIfPresent(of: .modalPresentationStyle) ?? .automatic,
-            navigationItem:                             container.elementIfPresent(of: .navigationItem)
+            navigationItem:                             container.elementIfPresent(of: .navigationItem),
+            hidesBottomBarWhenPushed:                   container.attributeIfPresent(of: .hidesBottomBarWhenPushed)
         )
     }
 }

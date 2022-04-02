@@ -51,7 +51,7 @@ public struct SegmentedControl: IBDecodable, ControlProtocol, IBIdentifiable {
     public var alpha: Float?
     public var toolTip: String?
     public var apportionsSegmentWidthsByContent: Bool?
-
+    
     public var isMomentary: Bool?
     public var isSpringLoaded: Bool?
     public var tag: String?

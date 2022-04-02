@@ -25,9 +25,10 @@ public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
     public var tabBarItem: TabBarItem?
     public var collectionView: CollectionView?
     public var rootView: ViewProtocol? { return collectionView }
-    public var clearsSelectionOnViewWillAppear: Bool
-    public var size: [Size]?
     public var navigationItem: NavigationItem?
+    public let clearsSelectionOnViewWillAppear: Bool
+    public let size: [Size]?
+    public let hidesBottomBarWhenPushed: Bool?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -50,9 +51,10 @@ public struct CollectionViewController: IBDecodable, ViewControllerProtocol {
             keyCommands:                     container.childrenIfPresent(of: .keyCommands),
             tabBarItem:                      container.elementIfPresent(of: .tabBarItem),
             collectionView:                  container.elementIfPresent(of: .collectionView),
+            navigationItem:                  container.elementIfPresent(of: .navigationItem),
             clearsSelectionOnViewWillAppear: container.attributeIfPresent(of: .clearsSelectionOnViewWillAppear) ?? true,
             size:                            container.elementsIfPresent(of: .size),
-            navigationItem:                  container.elementIfPresent(of: .navigationItem)
+            hidesBottomBarWhenPushed:        container.attributeIfPresent(of: .hidesBottomBarWhenPushed)
         )
     }
 }

@@ -23,6 +23,7 @@ public protocol ViewControllerProtocol: IBIdentifiable, IBCustomClassable, IBUse
     var size: [Size]? { get }
     var framework: String { get }
     var navigationItem: NavigationItem? { get }
+    var hidesBottomBarWhenPushed: Bool? { get }
 }
 
 extension ViewControllerProtocol {

@@ -10,7 +10,6 @@ import SWXMLHash
 public struct PickerView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var id: String
     public var elementClass: String = "UIPickerView"
-
     public var key: String?
     public var autoresizingMask: AutoresizingMask?
     public var clipsSubviews: Bool?

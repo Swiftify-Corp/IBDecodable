@@ -252,7 +252,7 @@ public struct TableViewCell: IBDecodable, ViewProtocol, IBIdentifiable, IBReusab
     public var hidden: Bool?
     public var alpha: Float?
     public var tag: String?
-
+    
     public var children: [IBElement] {
         // do not let default implementation which lead to duplicate element contentView
         var children: [IBElement] = [contentView] + (rect.map { [$0] } ?? [])

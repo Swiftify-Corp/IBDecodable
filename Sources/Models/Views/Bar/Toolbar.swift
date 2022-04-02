@@ -10,7 +10,6 @@ import SWXMLHash
 public struct Toolbar: IBDecodable, ViewProtocol, IBIdentifiable {
     public var id: String
     public var elementClass: String = "UIToolbar"
-
     public var key: String?
     public var autoresizingMask: AutoresizingMask?
     public var clipsSubviews: Bool?

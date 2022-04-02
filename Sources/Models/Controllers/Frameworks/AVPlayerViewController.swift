@@ -29,6 +29,7 @@ public struct AVPlayerViewController: IBDecodable, ViewControllerProtocol {
     public var size: [Size]?
     public var framework: String { return "AVKit" }
     public var navigationItem: NavigationItem?
+    public let hidesBottomBarWhenPushed: Bool?
 
     enum LayoutGuidesCodingKeys: CodingKey { case viewControllerLayoutGuide }
 
@@ -53,7 +54,8 @@ public struct AVPlayerViewController: IBDecodable, ViewControllerProtocol {
             view:                 xml.childrenElements.first.flatMap(decodeValue),
             videoGravity:         container.attributeIfPresent(of: .videoGravity),
             size:                 container.elementsIfPresent(of: .size),
-            navigationItem:               container.elementIfPresent(of: .navigationItem)
+            navigationItem:               container.elementIfPresent(of: .navigationItem),
+            hidesBottomBarWhenPushed:     container.attributeIfPresent(of: .hidesBottomBarWhenPushed)
         )
     }
 }

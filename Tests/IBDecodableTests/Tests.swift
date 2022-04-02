@@ -458,6 +458,24 @@ class Tests: XCTestCase {
         }
     }
     
+    func testCollectionViewCellContentView_WithNewCollectionViewCellContentView() {
+        let url = self.url(forResource: "CollectionViewCellWithContentView", withExtension: "xib")
+        do {
+            let file = try XibFile(url: url)
+            let rootView = file.document.views?.first?.view
+            XCTAssertNotNil(rootView, "There should be a root view")
+            XCTAssertEqual(rootView?.elementClass, "UICollectionViewCell")
+
+            guard let cell = rootView as? CollectionViewCell else {
+                XCTFail("The root view should be a collection view cell")
+                return
+            }
+            XCTAssertEqual(cell.contentView?.key, "contentView")
+        } catch {
+            XCTFail("\(error)  \(url)")
+        }
+    }
+    
     func testCollectionReusableView() {
         let url = self.url(forResource: "CollectionReusableView", withExtension: "xib")
         do {
@@ -516,6 +534,133 @@ class Tests: XCTestCase {
             XCTFail("\(error)  \(url)")
         }
     }
+    
+    func testMultiLineTextProperty() {
+        let url = self.url(forResource: "MultiLineText", withExtension: "xib")
+        do {
+            let file = try XibFile(url: url)
+
+            let textViews = file.document.views?.filter({$0.view is TextView})
+            XCTAssertEqual(textViews?.count, 2, "There should be 2 TextViews")
+            
+            let singleLineTextView = textViews?[0].view as? TextView
+            XCTAssertNotNil(singleLineTextView, "There should be a textView")
+            XCTAssertEqual(singleLineTextView?.elementClass, "UITextView")
+            XCTAssertEqual(singleLineTextView?.text, "This is a small text", "Text property should contain the single line text from text view attribute")
+            
+            let multiLineTextView = textViews?[1].view as? TextView
+            XCTAssertNotNil(multiLineTextView, "There should be a textView")
+            XCTAssertEqual(multiLineTextView?.elementClass, "UITextView")
+            XCTAssertEqual(multiLineTextView?.text, "This is a text with multi lines and\nreturn character!", "Text property should contain the multiline text")
+
+           
+            
+            let labels = file.document.views?.filter({$0.view is Label})
+            XCTAssertEqual(labels?.count, 3, "There should be 3 Labels")
+
+            let singleLineLabel = labels?[0].view as? Label
+            XCTAssertNotNil(singleLineLabel, "There should be a label")
+            XCTAssertEqual(singleLineLabel?.elementClass, "UILabel")
+            XCTAssertEqual(singleLineLabel?.text, "Single Line label", "Text property should contain the single line text from text view attribute")
+            
+            let multiLineLabel = labels?[1].view as? Label
+            XCTAssertNotNil(multiLineLabel, "There should be a label")
+            XCTAssertEqual(multiLineLabel?.elementClass, "UILabel")
+            XCTAssertEqual(multiLineLabel?.text, "This is a text with multi lines and\nreturn character!", "Text property should contain the multiline text")
+
+            let multiLineMutableStringLabel = labels?[2].view as? Label
+            XCTAssertNotNil(multiLineMutableStringLabel, "There should be a label")
+            XCTAssertEqual(multiLineMutableStringLabel?.elementClass, "UILabel")
+            XCTAssertEqual(multiLineMutableStringLabel?.text, "This is a text with multi lines and\nreturn character and mutableString!")
+                        
+            
+            let textFields = file.document.views?.filter({$0.view is TextField})
+            XCTAssertEqual(textFields?.count, 2, "There should be 2 TextFields")
+            
+            let singleTextField = textFields?[0].view as? TextField
+            XCTAssertNotNil(singleTextField, "There should be a TextField")
+            XCTAssertEqual(singleTextField?.elementClass, "UITextField")
+            XCTAssertEqual(singleTextField?.text, "Single line textfield", "Text property should contain the single line text from text view attribute")
+            XCTAssertEqual(singleTextField?.placeholder, "Single line placeholder", "Text property should contain the single line text from placeholder view attribute")
+            
+            let multiLineTextField = textFields?[1].view as? TextField
+            XCTAssertNotNil(multiLineTextField, "There should be a TextField")
+            XCTAssertEqual(multiLineTextField?.elementClass, "UITextField")
+            XCTAssertEqual(multiLineTextField?.text, "This is a text with multi lines and\nreturn character!", "Text property should contain the single line text from text view attribute")
+            XCTAssertEqual(multiLineTextField?.placeholder, "This is a placeholder with multi lines and\nreturn character!", "Text property should contain the single line text from placeholder view attribute")
+
+        } catch {
+            XCTFail("\(error)  \(url)")
+        }
+    }
+    
+    func testButtonStates() {
+        let url = self.url(forResource: "Button", withExtension: "xib")
+        
+        do {
+            let file = try XibFile(url: url)
+
+            let rootView = file.document.views?.first?.view
+            XCTAssertNotNil(rootView, "There should be a root view")
+
+            let button = rootView as? Button
+            XCTAssertNotNil(button, "There should be a button")
+            XCTAssertEqual(button?.elementClass, "UIButton")
+
+            let states = button?.state
+            XCTAssertEqual(states?.count, 2, "Should find 2 states")
+            
+            let normalState = states?.first(where: {$0.key == "normal"})
+            XCTAssertEqual(normalState?.title, "Normal title")
+            XCTAssertNil(normalState?.image)
+            XCTAssertNil(normalState?.backgroundImage)
+            XCTAssertNotNil(normalState?.titleColor)
+            XCTAssertNotNil(normalState?.titleShadowColor)
+            
+            let selectedState = states?.first(where: {$0.key == "selected"})
+            XCTAssertEqual(selectedState?.title, "selected text")
+            XCTAssertEqual(selectedState?.image, "testImage.png")
+            XCTAssertEqual(selectedState?.backgroundImage, "backImage.png")
+            XCTAssertNil(selectedState?.titleColor)
+            XCTAssertNil(selectedState?.titleShadowColor)
+            
+        } catch {
+            XCTFail("\(error)  \(url)")
+        }
+    }
+    
+    func testActivityIndicatorView() {
+        let url = self.url(forResource: "ViewWithActivityIndicatorView", withExtension: "xib")
+        do {
+            let file = try XibFile(url: url)
+
+            let rootView = file.document.views?.first?.view
+            XCTAssertNotNil(rootView, "There should be a root view")
+
+            let customActivityIndicatorView = rootView?.subviews?.first?.view as? ActivityIndicatorView
+            XCTAssertNotNil(customActivityIndicatorView, "There should be an activity indicator view with custom values")
+            XCTAssertEqual(customActivityIndicatorView?.elementClass, "UIActivityIndicatorView")
+            
+            let defaultActivityIndicatorView = rootView?.subviews?[1].view as? ActivityIndicatorView
+            XCTAssertNotNil(defaultActivityIndicatorView, "There should be an activity indicator view with default values")
+            XCTAssertEqual(defaultActivityIndicatorView?.elementClass, "UIActivityIndicatorView")
+            
+            XCTAssertEqual(customActivityIndicatorView?.style, "large")
+            XCTAssertEqual(defaultActivityIndicatorView?.style, "medium")
+            
+            XCTAssertTrue(customActivityIndicatorView?.isAnimating ?? false)
+            XCTAssertNil(defaultActivityIndicatorView?.isAnimating)
+            
+            XCTAssertTrue(customActivityIndicatorView?.hidesWhenStopped ?? false)
+            XCTAssertNil(defaultActivityIndicatorView?.hidesWhenStopped)
+            
+            XCTAssertNotNil(customActivityIndicatorView?.color)
+            XCTAssertNil(defaultActivityIndicatorView?.color)
+            
+        } catch {
+            XCTFail("\(error)  \(url)")
+        }
+    }
 
     func testViewsWithTextColorAndBackgroundColor() {
         let url = self.url(forResource: "ViewsWithTextColorAndBackgroundColor", withExtension: "xib")
@@ -556,6 +701,57 @@ class Tests: XCTestCase {
             }
         } catch {
             XCTFail("\(error)  \(url)")
+        }
+    }
+    
+    func testScrollViewWiithLayoutGuides() {
+        let url = self.url(forResource: "ScrollViewWithLayoutGuides", withExtension: "xib")
+        do {
+            let file = try XibFile(url: url)
+
+            let scrollView = file.document.views?.first?.view as? ScrollView
+            XCTAssertNotNil(scrollView, "There should be a scroll view")
+            XCTAssertEqual(scrollView?.elementClass, "UIScrollView")
+            
+            XCTAssertEqual(scrollView?.contentLayoutGuide?.id, "gIB-vp-IUT")
+            XCTAssertEqual(scrollView?.frameLayoutGuide?.id, "Rvc-ob-et2")
+            
+        } catch {
+            XCTFail("\(error)  \(url)")
+        }
+    }
+    
+    func testSystemColorNameInResources() {
+        let url = self.url(forResource: "ViewWithSystemColorResource", withExtension: "xib")
+        do {
+            let file = try XibFile(url: url)
+            let resources = file.document.resources
+            
+            XCTAssertNotNil(resources)
+            XCTAssertEqual(resources?.count, 3)
+            
+            resources?.forEach({ (r) in
+                XCTAssertNotNil(r.resource as? SystemColor)
+                XCTAssertNotNil((r.resource as? SystemColor)?.name)
+                XCTAssertNotNil((r.resource as? SystemColor)?.color)
+            })
+            
+        } catch {
+            XCTFail("\(error)  \(url)")
+        }
+    }
+    
+    func testStoryboardHidesBottomBarWhenPushed() {
+        let url = self.url(forResource:"StoryboardHidesBottomBarWhenPushed", withExtension: "storyboard")
+        do {
+            let file = try StoryboardFile(url: url)
+            let hidesBttomBarValues = file.document.scenes?.map { $0.viewController?.viewController.hidesBottomBarWhenPushed ?? false } ?? []
+            
+            XCTAssertEqual(hidesBttomBarValues.count, 2)
+            XCTAssertEqual(hidesBttomBarValues.filter { $0 == true }.count, 1)
+            XCTAssertEqual(hidesBttomBarValues.filter { $0 == false }.count, 1)
+        } catch {
+            XCTFail("\(error)")
         }
     }
 

@@ -39,6 +39,7 @@ public struct SKView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var alpha: Float?
     public var tag: String?
 
+
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
     enum ExternalCodingKeys: CodingKey { case color }
