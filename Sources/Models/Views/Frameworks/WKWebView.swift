@@ -132,16 +132,16 @@ public struct AudiovisualMediaTypes: IBDecodable, IBKeyable {
 }
 
 public struct WKPreferences: IBDecodable, IBKeyable {
-    var key: String?
-    var javaScriptCanOpenWindowsAutomatically: Bool?
-    var minimumFontSize: Float?
+    public var key: String?
+    public var javaScriptCanOpenWindowsAutomatically: Bool?
+    public var minimumFontSize: Float?
     
     static func decode(_ xml: XMLIndexerType) throws -> WKPreferences {
         let container = xml.container(keys: CodingKeys.self)
         return WKPreferences(
             key:                                        container.attributeIfPresent(of: .key),
-            javaScriptCanOpenWindowsAutomatically:      container.attributeIfPresent(of: .audio),
-            minimumFontSize:                            container.attributeIfPresent(of: .video)
+            javaScriptCanOpenWindowsAutomatically:      container.attributeIfPresent(of: .javaScriptCanOpenWindowsAutomatically),
+            minimumFontSize:                            container.attributeIfPresent(of: .minimumFontSize)
         )
     }
 }
