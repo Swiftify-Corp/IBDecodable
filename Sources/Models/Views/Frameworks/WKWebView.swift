@@ -38,6 +38,7 @@ public struct WKWebView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var hidden: Bool?
     public var alpha: Float?
     public var tag: String?
+    public var wkWebViewConfiguration: WKWebViewConfiguration?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -89,7 +90,58 @@ public struct WKWebView: IBDecodable, ViewProtocol, IBIdentifiable {
             tintColor:                                 colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
             hidden:                                    container.attributeIfPresent(of: .hidden),
             alpha:                                     container.attributeIfPresent(of: .alpha),
-            tag:                                       container.attributeIfPresent(of: .tag)
+            tag:                                       container.attributeIfPresent(of: .tag),
+            wkWebViewConfiguration:                    container.elementIfPresent(of: .wkWebViewConfiguration)
+        )
+    }
+}
+
+public struct WKWebViewConfiguration: IBDecodable, IBKeyable {
+    public var key: String?
+    public var allowsInlineMediaPlayback: Bool?
+    public var applicationNameForUserAgent: String?
+    public var selectionGranularity: String?
+    public var audiovisualMediaTypes: AudiovisualMediaTypes?
+    public var wkPreferences: WKPreferences?
+
+    static func decode(_ xml: XMLIndexerType) throws -> WKWebViewConfiguration {
+        let container = xml.container(keys: CodingKeys.self)
+        return WKWebViewConfiguration(
+            key:                            container.attributeIfPresent(of: .key),
+            allowsInlineMediaPlayback:      container.attributeIfPresent(of: .allowsInlineMediaPlayback),
+            applicationNameForUserAgent:    container.attributeIfPresent(of: .applicationNameForUserAgent),
+            selectionGranularity:           container.attributeIfPresent(of: .selectionGranularity),
+            audiovisualMediaTypes:          container.elementIfPresent(of: .audiovisualMediaTypes)
+        )
+    }
+}
+
+public struct AudiovisualMediaTypes: IBDecodable, IBKeyable {
+    public var key: String?
+    public var audio: Bool?
+    public var video: Bool?
+
+    static func decode(_ xml: XMLIndexerType) throws -> AudiovisualMediaTypes {
+        let container = xml.container(keys: CodingKeys.self)
+        return AudiovisualMediaTypes(
+            key:        container.attributeIfPresent(of: .key),
+            audio:      container.attributeIfPresent(of: .audio),
+            video:      container.attributeIfPresent(of: .video)
+        )
+    }
+}
+
+public struct WKPreferences: IBDecodable, IBKeyable {
+    var key: String?
+    var javaScriptCanOpenWindowsAutomatically: Bool?
+    var minimumFontSize: Float?
+    
+    static func decode(_ xml: XMLIndexerType) throws -> WKPreferences {
+        let container = xml.container(keys: CodingKeys.self)
+        return WKPreferences(
+            key:                                        container.attributeIfPresent(of: .key),
+            javaScriptCanOpenWindowsAutomatically:      container.attributeIfPresent(of: .audio),
+            minimumFontSize:                            container.attributeIfPresent(of: .video)
         )
     }
 }
