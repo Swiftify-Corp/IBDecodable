@@ -111,7 +111,8 @@ public struct WKWebViewConfiguration: IBDecodable, IBKeyable {
             allowsInlineMediaPlayback:      container.attributeIfPresent(of: .allowsInlineMediaPlayback),
             applicationNameForUserAgent:    container.attributeIfPresent(of: .applicationNameForUserAgent),
             selectionGranularity:           container.attributeIfPresent(of: .selectionGranularity),
-            audiovisualMediaTypes:          container.elementIfPresent(of: .audiovisualMediaTypes)
+            audiovisualMediaTypes:          container.elementIfPresent(of: .audiovisualMediaTypes),
+            wkPreferences:                  container.elementIfPresent(of: .wkPreferences)
         )
     }
 }
