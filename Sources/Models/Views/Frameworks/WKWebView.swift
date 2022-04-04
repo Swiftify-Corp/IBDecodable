@@ -40,6 +40,8 @@ public struct WKWebView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var tag: String?
     public var wkWebViewConfiguration: WKWebViewConfiguration?
     public var allowsLinkPreview: Bool? // default value is true
+    public var customUserAgent: String?
+    public var allowsBackForwardNavigationGestures: Bool?
 
     enum ConstraintsCodingKeys: CodingKey { case constraint }
     enum VariationCodingKey: CodingKey { case variation }
@@ -93,7 +95,9 @@ public struct WKWebView: IBDecodable, ViewProtocol, IBIdentifiable {
             alpha:                                     container.attributeIfPresent(of: .alpha),
             tag:                                       container.attributeIfPresent(of: .tag),
             wkWebViewConfiguration:                    container.elementIfPresent(of: .wkWebViewConfiguration),
-            allowsLinkPreview:                         container.attributeIfPresent(of: .allowsLinkPreview)
+            allowsLinkPreview:                         container.attributeIfPresent(of: .allowsLinkPreview),
+            customUserAgent:                           container.attributeIfPresent(of: .customUserAgent),
+            allowsBackForwardNavigationGestures:       container.attributeIfPresent(of: .allowsBackForwardNavigationGestures)
         )
     }
 }
@@ -103,6 +107,7 @@ public struct WKWebViewConfiguration: IBDecodable, IBKeyable {
     public var allowsInlineMediaPlayback: Bool?
     public var suppressesIncrementalRendering: Bool? // default value is false
     public var allowsPictureInPictureMediaPlayback: Bool?
+    public var allowsAirPlayForMediaPlayback: Bool?
     public var applicationNameForUserAgent: String?
     public var selectionGranularity: String?
     public var audiovisualMediaTypes: AudiovisualMediaTypes?
@@ -116,6 +121,7 @@ public struct WKWebViewConfiguration: IBDecodable, IBKeyable {
             allowsInlineMediaPlayback:            container.attributeIfPresent(of: .allowsInlineMediaPlayback),
             suppressesIncrementalRendering:       container.attributeIfPresent(of: .suppressesIncrementalRendering),
             allowsPictureInPictureMediaPlayback:  container.attributeIfPresent(of: .allowsPictureInPictureMediaPlayback),
+            allowsAirPlayForMediaPlayback:        container.attributeIfPresent(of: .allowsAirPlayForMediaPlayback),
             applicationNameForUserAgent:          container.attributeIfPresent(of: .applicationNameForUserAgent),
             selectionGranularity:                 container.attributeIfPresent(of: .selectionGranularity),
             audiovisualMediaTypes:                container.elementIfPresent(of: .audiovisualMediaTypes),
