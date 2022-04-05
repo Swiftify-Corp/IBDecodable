@@ -14,6 +14,7 @@ public struct DataDetectorType: IBDecodable, IBKeyable {
     public var shipmentTrackingNumber: Bool?
     public var flightNumber: Bool?
     public var lookupSuggestion: Bool?
+    public var trackingNumber: Bool?
 
     static func decode(_ xml: XMLIndexerType) throws -> DataDetectorType {
         let container = xml.container(keys: CodingKeys.self)
@@ -25,7 +26,8 @@ public struct DataDetectorType: IBDecodable, IBKeyable {
             calendarEvent: container.attributeIfPresent(of: .calendarEvent),
             shipmentTrackingNumber: container.attributeIfPresent(of: .shipmentTrackingNumber),
             flightNumber: container.attributeIfPresent(of: .flightNumber),
-            lookupSuggestion: container.attributeIfPresent(of: .lookupSuggestion)
+            lookupSuggestion: container.attributeIfPresent(of: .lookupSuggestion),
+            trackingNumber: container.attributeIfPresent(of: .trackingNumber)
         )
     }
 }
