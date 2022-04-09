@@ -48,6 +48,7 @@ public struct Button: IBDecodable, ControlProtocol, IBIdentifiable {
     public var contentHorizontalAlignment: String?
     public var contentVerticalAlignment: String? = nil
     public var tag: String?
+    public var buttonConfiguration: ButtonConfiguration?
 
     public struct State: IBDecodable, IBKeyable {
         public let key: String?
@@ -140,7 +141,8 @@ public struct Button: IBDecodable, ControlProtocol, IBIdentifiable {
             isSelected:                                container.attributeIfPresent(of: .isSelected),
             contentHorizontalAlignment:                container.attributeIfPresent(of: .contentHorizontalAlignment),
             contentVerticalAlignment:                  container.attributeIfPresent(of: .contentVerticalAlignment),
-            tag:                                       container.attributeIfPresent(of: .tag)
+            tag:                                       container.attributeIfPresent(of: .tag),
+            buttonConfiguration:                       container.elementIfPresent(of: .buttonConfiguration)
         )
     }
 }
