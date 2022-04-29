@@ -31,14 +31,16 @@ public struct AttributedString: IBDecodable, IBKeyable {
     }
 
     public struct Fragment: IBDecodable {
-        public var content: String
+        public var content: String?
         public var attributes: [AnyAttribute]?
+        public var string: StringContainer?
 
         static func decode(_ xml: XMLIndexerType) throws -> Fragment {
             let container = xml.container(keys: CodingKeys.self)
             return Fragment(
-                content:      try container.attribute(of: .content),
-                attributes:   container.childrenIfPresent(of: .attributes)
+                content:      container.attributeIfPresent(of: .content),
+                attributes:   container.childrenIfPresent(of: .attributes),
+                string:       container.elementIfPresent(of: .string)
             )
         }
     }
