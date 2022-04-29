@@ -11,7 +11,6 @@ public struct AttributedString: IBDecodable, IBKeyable {
 
     public var key: String?
     public var fragments: [Fragment]?
-    public var fragment: Fragment?
 
     static func decode(_ xml: XMLIndexerType) throws -> AttributedString {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
@@ -25,8 +24,7 @@ public struct AttributedString: IBDecodable, IBKeyable {
         }
         return AttributedString(
             key:            try container.attribute(of: .key),
-            fragments:      container.elementsIfPresent(of: .fragments),
-            fragment:       container.elementIfPresent(of: .fragment)
+            fragments:      container.elementsIfPresent(of: .fragments)
         )
     }
 
