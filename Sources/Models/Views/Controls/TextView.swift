@@ -7,7 +7,7 @@
 
 import SWXMLHash
 
-public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable {
+public struct TextView: IBDecodable, ControlProtocol, IBIdentifiable, IBTextElement {
     public var id: String
     public var elementClass: String = "UITextView"
 

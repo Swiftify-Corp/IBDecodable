@@ -7,7 +7,7 @@
 
 import SWXMLHash
 
-public struct Label: IBDecodable, ViewProtocol, IBIdentifiable {
+public struct Label: IBDecodable, ViewProtocol, IBIdentifiable, IBTextElement {
     public var id: String
     public var elementClass: String = "UILabel"
 
