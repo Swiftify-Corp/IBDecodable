@@ -16,6 +16,17 @@ public struct BarButtonItem: IBDecodable {
     public var landscapeImage: String?
     public var tintColor: Color?
     
+    // `customView` for leftBarButtonItem and rightBarButtonItem https://take.ms/EfeZA
+    public var button: Button?
+    public var pageControl: PageControl?
+    public var progressView: ProgressView?
+    public var segmentedControl: SegmentedControl?
+    public var slider: Slider?
+    public var stepper: Stepper?
+    public var `switch`: Switch?
+    public var textField: TextField?
+    public var view: View?
+    
     enum ExternalCodingKeys: CodingKey { case color }
     enum ColorsCodingKeys: CodingKey { case key }
 
@@ -34,7 +45,16 @@ public struct BarButtonItem: IBDecodable {
             imageReference:     container.elementIfPresent(of: .imageReference),
             image:              container.attributeIfPresent(of: .image),
             landscapeImage:     container.attributeIfPresent(of: .landscapeImage),
-            tintColor:          colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue)
+            tintColor:          colorsContainer?.withAttributeElement(.key, CodingKeys.tintColor.stringValue),
+            button:             container.elementIfPresent(of: .button),
+            pageControl:        container.elementIfPresent(of: .pageControl),
+            progressView:       container.elementIfPresent(of: .progressView),
+            segmentedControl:   container.elementIfPresent(of: .segmentedControl),
+            slider:             container.elementIfPresent(of: .slider),
+            stepper:            container.elementIfPresent(of: .stepper),
+            switch:             container.elementIfPresent(of: .switch),
+            textField:          container.elementIfPresent(of: .textField),
+            view:               container.elementIfPresent(of: .view)
         )
     }
 }

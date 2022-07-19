@@ -20,6 +20,17 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
     public var barButtonItems: [BarButtonItem]?
     public var largeTitleDisplayMode: String?
     
+    // `titleView` item https://take.ms/vpUDF
+    public var button: Button?
+    public var pageControl: PageControl?
+    public var progressView: ProgressView?
+    public var segmentedControl: SegmentedControl?
+    public var slider: Slider?
+    public var stepper: Stepper?
+    public var `switch`: Switch?
+    public var textField: TextField?
+    public var view: View?
+    
     static func decode(_ xml: XMLIndexerType) throws -> NavigationItem {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
             let stringValue: String = {
@@ -43,7 +54,16 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
             userLabel:              container.attributeIfPresent(of: .userLabel),
             colorLabel:             container.attributeIfPresent(of: .colorLabel),
             barButtonItems:         container.elementsIfPresent(of: .barButtonItems),
-            largeTitleDisplayMode:  container.attributeIfPresent(of: .largeTitleDisplayMode)
+            largeTitleDisplayMode:  container.attributeIfPresent(of: .largeTitleDisplayMode),
+            button:                 container.elementIfPresent(of: .button),
+            pageControl:            container.elementIfPresent(of: .pageControl),
+            progressView:           container.elementIfPresent(of: .progressView),
+            segmentedControl:       container.elementIfPresent(of: .segmentedControl),
+            slider:                 container.elementIfPresent(of: .slider),
+            stepper:                container.elementIfPresent(of: .stepper),
+            switch:                 container.elementIfPresent(of: .switch),
+            textField:              container.elementIfPresent(of: .textField),
+            view:                   container.elementIfPresent(of: .view)
         )
     }
 }
