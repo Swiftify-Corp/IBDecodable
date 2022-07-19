@@ -31,6 +31,46 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
     public var textField: TextField?
     public var view: View?
     
+    func getTitleView() -> ViewProtocol? {
+        if let button = button {
+            return button
+        }
+        
+        if let pageControl = pageControl {
+            return pageControl
+        }
+        
+        if let progressView = progressView {
+            return progressView
+        }
+        
+        if let segmentedControl = segmentedControl {
+            return segmentedControl
+        }
+        
+        if let slider = slider {
+            return slider
+        }
+        
+        if let stepper = stepper {
+            return stepper
+        }
+        
+        if let `switch` = `switch` {
+            return `switch`
+        }
+        
+        if let textField = textField {
+            return textField
+        }
+        
+        if let view = view {
+            return view
+        }
+        
+        return nil
+    }
+    
     static func decode(_ xml: XMLIndexerType) throws -> NavigationItem {
         let container = xml.container(keys: MappedCodingKey.self).map { (key: CodingKeys) in
             let stringValue: String = {

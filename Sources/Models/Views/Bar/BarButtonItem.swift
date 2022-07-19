@@ -27,6 +27,46 @@ public struct BarButtonItem: IBDecodable {
     public var textField: TextField?
     public var view: View?
     
+    func getCustomView() -> ViewProtocol? {
+        if let button = button {
+            return button
+        }
+        
+        if let pageControl = pageControl {
+            return pageControl
+        }
+        
+        if let progressView = progressView {
+            return progressView
+        }
+        
+        if let segmentedControl = segmentedControl {
+            return segmentedControl
+        }
+        
+        if let slider = slider {
+            return slider
+        }
+        
+        if let stepper = stepper {
+            return stepper
+        }
+        
+        if let `switch` = `switch` {
+            return `switch`
+        }
+        
+        if let textField = textField {
+            return textField
+        }
+        
+        if let view = view {
+            return view
+        }
+        
+        return nil
+    }
+    
     enum ExternalCodingKeys: CodingKey { case color }
     enum ColorsCodingKeys: CodingKey { case key }
 
