@@ -31,7 +31,7 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
     public var textField: TextField?
     public var view: View?
     
-    func getTitleView() -> ViewProtocol? {
+    public func getTitleView() -> ViewProtocol? {
         if let button = button {
             return button
         }

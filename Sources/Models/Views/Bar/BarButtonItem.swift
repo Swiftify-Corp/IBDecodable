@@ -27,7 +27,7 @@ public struct BarButtonItem: IBDecodable {
     public var textField: TextField?
     public var view: View?
     
-    func getCustomView() -> ViewProtocol? {
+    public func getCustomView() -> ViewProtocol? {
         if let button = button {
             return button
         }
