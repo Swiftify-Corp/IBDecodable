@@ -29,7 +29,7 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
     public var stepper: Stepper?
     public var `switch`: Switch?
     public var textField: TextField?
-    public var view: View?
+    public var view: AnyView?
     
     public func getTitleView() -> ViewProtocol? {
         if let button = button {
@@ -65,7 +65,7 @@ public struct NavigationItem: IBDecodable, IBIdentifiable, IBKeyable, IBCustomCl
         }
         
         if let view = view {
-            return view
+            return view.nested
         }
         
         return nil

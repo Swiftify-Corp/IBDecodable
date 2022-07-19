@@ -25,7 +25,7 @@ public struct BarButtonItem: IBDecodable {
     public var stepper: Stepper?
     public var `switch`: Switch?
     public var textField: TextField?
-    public var view: View?
+    public var view: AnyView?
     
     public func getCustomView() -> ViewProtocol? {
         if let button = button {
@@ -61,7 +61,7 @@ public struct BarButtonItem: IBDecodable {
         }
         
         if let view = view {
-            return view
+            return view.nested
         }
         
         return nil
