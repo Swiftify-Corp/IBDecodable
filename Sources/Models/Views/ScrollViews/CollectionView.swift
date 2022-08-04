@@ -29,7 +29,11 @@ public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var verifyAmbiguity: VerifyAmbiguity?
     public var opaque: Bool?
     public var rect: Rect?
-    public var subviews: [AnyView]?
+    
+    public var subviews: [AnyView]? {
+        (collectionReusableViews?.compactMap { AnyView($0) } ?? []) + (cells?.collectionViewCell?.compactMap { AnyView($0) } ?? [])
+    }
+    
     public var translatesAutoresizingMaskIntoConstraints: Bool?
     public var userInteractionEnabled: Bool?
     public var userDefinedRuntimeAttributes: [UserDefinedRuntimeAttribute]?
@@ -110,7 +114,6 @@ public struct CollectionView: IBDecodable, ViewProtocol, IBIdentifiable {
             verifyAmbiguity:                           container.attributeIfPresent(of: .verifyAmbiguity),
             opaque:                                    container.attributeIfPresent(of: .opaque),
             rect:                                      container.elementIfPresent(of: .rect),
-            subviews:                                  container.childrenIfPresent(of: .subviews),
             translatesAutoresizingMaskIntoConstraints: container.attributeIfPresent(of: .translatesAutoresizingMaskIntoConstraints),
             userInteractionEnabled:                    container.attributeIfPresent(of: .userInteractionEnabled),
             userDefinedRuntimeAttributes:              container.childrenIfPresent(of: .userDefinedRuntimeAttributes),

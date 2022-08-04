@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qTt-8b-oOI">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="E19-Un-9Dh">
+            <objects>
+                <viewController id="qTt-8b-oOI" customClass="ViewController" customModule="ListDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ux6-oa-A3L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2fw-mV-gQz">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="8" id="eL0-a8-A2u">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="estimatedItemSize" width="110" height="120"/>
+                                    <size key="headerReferenceSize" width="400" height="400"/>
+                                    <size key="footerReferenceSize" width="200" height="200"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCollectionViewCell" id="Kwd-B1-LWY" customClass="MyCollectionViewCell" customModule="ListDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="400" width="110" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VLj-lY-8b1">
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORD-Kl-Xyf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="120"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS7-xq-kzX">
+                                                    <rect key="frame" x="32" y="45" width="46" height="30"/>
+                                                    <color key="backgroundColor" red="0.86274509799999999" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="cellTapped:" destination="Kwd-B1-LWY" eventType="touchUpInside" id="vKn-j9-vgv"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ORD-Kl-Xyf" secondAttribute="trailing" id="E1e-p2-yGL"/>
+                                                <constraint firstAttribute="bottom" secondItem="ORD-Kl-Xyf" secondAttribute="bottom" id="R29-Zz-AR2"/>
+                                                <constraint firstItem="ORD-Kl-Xyf" firstAttribute="leading" secondItem="VLj-lY-8b1" secondAttribute="leading" id="e9O-xO-T93"/>
+                                                <constraint firstItem="dS7-xq-kzX" firstAttribute="centerY" secondItem="ORD-Kl-Xyf" secondAttribute="centerY" id="fRG-Pj-ysj"/>
+                                                <constraint firstItem="dS7-xq-kzX" firstAttribute="centerX" secondItem="ORD-Kl-Xyf" secondAttribute="centerX" id="oBU-d2-Iqm"/>
+                                                <constraint firstItem="ORD-Kl-Xyf" firstAttribute="top" secondItem="VLj-lY-8b1" secondAttribute="top" id="xXX-99-zXP"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="110" height="120"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MyHeaderView" id="DIV-fc-0KS" customClass="HeaderView" customModule="ListDemo" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="so6-xx-xy5">
+                                            <rect key="frame" x="28" y="28" width="319" height="344"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJr-Aa-w7f">
+                                                    <rect key="frame" x="20" y="20" width="279" height="304"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="buttonTappedHeader:" destination="DIV-fc-0KS" eventType="touchUpInside" id="n0R-c4-zaI"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="hJr-Aa-w7f" secondAttribute="bottom" constant="20" id="2Jj-Gd-azy"/>
+                                                <constraint firstItem="hJr-Aa-w7f" firstAttribute="leading" secondItem="so6-xx-xy5" secondAttribute="leading" constant="20" id="FPg-yx-2Ih"/>
+                                                <constraint firstAttribute="trailing" secondItem="hJr-Aa-w7f" secondAttribute="trailing" constant="20" id="K1q-3K-yEc"/>
+                                                <constraint firstItem="hJr-Aa-w7f" firstAttribute="top" secondItem="so6-xx-xy5" secondAttribute="top" constant="20" id="o1e-Vq-0dS"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.86416316540000004" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="so6-xx-xy5" secondAttribute="bottom" constant="20" id="91K-J7-7qW"/>
+                                        <constraint firstItem="so6-xx-xy5" firstAttribute="leading" secondItem="DIV-fc-0KS" secondAttribute="leadingMargin" constant="20" id="YV8-35-vg5"/>
+                                        <constraint firstItem="so6-xx-xy5" firstAttribute="top" secondItem="DIV-fc-0KS" secondAttribute="topMargin" constant="20" id="ekQ-LU-OtJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="so6-xx-xy5" secondAttribute="trailing" constant="20" id="miV-5d-izE"/>
+                                    </constraints>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="MyFooterView" id="B0B-Eo-rvR" customClass="FooterView" customModule="ListDemo" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="520" width="375" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IH4-Iw-RnB">
+                                            <rect key="frame" x="28" y="28" width="319" height="144"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHt-cA-gZl">
+                                                    <rect key="frame" x="20" y="20" width="279" height="104"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="buttonTappedFooter:" destination="B0B-Eo-rvR" eventType="touchUpInside" id="OoF-UY-Fa9"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                            <constraints>
+                                                <constraint firstItem="uHt-cA-gZl" firstAttribute="leading" secondItem="IH4-Iw-RnB" secondAttribute="leading" constant="20" id="J7l-vB-wEU"/>
+                                                <constraint firstAttribute="bottom" secondItem="uHt-cA-gZl" secondAttribute="bottom" constant="20" id="Vqs-Ai-WwF"/>
+                                                <constraint firstAttribute="trailing" secondItem="uHt-cA-gZl" secondAttribute="trailing" constant="20" id="n4d-Cd-A21"/>
+                                                <constraint firstItem="uHt-cA-gZl" firstAttribute="top" secondItem="IH4-Iw-RnB" secondAttribute="top" constant="20" id="rCz-vi-Vpy"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="IH4-Iw-RnB" secondAttribute="trailing" constant="20" id="h1i-7a-Wvv"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="IH4-Iw-RnB" secondAttribute="bottom" constant="20" id="q7M-6T-5Ih"/>
+                                        <constraint firstItem="IH4-Iw-RnB" firstAttribute="top" secondItem="B0B-Eo-rvR" secondAttribute="topMargin" constant="20" id="r1g-l4-QnF"/>
+                                        <constraint firstItem="IH4-Iw-RnB" firstAttribute="leading" secondItem="B0B-Eo-rvR" secondAttribute="leadingMargin" constant="20" id="z9L-dr-rp7"/>
+                                    </constraints>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="qTt-8b-oOI" id="OyF-XT-HlW"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kKh-Ny-yJQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2fw-mV-gQz" firstAttribute="top" secondItem="kKh-Ny-yJQ" secondAttribute="top" id="8h2-Wg-GxC"/>
+                            <constraint firstItem="kKh-Ny-yJQ" firstAttribute="trailing" secondItem="2fw-mV-gQz" secondAttribute="trailing" id="LPx-et-QaQ"/>
+                            <constraint firstItem="kKh-Ny-yJQ" firstAttribute="bottom" secondItem="2fw-mV-gQz" secondAttribute="bottom" id="Wi0-SJ-Hoc"/>
+                            <constraint firstItem="2fw-mV-gQz" firstAttribute="leading" secondItem="kKh-Ny-yJQ" secondAttribute="leading" id="ze1-Wi-01e"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MIt-gE-ACU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="230" y="-224"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

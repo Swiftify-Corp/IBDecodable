@@ -51,6 +51,25 @@ class Tests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+    
+    func testCollectionViewSubviews() {
+        let url = self.url(forResource:"CollectionViewSubviews", withExtension: "storyboard")
+        do {
+            let file = try StoryboardFile(url: url)
+            let document = file.document
+            var collectionView: CollectionView?
+            
+            for view in document.scenes?.first?.viewController?.nested.rootView?.subviews ?? [] {
+                if let view = view.view as? CollectionView {
+                    collectionView = view
+                }
+            }
+            
+            XCTAssertNotNil(collectionView?.subviews)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
 
     func testEmptyStoryboard() {
         let url = self.url(forResource:"StoryboardEmpty", withExtension: "storyboard")
