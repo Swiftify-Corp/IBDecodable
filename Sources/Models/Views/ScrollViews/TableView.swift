@@ -38,7 +38,7 @@ public struct TableView: IBDecodable, ViewProtocol, IBIdentifiable {
     public var style: String?
     private let _subviews: [AnyView]?
     public var subviews: [AnyView]? {
-        return (_subviews ?? []) + (headersFooters ?? [])
+        return (_subviews ?? []) + (headersFooters ?? []) + (prototypeCells?.compactMap { AnyView($0) } ?? [])
     }
     public var translatesAutoresizingMaskIntoConstraints: Bool?
     public var userInteractionEnabled: Bool?

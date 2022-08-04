@@ -70,6 +70,25 @@ class Tests: XCTestCase {
             XCTFail("\(error)")
         }
     }
+    
+    func testTableViewSubviews() {
+        let url = self.url(forResource:"TableViewWithHeaderAndFooterView", withExtension: "storyboard")
+        do {
+            let file = try StoryboardFile(url: url)
+            let document = file.document
+            var tableView: TableView?
+            
+            for view in document.scenes?.first?.viewController?.nested.rootView?.subviews ?? [] {
+                if let view = view.view as? TableView {
+                    tableView = view
+                }
+            }
+            
+            XCTAssertNotNil(tableView?.subviews?.count == 3)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
 
     func testEmptyStoryboard() {
         let url = self.url(forResource:"StoryboardEmpty", withExtension: "storyboard")
